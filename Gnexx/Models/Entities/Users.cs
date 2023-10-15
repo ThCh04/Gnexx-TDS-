@@ -7,7 +7,7 @@ using System.Net.Mail;
 
 namespace Gnexx.Models.Entities
 {
-    public class tb_user
+    public class Users
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -33,7 +33,7 @@ namespace Gnexx.Models.Entities
         [StringLength(128)]
         public string password { get; set; }
 
-        public string tipouser_id { get; set; }
+        public string usertype_id { get; set; }
     }
     
 }
