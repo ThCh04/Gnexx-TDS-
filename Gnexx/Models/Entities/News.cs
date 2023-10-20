@@ -3,7 +3,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Gnexx.Models.Entities
 {
-    public class tb_news
+    public class News
+
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -18,7 +19,7 @@ namespace Gnexx.Models.Entities
 
         [Required]
         [StringLength(1000)]
-        public string news_body { get; set; }
+        public string news_body { get; set; } 
 
         [Required]
         [StringLength(100)]

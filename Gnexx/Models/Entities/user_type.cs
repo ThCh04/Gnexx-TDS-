@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Gnexx.Models.Entities
 {
-    public class user_type
+    public class User_type
     {
         [Key]
         public int id { get; set; }
