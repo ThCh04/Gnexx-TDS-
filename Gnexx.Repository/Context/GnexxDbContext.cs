@@ -1,8 +1,12 @@
 ﻿using Gnexx.Models.Entities;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Gnexx.Data
+namespace Gnexx.Repository.Context
 {
     public class GnexxDbContext : DbContext
     {
@@ -16,7 +20,5 @@ namespace Gnexx.Data
         public DbSet<Team> Teams { get; set; }
         public DbSet<Player> Player { get; set; }
         public DbSet<User_type> User_Type { get; set; }
-
     }
-
 }
