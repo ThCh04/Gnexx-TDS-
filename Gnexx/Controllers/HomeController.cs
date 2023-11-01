@@ -22,6 +22,19 @@ namespace Gnexx.Controllers
             return View();
         }
 
-       
+        public IActionResult Terms()
+        {
+            return View();
+        }
+
+        public IActionResult Support()
+        {
+            return View();
+        }
+
+        public IActionResult Settings()
+        {
+            return View();
+        }
     }
 }
