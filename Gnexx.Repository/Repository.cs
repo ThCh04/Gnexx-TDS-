@@ -1,5 +1,4 @@
-﻿using Gnexx.Data.Entities;
-using Gnexx.Repository.Context;
+﻿using Gnexx.Repository.Context;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -26,7 +25,7 @@ namespace Gnexx.Repository
 
         public T FindById(int ID)
         {
-            return entity.FirstOrDefault(x => x.ID == ID);
+            return entity.FirstOrDefault(FindById(ID));
         }
     }
 }
