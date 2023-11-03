@@ -1,83 +1,89 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using System;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Linq;
+using Gnexx.Models;
+using Gnexx.Repository.Context;
+using Gnexx.Models.Entities;
+using System.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Gnexx.Controllers
 {
     public class NewsController : Controller
     {
-        // GET: NewsController
+        private readonly GnexxDbContext _db;
+        public NewsController( GnexxDbContext db)
+        {
+            _db=db;
+                
+        }
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: NewsController/Details/5
-        public ActionResult Details(int id)
+        public ActionResult GetAll()
+        {
+            List<News> newsList = _db.News.ToList();
+            return View(newsList);
+        }
+
+        
+        public ActionResult Insert()
         {
             return View();
         }
 
-        // GET: NewsController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: NewsController/Create
+      
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Insert(News news)
         {
-            try
+            if (ModelState.IsValid)
             {
-                return RedirectToAction(nameof(Index));
+                _db.News.Add(news);
+                _db.SaveChanges();
+                return RedirectToAction("GetAll");
             }
-            catch
-            {
-                return View();
-            }
+            return View(news);
         }
 
-        // GET: NewsController/Edit/5
-        public ActionResult Edit(int id)
+      
+        public ActionResult Update(int id)
         {
-            return View();
+            News news = _db.News.Find(id);
+            return View(news);
         }
 
-        // POST: NewsController/Edit/5
+        
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Update(News news)
         {
-            try
+            if (ModelState.IsValid)
             {
-                return RedirectToAction(nameof(Index));
+                _db.Entry(news).State = EntityState.Modified;
+               _db.SaveChanges();
+                return RedirectToAction("GetAll");
             }
-            catch
-            {
-                return View();
-            }
+            return View(news);
         }
 
-        // GET: NewsController/Delete/5
+        
         public ActionResult Delete(int id)
         {
-            return View();
+            News news = _db.News.Find(id);
+            return View(news);
         }
 
-        // POST: NewsController/Delete/5
+       
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult DeleteConfirmed(int id)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            News news = _db.News.Find(id);
+            _db.News.Remove(news);
+            _db.SaveChanges();
+            return RedirectToAction("GetAll");
         }
     }
 }
