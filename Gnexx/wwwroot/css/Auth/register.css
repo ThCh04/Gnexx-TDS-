@@ -1,0 +1,7 @@
+﻿.section-registro {
+    display: block;
+}
+
+    .section-registro:not(:first-child) {
+        display: none;
+    }
