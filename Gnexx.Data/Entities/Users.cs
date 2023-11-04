@@ -23,7 +23,7 @@ namespace Gnexx.Models.Entities
 
         [Required]
         [StringLength(50)]
-        public MailAddress mail { get; set; }
+        public string mail { get; set; }
 
         [Required]
         [StringLength(25)]

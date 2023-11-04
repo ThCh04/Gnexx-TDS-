@@ -14,13 +14,13 @@ namespace Gnexx.Controllers
         // GET: CommunityController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            return View("Publish/Details");
         }
 
         // GET: CommunityController/Create
         public ActionResult Create()
         {
-            return View();
+            return View("Publish/Create");
         }
 
         // POST: CommunityController/Create
@@ -34,14 +34,14 @@ namespace Gnexx.Controllers
             }
             catch
             {
-                return View();
+                return View("Publish/Create");
             }
         }
 
         // GET: CommunityController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            return View("Publish/Edit");
         }
 
         // POST: CommunityController/Edit/5
@@ -55,14 +55,14 @@ namespace Gnexx.Controllers
             }
             catch
             {
-                return View();
+                return View("Publish/Edit");
             }
         }
 
         // GET: CommunityController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            return View("Publish/Delete");
         }
 
         // POST: CommunityController/Delete/5
@@ -76,7 +76,7 @@ namespace Gnexx.Controllers
             }
             catch
             {
-                return View();
+                return View("Publish/Delete");
             }
         }
     }
