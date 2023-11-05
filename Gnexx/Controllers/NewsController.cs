@@ -31,14 +31,19 @@ namespace Gnexx.Controllers
         }
 
         
-        public ActionResult Insert()
+        public ActionResult Create()
         {
-            return View();
+            return View("Publish/Create");
+        }
+
+        public ActionResult Details(int id)
+        {
+            return View("Publish/Details");
         }
 
       
         [HttpPost]
-        public ActionResult Insert(News news)
+        public ActionResult Create(News news)
         {
             if (ModelState.IsValid)
             {
@@ -46,19 +51,19 @@ namespace Gnexx.Controllers
                 _db.SaveChanges();
                 return RedirectToAction("GetAll");
             }
-            return View(news);
+            return View("Publish/Create", news);
         }
 
       
-        public ActionResult Update(int id)
+        public ActionResult Edit(int id)
         {
             News news = _db.News.Find(id);
-            return View(news);
+            return View("Publish/Edit", news);
         }
 
         
         [HttpPost]
-        public ActionResult Update(News news)
+        public ActionResult Edit(News news)
         {
             if (ModelState.IsValid)
             {
@@ -66,14 +71,14 @@ namespace Gnexx.Controllers
                _db.SaveChanges();
                 return RedirectToAction("GetAll");
             }
-            return View(news);
+            return View("Publish/Edit", news);
         }
 
         
         public ActionResult Delete(int id)
         {
             News news = _db.News.Find(id);
-            return View(news);
+            return View("Publish/Delete", news);
         }
 
        
