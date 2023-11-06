@@ -1,37 +1,31 @@
 ﻿using Gnexx.Data.Entities;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Xml.Linq;
 
 namespace Gnexx.Data.Entities
 {
-    public class Player
+    public class Coach
     {
         [Key]
         public int Id { get; set; }
 
-        [Required]
-        public string P_Username { get; set; }
+        public string C_Name { get; set; }
 
-        [Required]
-        public string P_Name { get; set; }
+        public DateTime C_Datebirth { get; set; }
 
+        public string Achievements { get; set; }
 
-        [Required]
-        public string P_Lastname { get; set; }
+        public string EsportsExperience { get; set; }
 
-        [Required]
-        public string P_Nickname { get; set; }
+        public string C_Specialization { get; set; }
 
-        [Required]
-        public string P_Datebirth { get; set; }
-
-        public string P_Specialization { get; set; }
-
-        [Required]
-        public string P_Description { get; set; }
-
-        public string P_Contact { get; set; }
+        public string C_Contact { get; set; }
 
         // Llave foránea para User
         public int TeamId { get; set; }
@@ -41,7 +35,6 @@ namespace Gnexx.Data.Entities
         public List<News> News { get; set; }
         public List<Comments> Comments { get; set; }
         public List<Response> Responses { get; set; }
-
-
     }
+
 }

@@ -1,4 +1,4 @@
-﻿using Gnexx.Models.Entities;
+﻿using Gnexx.Data.Entities;
 using Gnexx.Repository;
 using Gnexx.Services.Interfaces;
 using System;

@@ -1,34 +1,37 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Gnexx.Data.Entities;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Gnexx.Models.Entities
+namespace Gnexx.Data.Entities
 {
     public class News
 
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         [Required]
-        [StringLength(50)]
         public string Title { get; set; }
 
-        [Required]
-        public DateOnly pub_date { get; set; }
+        [Required] 
+        public string Author { get; set; }
 
         [Required]
-        [StringLength(1000)]
-        public string news_body { get; set; } 
+        public DateTime Pub_date { get; set; }
 
         [Required]
-        [StringLength(100)]
-        public string source { get; set; }
+        public string News_body { get; set; }
 
-        [StringLength(500)]
-        public string comments { get; set; }
+        [Required]
+        public string Source { get; set; }
 
-        [StringLength(25)]
-        public string status { get; set; }
+        public string N_Status { get; set; }
+
+        // Llaves Foraneas
+
+        // Llave foránea para Comments
+        public int UserId { get; set; }
+        public Users User { get; set; }
+
     }
 }

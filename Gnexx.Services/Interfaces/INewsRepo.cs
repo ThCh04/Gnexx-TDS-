@@ -1,4 +1,4 @@
-﻿using Gnexx.Models.Entities;
+﻿using Gnexx.Data.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

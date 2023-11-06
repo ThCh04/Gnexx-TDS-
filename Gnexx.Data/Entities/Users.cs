@@ -1,39 +1,67 @@
-﻿
-
+﻿using Gnexx.Data.Entities;
 using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Net.Mail;
 
-namespace Gnexx.Models.Entities
+namespace Gnexx.Data.Entities
 {
     public class Users
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        [Required]
-        [StringLength(50)]
-        public string name { get; set; }
+        public int PlayerID { get; set; }
+
+        public int TeamID { get; set; }
+
+        public int CoachID { get; set; }
+
+        public int Type_user { get; set; }
 
         [Required]
-        [StringLength(50)]
-        public string lastname { get; set; }
+        public string Profile_img { get; set; }
 
         [Required]
-        [StringLength(50)]
-        public string mail { get; set; }
+        public string Name { get; set; }
 
         [Required]
-        [StringLength(25)]
-        public string user { get; set; }
+        public string Lastname { get; set; }
 
         [Required]
-        [StringLength(128)]
-        public string password { get; set; }
+        public string Username { get; set; }
 
-        public string usertype_id { get; set; }
+        [Required]
+        public string BirthDate { get; set; }
+
+        [Required]
+        public string Email { get; set; }
+
+        [Required]
+        public string Password { get; set; }
+
+        //Llaves Foraneas
+
+
+
+
+        // Llave foránea para Player
+        public Player Player { get; set; }
+        public Coach Coach { get; set; }
+        public List<News> News { get; set; }
+        public List<Comments> Comments { get; set; }
+        public List<Response> Response { get; set; }
+        /*public int? PlayerId { get; set; }
+        public virtual ICollection<Player> Players { get; set; }
+
+        // Llave foránea para Team
+        public int? TeamId { get; set; }
+        public virtual ICollection<Team> Teams { get; set; }
+
+        // Llave foránea para Team
+        public int? CoachId { get; set; }
+        public virtual ICollection<Coach> Coaches { get; set; }*/
+
     }
     
 }

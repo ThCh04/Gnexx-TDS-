@@ -1,0 +1,15 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Gnexx.Data.Entities
+{
+    public class SoftDelete
+    {
+
+        //Añadir campos, aun no se deciden
+
+    }
+}
