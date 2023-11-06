@@ -21,7 +21,7 @@ namespace Gnexx.Models.Entities
         public string lastname { get; set; }
 
         [Required]
-        public DateOnly datebirth { get; set; }
+        public DateTime datebirth { get; set; }
 
         [Required]
         [StringLength(50)]

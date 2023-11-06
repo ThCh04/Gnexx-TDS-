@@ -15,7 +15,7 @@ namespace Gnexx.Models.Entities
         public string Title { get; set; }
 
         [Required]
-        public DateOnly pub_date { get; set; }
+        public DateTime pub_date { get; set; }
 
         [Required]
         [StringLength(1000)]
