@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Gnexx.Data.Entities;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Gnexx.Models.Entities
@@ -9,28 +10,32 @@ namespace Gnexx.Models.Entities
         public int id { get; set; }
 
         [Required]
-        [StringLength(30)]
-        public int user_name { get; set; }
+        public string P_Username { get; set; }
 
         [Required]
-        [StringLength(30)]
-        public string name { get; set; }
+        public string P_Name { get; set; }
 
         [Required]
-        [StringLength(30)]
-        public string lastname { get; set; }
+        public string P_Lastname { get; set; }
 
         [Required]
-        public DateTime datebirth { get; set; }
+        public string P_Nickname { get; set; }
 
         [Required]
-        [StringLength(50)]
-        public string description { get; set; }
+        public DateTime P_Datebirth { get; set; }
 
         [Required]
-        public string curriculum { get; set; }
+        public string P_Specialization { get; set; }
 
+        [Required]
+        public string P_Description { get; set; }
 
+        [Required]
+        public string P_Contact { get; set; }
 
+        public int TeamID { get; set; }
+        public Team Teams { get; set; }
+        public int UserID { get; set; }
+        public Users Users { get; set; }
     }
 }

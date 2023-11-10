@@ -7,28 +7,26 @@ namespace Gnexx.Models.Entities
 
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
+        public string Author { get; set; }
+
         [Required]
-        [StringLength(50)]
         public string Title { get; set; }
 
         [Required]
-        public DateTime pub_date { get; set; }
+        public DateTime Pub_date { get; set; }
 
         [Required]
-        [StringLength(1000)]
-        public string news_body { get; set; } 
+        public string News_body { get; set; } 
 
         [Required]
-        [StringLength(100)]
-        public string source { get; set; }
+        public string Source { get; set; }
 
-        [StringLength(500)]
-        public string comments { get; set; }
+        public string Status { get; set; }
 
-        [StringLength(25)]
-        public string status { get; set; }
+        public int UserID { get; set; }
+        public Users Users { get; set; }
+
     }
 }
