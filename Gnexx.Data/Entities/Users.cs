@@ -1,5 +1,6 @@
 ﻿
 
+using Gnexx.Data.Entities;
 using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -10,30 +11,39 @@ namespace Gnexx.Models.Entities
     public class Users
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         [Required]
-        [StringLength(50)]
-        public string name { get; set; }
+        public string Name { get; set; }
 
         [Required]
-        [StringLength(50)]
-        public string lastname { get; set; }
+        public string Lastname { get; set; }
 
         [Required]
-        [StringLength(50)]
-        public string mail { get; set; }
+        public string Username { get; set; }
 
         [Required]
-        [StringLength(25)]
-        public string user { get; set; }
+        public string Type_user { get; set; }
 
         [Required]
-        [StringLength(128)]
-        public string password { get; set; }
+        public string Profile_img { get; set; }
 
-        public string usertype_id { get; set; }
+        public DateTime BirthDate { get; set; }
+
+        public string Email { get; set; }
+
+        public string Password { get; set; }
+
+        public int CoachID { get; set; }
+        public Coach Coaches { get; set; }
+        public int PlayerID { get; set; }
+        public Player Players { get; set; }
+        public int TeamID { get; set; }
+        public Team Teams { get; set; }
+
+        public List<News> News { get; set; }
+        public List<Response> Responses { get; set; }
+        public List<Comments> Comments { get; set; }
     }
-    
+
 }
