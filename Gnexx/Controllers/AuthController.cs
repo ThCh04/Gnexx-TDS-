@@ -8,18 +8,15 @@ namespace Gnexx.Controllers
         // GET: AuthController
         public ActionResult Index()
         {
-            ViewBag.EsPaginaDeInicioDeSesion = true;
             return View();
         }
 
         public ActionResult Register()
         {
-            ViewBag.EsPaginaDeInicioDeSesion = true;
             return View();
         }
         public ActionResult forgot_password()
         {
-            ViewBag.EsPaginaDeInicioDeSesion = true;
             return View();
         }
     }

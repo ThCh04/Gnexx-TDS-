@@ -17,7 +17,9 @@ namespace Gnexx.Repository.Context
         public int UsuarioId { get; set; }
         public int ConversacionId { get; set; }
 
-        public Usuario Remitente { get; set; }
-        public Conversacion Conversacion { get; set; }
+        //public Usuario Remitente { get; set; }
+        //public Conversacion Conversacion { get; set; }
 
     }
+
+}

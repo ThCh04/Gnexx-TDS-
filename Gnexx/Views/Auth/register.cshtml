@@ -1,5 +1,6 @@
 @{
     ViewData["Title"] = "Gnexx | Registro";
+    Layout = "~/Views/Shared/_LayoutAuth.cshtml";
 }
 
 <div class="container mt-5" style="width: min(500px, 100%);">
@@ -29,9 +30,6 @@
                 <label for="type">Tipo de usuario:</label>
                 <input type="text" class="form-control" name="type" id="type" required>
             </div>
-
-            <button type="button" class="btn btn-secondary mt-3" onclick="mostrarSeccion('seccion1')">Anterior</button>
-            <button type="button" class="btn btn-primary mt-3" onclick="mostrarSeccion('seccion3')">Siguiente</button>
         </div>
 
         <div class="section-registro" id="seccion3">

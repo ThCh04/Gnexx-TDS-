@@ -16,7 +16,7 @@ namespace Gnexx.Repository.Context
         public int OfertaId { get; set; }
         public int UsuarioId { get; set; }
 
-        public Oferta Oferta { get; set; }
-        public Usuario Postulante { get; set; }
+       // public Oferta Oferta { get; set; }
+       // public Usuario Postulante { get; set; }
     }
 }

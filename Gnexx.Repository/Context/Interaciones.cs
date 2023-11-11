@@ -14,7 +14,7 @@ namespace Gnexx.Repository.Context
 
         // Relaciones
         public int UsuarioId { get; set; }
-        public Usuario Usuario { get; set; }
+        //public Usuario Usuario { get; set; }
     }
 
 }

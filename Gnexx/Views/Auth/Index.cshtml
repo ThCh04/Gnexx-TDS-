@@ -1,12 +1,15 @@
 @{
     ViewData["Title"] = "Gnexx | Iniciar Sesión";
+    Layout = "~/Views/Shared/_LayoutAuth.cshtml";
 }
+    
+
 
 <div class="login-template-section">
     <div class="container-formulary">
         <div class="login-options">
             <h1><span>Inicia sesión </span>para continuar</h1>
-            <form action="" method="post">
+            <form asp-controller="Home" asp-action="Index" method="get">
                 <div class="fields">
                     <div class="input-field">
                         <label for="mail">Correo Electrónico</label>
@@ -17,13 +20,13 @@
                         <input type="password" id="password" name="password" placeholder="********">
                     </div>
                     <div class="forgot-password">
-                        <a href="#">Olvido su contraseña</a>
+                        <a asp-controller="Auth" asp-action="Forgot_Password">Olvido su contraseña</a>
                     </div>
                 </div>
                 <button type="submit" class="login-form-button">Iniciar Sesión</button>
             </form>
             <div class="register-option">
-                <p>No tienes una cuenta creada? <a href="#">Registrate Aqui</a></p>
+                <p>No tienes una cuenta creada? <a asp-controller="Auth" asp-action="Register">Registrate Aqui</a></p>
             </div>
         </div>
     </div>
