@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Gnexx.Services.Interfaces
 {
-    public interface INewsRepo
+    public interface INewsRepo<T> where T : class
     {
-        IEnumerable<News> GetAll();
+        IEnumerable<T> GetAll();
     }
 }
