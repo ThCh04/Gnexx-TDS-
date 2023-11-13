@@ -72,14 +72,14 @@ namespace Gnexx.Services.Repos
         #region Delete
         public virtual async Task<bool> DeleteAsync(T entity)
         {
-            entity.Remove(entity);
+            this.entity.Remove(entity);
             return await Save();
         }
         #endregion
 
         private async Task<bool> Save()
         {
-            return await entity.SaveChangesAsync() >= 0 ? true : false;
+            return await _context.SaveChangesAsync() >= 0 ? true : false;
         }
 
 
