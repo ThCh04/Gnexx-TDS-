@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Gnexx.Identity\Gnexx.Identity.csproj" />
     <ProjectReference Include="..\Gnexx.Repository\Gnexx.Repository.csproj" />
   </ItemGroup>
 
