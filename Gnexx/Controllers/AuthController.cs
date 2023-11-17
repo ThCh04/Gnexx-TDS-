@@ -15,7 +15,7 @@ namespace Gnexx.Controllers
         {
             return View();
         }
-        public ActionResult forgot_password()
+        public ActionResult ForgotPassword()
         {
             return View();
         }

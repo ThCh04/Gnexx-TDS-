@@ -1,10 +1,10 @@
 ﻿
 function mostrarSeccion(seccionId) {
-    var secciones = document.getElementsByClassName('section-registro');
+    var secciones = document.getElementsByClassName('section-register');
     for (var i = 0; i < secciones.length; i++) {
         secciones[i].style.display = 'none';
     }
-    document.getElementById(seccionId).style.display = 'block';
+    document.getElementById(seccionId).style.display = 'flex';
 }
 
 function validarYMostrar(seccionActual, seccionSiguiente) {
