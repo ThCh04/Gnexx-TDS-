@@ -92,6 +92,7 @@ namespace Gnexx.Identity.Services
                 register.Error = $"The password does'nt match";
                 return register;
             }
+            
 
             var user = new ApplicationUser
             {
@@ -104,21 +105,21 @@ namespace Gnexx.Identity.Services
             var result = await _userManager.CreateAsync(user, request.Password);
             if (result.Succeeded)
             {
-                await _userManager.AddToRoleAsync(user, Roles.Player.ToString());
+                await _userManager.AddToRoleAsync(user, request.Rol);
 
                 var verificationUri = await SendVerificationEmail(user, origin);
 
                 await _mail.SendAsync(new Gnexx.Services.DTOs.Email.EmailRequest()
                 {
                     To = user.Email,
-                    Body = $"Pleas confirm your account by clicking here:\n{verificationUri}",
-                    Subject = "Confirm registration",
+                    Body = $"Confirme su cuenta:\n{verificationUri}",
+                    Subject = "Confirme",
                 });
             }
             else
             {
                 register.HasError = true;
-                register.Error = $"Password may not have the requirments or another error has occurred";
+                register.Error = $"Quizas su contraseña no cumple con los requisitos";
                 return register;
             }
 
@@ -147,8 +148,8 @@ namespace Gnexx.Identity.Services
             await _mail.SendAsync(new Gnexx.Services.DTOs.Email.EmailRequest()
             {
                 To = account.Email,
-                Body = $"Pleas reset your password by clicking here:\n{verificationUri}",
-                Subject = "Reset Password",
+                Body = $"Renueve su contraseña dando click aqui:\n{verificationUri}",
+                Subject = "Resetear contraseña",
             });
             return response;
         }
@@ -211,7 +212,7 @@ namespace Gnexx.Identity.Services
 
                 if (item.Roles.Count() == 1)
                 {
-                    if (item.Roles[0] == "Basic")
+                    if (item.Roles[0] == "Player")
                     {
                         item.Roles.Clear();
                         item.Roles.Add("Cliente");
@@ -250,7 +251,7 @@ namespace Gnexx.Identity.Services
         {
             var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
             code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
-            var route = "User/ConfirmEmail";
+            var route = "Auth/ConfirmEmail";
             var Uri = new Uri(String.Concat($"{origin}/", route));
             var verificationUrl = QueryHelpers.AddQueryString(Uri.ToString(), "userId", user.Id);
             verificationUrl = QueryHelpers.AddQueryString(verificationUrl, "token", code);
@@ -261,7 +262,7 @@ namespace Gnexx.Identity.Services
         {
             var code = await _userManager.GeneratePasswordResetTokenAsync(user);
             code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
-            var route = "User/ResetPassword";
+            var route = "Auth/ResetPassword";
             var Uri = new Uri(String.Concat($"{origin}/", route));
             var verificationUrl = QueryHelpers.AddQueryString(Uri.ToString(), "token", code);
 

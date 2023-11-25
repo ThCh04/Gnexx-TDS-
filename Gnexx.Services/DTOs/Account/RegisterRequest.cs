@@ -15,6 +15,7 @@ namespace Gnexx.Services.DTOs.Account
         public string LastName { get; set; }
         public string Password { get; set; }
         public string ConfirmPassword { get; set; }
+        public string Rol { get; set; }
         public long Phone { get; set; }
     }
 }

@@ -1,3 +1,4 @@
+@model Gnexx.Services.Users.LoginVM
 @{
     ViewData["Title"] = "Gnexx | Iniciar Sesión";
     Layout = "~/Views/Shared/_LayoutAuth.cshtml";
@@ -5,25 +6,33 @@
 
 <div class="auth-main">
     <div class="form-container" id="loginsect">
-        <form action="">
+        @if (Model.HasError)
+        {
+            <div class="alert alert-danger">
+                @Model.Error
+            </div>
+        }
+        <form asp-controller="Auth" asp-action="Index" method="post">
             <div class="section" id="section1">
                 <h1><span>Inicia sesión</span> para continuar</h1>
                 <div class="form-fields">
                     <div class="fields">
                         <div class="input-label">
-                            <label for="username">Usuario</label>
-                            <input type="text" name="username" id="username">
+                            <label asp-for="Email">Email</label>
+                            <input type="text" asp-for="Email" id="Email">
+                            <span asp-validation-for="Email" class="text-danger"></span>
                         </div>
                         <div class="input-label">
-                            <label for="password">Contraseña</label>
-                            <input type="password" name="password" id="password">
+                            <label asp-for="Password">Contraseña</label>
+                            <input type="password" asp-for="Password" id="Password">
+                            <span asp-validation-for="Password" class="text-danger"></span>
                         </div>
                         <div class="forgot-pass">
                             <a asp-controller="Auth" asp-action="ForgotPassword">Olvidaste tu contraseña?</a>
                         </div>
                     </div>
                     @*<button type="submit">Iniciar Sesión</button>*@
-                    <a class="button-register" asp-controller="Home" asp-action="Index">Iniciar Sesión</a>
+                    <button type="submit" class="button-register" asp-controller="Auth" asp-action="Index">Iniciar Sesión</button>
                 </div>
                 <div class="auth-option">
                     No tienes una cuenta creada? <a asp-controller="Auth" asp-action="Register">Registrate aqui!</a>
