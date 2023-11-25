@@ -18,7 +18,153 @@
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@100;200;300;400;500;600;700;800;900&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
-     <header>
+
+    <aside class="navbar">
+        <div class="navbar-heading">
+            <div class="logo-cont">
+                <button id="toggleButton"><img src="../assets/img/logo.svg" alt="logo"></button>
+            </div>
+            <div class="menu">
+                <box-icon name='menu-alt-right' color="#AAABB2"></box-icon>
+            </div>
+        </div>
+        <div class="navbar-container">
+            <ul class="links-top">
+                <li class="nav-link">
+                    <a href="#" class="active">
+                        <box-icon type='solid' name='home' color="#919FFF"></box-icon>
+                        <p>Inicio</p>
+                    </a>
+                    <span>Inicio</span>
+                </li>
+                <li class="nav-link">
+                    <a href="#">
+                        <box-icon type='solid' name='news' color="#AAABB2"></box-icon>
+                        <p>Noticias</p>
+                    </a>
+                    <span>Noticias</span>
+                </li>
+                <li class="nav-link">
+                    <a href="#">
+                        <box-icon type='solid' name='message-dots' color="#AAABB2"></box-icon>
+                        <p>Comunidad</p>
+                    </a>
+                    <span>Comunidad</span>
+                </li>
+                <li class="nav-link">
+                    <a href="#">
+                        <box-icon type='solid' name='group' color="#AAABB2"></box-icon>
+                        <p>Equipos</p>
+                    </a>
+                    <span>Equipos</span>
+                </li>
+                <li class="nav-link">
+                    <a href="#">
+                        <box-icon type='solid' name='user-plus' color="#AAABB2"></box-icon>
+                        <p>Amigos</p>
+                    </a>
+                    <span>Amigos</span>
+                </li>
+                <li class="nav-link">
+                    <a href="#">
+                        <box-icon type='solid' name='bell' color="#AAABB2"></box-icon>
+                        <p>Notificaciones</p>
+                    </a>
+                    <span>Notifica</span>
+                </li>
+            </ul>
+
+            <ul class="links-bottom">
+                <li class="separator"></li>
+                <li class="nav-link">
+                    <a href="#">
+                        <box-icon type='solid' name='cog' color="#AAABB2"></box-icon>
+                        <p>Configuración</p>
+                    </a>
+                    <span>Configuración</span>
+                </li>
+                <li class="nav-link">
+                    <a href="#">
+                        <box-icon name='log-out' color="#AAABB2"></box-icon>
+                        <p>Cerrar Sesión</p>
+                    </a>
+                    <span>Cerrar Sesión</span>
+                </li>
+            </ul>
+        </div>
+    </aside>
+
+    <div class="cont-principal">
+        <nav class="main-navbar">
+            <div class="user-bar">
+                <div class="search-bar-container">
+                    <input type="search" name="search-blog" placeholder="Search" id="search-blog">
+                </div>
+                <div class="status">
+                    <a href="#">
+                        <box-icon type='solid' name='envelope' color="#AAABB2"></box-icon>
+                        <p>Correos</p>
+                    </a>
+                    <a href="#">
+                        <box-icon type='solid' name='bell' color="#AAABB2"></box-icon>
+                        <p>Notificaciones</p>
+                    </a>
+
+                    <div class="profile-cont">
+                        <a href="#" class="profile">
+                            <div class="image-username">
+                                <img src="https://s3-alpha-sig.figma.com/img/c4a2/e6dc/d983add0f953bee807109bdb91b2ea51?Expires=1701043200&Signature=cJQmwXSJ7NvlyaIadukg7RImgAHfPNTIHeCcxZ103Kgy8WsVHtk6PwAE5sNT4vuWWoqERzHgJRqHxGe6Q91SU0RhgMQBJx75PcLVu2NcuezMNpXrSu1fA0b-pLwhw2eOOT0GuCHHl1rE4AduuXECQRnQSf75ahbth-aLrtPV2F6Et0RpTWkZps2Yu~V7XE2h6e68QDai7NJuw1~shnXdEl~n8Rrc6jab7gjvFpgVqMZUISjDKy82ANxkCzAx66Q4sVOUH60PruRaSnOPDf5QqRKZytzz72q1zra8phbKOyxufAZol7elfvN-h5CNjA6V4vAAAli3qciPBoh0F3J3dw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+                                    alt="#">
+                                isael_d
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <main role="main">
+            @RenderBody()
+        </main>
+    </div>
+
+    <aside class="friends-teams">
+        <div class="nav-users-icon">
+            <box-icon type='solid' name='group' color="#AAABB2"></box-icon>
+        </div>
+
+        <div class="teams-aside">
+            <div class="aside-heading">
+                <box-icon type='solid' name='group' color="#AAABB2"></box-icon>
+                Equipos
+            </div>
+            <a href="#">
+                <img src="#" alt="#">
+            </a>
+            <a href="#">
+                <img src="#" alt="#">
+            </a>
+            <a href="#">
+                <img src="#" alt="#">
+            </a>
+        </div>
+        <div class="friends-aside">
+            <div class="aside-heading">
+                <box-icon type='solid' name='user-plus' color="#AAABB2"></box-icon>
+                Amigos
+            </div>
+            <a href="#">
+                <img src="#" alt="#">
+            </a>
+            <a href="#">
+                <img src="#" alt="#">
+            </a>
+            <a href="#">
+                <img src="#" alt="#">
+            </a>
+        </div>
+    </aside>
+
+     @*<header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">
                 <div class="container-fluid">
                     <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Gnexx</a>
@@ -59,16 +205,27 @@
             <div class="container">
                 &copy; 2023 - Gnexx
             </div>
-        </footer>
- 
-
-
+        </footer>*@
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
 
     <script src="~/js/Auth/script_register.js" asp-append-version="true"></script>
+        <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Obtén referencias al botón y al contenedor
+            var toggleButton = document.getElementById("toggleButton");
+            var navbar = document.querySelector(".navbar");
+
+            // Agrega un evento de clic al botón
+            toggleButton.addEventListener("click", function () {
+                // Alternar la clase 'shrink' para cambiar el ancho con animación
+                navbar.classList.toggle("active");
+            });
+        });
+    </script>
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>
