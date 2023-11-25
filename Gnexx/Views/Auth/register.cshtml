@@ -121,11 +121,17 @@
                             <input type="password" asp-for="ConfirmPassword" name="ConfirmPassword" id="name">
                             <span asp-validation-for="ConfirmPassword"></span>
                         </div>
-                        <div class="input-label">
-                            @Html.DropDownList("Rol", ViewBag.Rol as SelectList, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.Rol, "", new { @class = "text-danger" })
-    
+
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Rol, "Rol", new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DropDownListFor(model => model.Rol, ViewBag.Rol as SelectList, "-- Selecciona un rol --", new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Rol, "", new { @class = "text-danger" })
+                            </div>
                         </div>
+
+
                     </div>
                     <div class="button-options">
                         <button type="submit" asp-controller="Auth" asp-action="Register" onclick="mostrarSeccion('seccion1')">Anterior</button>

@@ -58,7 +58,10 @@ namespace Gnexx.Controllers
             List<string> roles = new List<string>();
             foreach (var roleName in rolesNames)
             {
-                roles.Add(roleName);
+                if(roleName != Roles.SuperAdmin.ToString())
+                {
+                    roles.Add(roleName);
+                }
             }
             ViewBag.Rol = new SelectList(roles);
             return View(new SaveUserVM());
@@ -70,50 +73,43 @@ namespace Gnexx.Controllers
         {
             if (!ModelState.IsValid)
             {
+                string[] rolesNames = Enum.GetNames(typeof(Roles));
+
+                List<string> roles = new List<string>();
+                foreach (var roleName in rolesNames)
+                {
+                    if (roleName != Roles.SuperAdmin.ToString())
+                    {
+                        roles.Add(roleName);
+                    }
+                }
+                ViewBag.Rol = new SelectList(roles);
                 return View(saveUser);
             }
             var origin = Request.Headers["origin"];
             RegisterResponse register = await _userService.RegisterAsync(saveUser, origin);
             if (register.HasError)
             {
+                string[] rolesNames = Enum.GetNames(typeof(Roles));
+
+                List<string> roles = new List<string>();
+                foreach (var roleName in rolesNames)
+                {
+                    if (roleName != Roles.SuperAdmin.ToString())
+                    {
+                        roles.Add(roleName);
+                    }
+                }
+                ViewBag.Rol = new SelectList(roles);
                 saveUser.Error = register.Error;
                 saveUser.HasError = register.HasError;
                 return View(saveUser);
             }
 
             return RedirectToRoute(new { controller = "Auth", Action = "Index" });
-            await _userService.RegisterAsync(saveUser, origin);
-            return View();
         }
 
-        [ServiceFilter(typeof(LoginFilter))]
-        public ActionResult ForgotPassword()
-        {
-            return View();
-        }
-
-        [ServiceFilter(typeof(LoginFilter))]
-        [HttpPost]
-        public async Task<ActionResult> ForgotPassword(ForgotPasswordVM vM)
-        {
-            if (!ModelState.IsValid)
-            {
-                return View(vM);
-            }
-
-            var origin = Request.Headers["origin"];
-
-            ForgotPasswordResponse forgot = await _userService.ForgotPasswordAsync(vM, origin);
-            if (forgot.HasError)
-            {
-                vM.Error = forgot.Error;
-                vM.HasError = forgot.HasError;
-
-                return View(vM);
-            }
-
-            return RedirectToRoute(new { controller = "Auth", Action = "Login" });
-        }
+        
 
         [ServiceFilter(typeof(LoginFilter))]
         public async Task<IActionResult> ConfirmEmail(string userId, string token)
@@ -121,6 +117,31 @@ namespace Gnexx.Controllers
             string response = await _userService.ConfirmEmailAsync(userId, token);
 
             return View("ConfirmEmail", response);
+        }
+
+        [ServiceFilter(typeof(LoginFilter))]
+        public IActionResult ForgotPassword()
+        {
+            return View(new ForgotPasswordVM());
+        }
+
+        [ServiceFilter(typeof(LoginFilter))]
+        [HttpPost]
+        public async Task<IActionResult> ForgotPassword(ForgotPasswordVM vm)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(vm);
+            }
+            var origin = Request.Headers["origin"];
+            ForgotPasswordResponse response = await _userService.ForgotPasswordAsync(vm, origin);
+            if (response.HasError)
+            {
+                vm.HasError = response.HasError;
+                vm.Error = response.Error;
+                return View(vm);
+            }
+            return RedirectToRoute(new { controller = "User", action = "Login" });
         }
 
         public ActionResult SignOut()

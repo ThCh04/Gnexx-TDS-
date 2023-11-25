@@ -17,9 +17,6 @@ namespace Gnexx.Services.Users
         [Required(ErrorMessage = "Debes Ingresar tu Apellido")]
         [DataType(DataType.Text)]
         public string Lastname { get; set; }
-        //[Required(ErrorMessage = "Debes Ingresar tu Cedula")]
-        //[DataType(DataType.Text)]
-        //public string DocumementId { get; set; }
 
         [Required(ErrorMessage = "Debes Ingresar tu Correo")]
         [DataType(DataType.EmailAddress)]
