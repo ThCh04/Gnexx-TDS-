@@ -92,6 +92,7 @@ namespace Gnexx.Identity.Services
                 register.Error = $"The password does'nt match";
                 return register;
             }
+            
 
             var user = new ApplicationUser
             {
@@ -104,7 +105,7 @@ namespace Gnexx.Identity.Services
             var result = await _userManager.CreateAsync(user, request.Password);
             if (result.Succeeded)
             {
-                await _userManager.AddToRoleAsync(user, Roles.Player.ToString());
+                await _userManager.AddToRoleAsync(user, request.Rol);
 
                 var verificationUri = await SendVerificationEmail(user, origin);
 

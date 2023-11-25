@@ -1,5 +1,8 @@
 ﻿using Gnexx.Identity.Entities;
+using Gnexx.Identity.Services;
 using Gnexx.Repository.Context;
+using Gnexx.Services.Interfaces;
+using Gnexx.Services.Repos;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -38,8 +41,7 @@ namespace Gnexx.Identity
 
            
             services.AddAuthentication();
-
-           
+            services.AddTransient<IAccountService, AccountServices>();
         }
 
     }

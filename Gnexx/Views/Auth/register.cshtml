@@ -1,3 +1,4 @@
+@model Gnexx.Services.Users.SaveUserVM
 @{
     ViewData["Title"] = "Gnexx | Registro";
     Layout = "~/Views/Shared/_LayoutAuth.cshtml";
@@ -62,37 +63,63 @@
     </form>
 </div>*@
 
+
 <div class="auth-main">
     <div class="heading">
         <img src="~/assets/img/register-logo.png" alt="#">
         <a asp-controller="Auth" asp-action="Index">Cancelar</a>
     </div>
+   
 
     <div class="form-container" id="loginsect">
-        <form action="">
+        <form asp-action="Auth" asp-controller="Register" method="post">
             <div class="section-register" id="seccion1">
                 <h1><span>Inicia sesión</span> para continuar</h1>
                 <div class="form-fields" style="gap: 18px;">
-                    <button type="button" onclick="mostrarSeccion('seccion2')">Empezar Registro</button>
-                    <p style="color: white;">Tambien puedes</p>
-                    <a href="#" class="button-register">Continuar con google</a>
-                </div>
-                <div class="auth-option">
-                    Ya estas registrado? <a asp-controller="Auth" asp-action="Index">Inicia Sesión</a>
-                </div>
-            </div>
-
-            <div class="section-register" id="seccion2">
+                    <div class="section-register" id="seccion2">
                 <h1>Información personal</h1>
+                 @{
+                        if (@Model.HasError)
+                        {
+                            <h5>@Model.Error</h5>
+                        }
+                    }
                 <div class="form-fields" style="gap: 18px;">
                     <div class="fields">
                         <div class="input-label">
-                            <label for="name">Nombre</label>
-                            <input type="text" name="name" id="name">
+                            <label ASP-for="Firstname">Nombre</label>
+                            <input type="text" asp-for="Firstname" name="Firstname" id="name">
+                            <span asp-validation-for="Firstname"></span>
                         </div>
                         <div class="input-label">
-                            <label for="lastname">Apellido</label>
-                            <input type="text" name="lastname" id="lastname">
+                            <label ASP-for="Lastname">Apellido</label>
+                            <input type="text" asp-for="Lastname" name="Lastname" id="name">
+                            <span asp-validation-for="Lastname"></span>
+                        </div>
+                        <div class="input-label">
+                            <label ASP-for="Email">Email</label>
+                            <input type="email" asp-for="Email" name="Email" id="name">
+                            <span asp-validation-for="Email"></span>
+                        </div>
+                        <div class="input-label">
+                            <label ASP-for="Username">Nombre de Usuario</label>
+                            <input type="text" asp-for="Username" name="Username" id="name">
+                            <span asp-validation-for="Username"></span>
+                        </div>
+                        <div class="input-label">
+                            <label ASP-for="PhoneNumber">Telefono</label>
+                            <input type="number" asp-for="PhoneNumber" name="PhoneNumber" id="name">
+                            <span asp-validation-for="PhoneNumber"></span>
+                        </div>
+                        <div class="input-label">
+                            <label ASP-for="ConfirmPassword">Contraseña</label>
+                            <input type="password" asp-for="Password" name="Password" id="name">
+                            <span asp-validation-for="Password"></span>
+                        </div>
+                        <div class="input-label">
+                            <label ASP-for="ConfirmPassword">Confirmar contraseña</label>
+                            <input type="password" asp-for="ConfirmPassword" name="ConfirmPassword" id="name">
+                            <span asp-validation-for="ConfirmPassword"></span>
                         </div>
                         <div class="input-label">
                             <label for="usertype">Tipo de usuario</label>
@@ -100,8 +127,8 @@
                         </div>
                     </div>
                     <div class="button-options">
-                        <button type="button" onclick="mostrarSeccion('seccion1')">Anterior</button>
-                        <button type="button" onclick="mostrarSeccion('seccion3')">Siguiente</button>
+                        <button type="submit" asp-controller="Auth" asp-action="Register" onclick="mostrarSeccion('seccion1')">Anterior</button>
+                        <button type="submit" asp-controller="Auth" asp-action="register">Registrarte</button>
                     </div>
 
                 </div>
@@ -109,6 +136,16 @@
                     Ya estas registrado? <a href="index.html">Inicia Sesión</a>
                 </div>
             </div>
+                    <button type="button" onclick="mostrarSeccion('seccion2')">Empezar Registro</button>
+                    <p style="color: white;">Tambien puedes</p>
+                 
+                </div>
+                <div class="auth-option">
+                    Ya estas registrado? <a asp-controller="Auth" asp-action="Index">Inicia Sesión</a>
+                </div>
+            </div>
+
+            
 
             <div class="section-register" id="seccion3">
                 <div class="form-fields" style="gap: 18px;">

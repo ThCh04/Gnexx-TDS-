@@ -86,6 +86,7 @@ namespace Gnexx.Identity.Migrations
                     b.Property<bool>("Verified")
                         .HasColumnType("bit");
 
+                    
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedEmail")
