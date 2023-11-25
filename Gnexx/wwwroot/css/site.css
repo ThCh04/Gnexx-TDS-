@@ -10,7 +10,8 @@ html {
   }
 }
 
-body {
+.cuerpo {
+    width: 100%;
     color: white;
     background: linear-gradient(180deg, #19273B 0%, #08121D 45.95%);
     display: grid;
@@ -30,8 +31,6 @@ a {
 li {
     list-style: none;
 }
-
-
 
 .navbar {
     display: flex;
@@ -275,6 +274,7 @@ li {
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
+    letter-spacing: 0.5;
     line-height: normal;
     text-transform: uppercase;
 }
@@ -488,4 +488,3 @@ li {
             border-radius: 30px;
             background: linear-gradient(180deg, #7B36D2 0%, #8022F6 100%);
         }
-/*# sourceMappingURL=styles-home.css.map */
