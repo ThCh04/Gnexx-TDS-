@@ -122,8 +122,9 @@
                             <span asp-validation-for="ConfirmPassword"></span>
                         </div>
                         <div class="input-label">
-                            <label for="usertype">Tipo de usuario</label>
-                            <input type="text" name="usertype" id="usertype">
+                            @Html.DropDownList("Rol", ViewBag.Rol as SelectList, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Rol, "", new { @class = "text-danger" })
+    
                         </div>
                     </div>
                     <div class="button-options">

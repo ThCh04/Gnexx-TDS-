@@ -42,6 +42,9 @@ namespace Gnexx.Services.Users
         [DataType(DataType.Password)]
 
         public string ConfirmPassword { get; set; }
+        [Required(ErrorMessage = "Debes Ingresar un rol")]
+        [DataType(DataType.Text)]
+        public string Rol { get; set; }
         public bool HasError { get; set; }
         public string? Error { get; set; }
 

@@ -6,6 +6,7 @@ using Gnexx.Services.Services.Interfaces;
 using Gnexx.Services.Users;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Gnexx.Controllers
 {
@@ -59,7 +60,7 @@ namespace Gnexx.Controllers
             {
                 roles.Add(roleName);
             }
-            ViewBag.Rol = roles.ToArray();
+            ViewBag.Rol = new SelectList(roles);
             return View(new SaveUserVM());
         }
 
