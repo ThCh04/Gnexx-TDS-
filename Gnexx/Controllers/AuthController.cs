@@ -81,7 +81,7 @@ namespace Gnexx.Controllers
                 return View(saveUser);
             }
 
-            return RedirectToRoute(new { controller = "Auth", Action = "Login" });
+            return RedirectToRoute(new { controller = "Auth", Action = "Index" });
             await _userService.RegisterAsync(saveUser, origin);
             return View();
         }
@@ -113,6 +113,14 @@ namespace Gnexx.Controllers
             }
 
             return RedirectToRoute(new { controller = "Auth", Action = "Login" });
+        }
+
+        [ServiceFilter(typeof(LoginFilter))]
+        public async Task<IActionResult> ConfirmEmail(string userId, string token)
+        {
+            string response = await _userService.ConfirmEmailAsync(userId, token);
+
+            return View("ConfirmEmail", response);
         }
 
         public ActionResult SignOut()

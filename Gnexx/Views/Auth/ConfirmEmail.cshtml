@@ -1,11 +1,9 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model string
 @{
+    ViewData["Title"] = "Confirm";
 }
 
-<h1>Confirme su usuario</h1>
-
-<div class="auth-option">
-    Ya estas registrado? <a href="index.html">Inicia Sesión</a>
+<div  role="alert">
+    <h2>@Model - <a class="btn btn-primary" asp-controller="Auth" asp-action="Login"> Sign in</a></h2>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
