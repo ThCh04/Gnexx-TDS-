@@ -7,6 +7,7 @@ using Gnexx.Services.Users;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using RealEstateApp.Core.Aplication.DTOs.Account;
 
 namespace Gnexx.Controllers
 {
@@ -142,7 +143,31 @@ namespace Gnexx.Controllers
                 vm.Error = response.Error;
                 return View(vm);
             }
-            return RedirectToRoute(new { controller = "User", action = "Login" });
+            return RedirectToRoute(new { controller = "Auth", action = "Index" });
+        }
+        [ServiceFilter(typeof(LoginFilter))]
+        public IActionResult ResetPassword(string token)
+        {
+            return View(new ResetPasswordVM { Token = token });
+        }
+
+        [ServiceFilter(typeof(LoginFilter))]
+        [HttpPost]
+        public async Task<IActionResult> ResetPassword(ResetPasswordVM vm)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(vm);
+            }
+
+            ResetPasswordResponse response = await _userService.ResetPasswordAsync(vm);
+            if (response.HasError)
+            {
+                vm.HasError = response.HasError;
+                vm.Error = response.Error;
+                return View(vm);
+            }
+            return RedirectToRoute(new { controller = "Auth", action = "Index" });
         }
 
         public async Task<IActionResult> SignOut()
