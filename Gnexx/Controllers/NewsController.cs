@@ -8,9 +8,11 @@ using Gnexx.Repository.Context;
 using Gnexx.Models.Entities;
 using System.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Gnexx.Controllers
 {
+    [Authorize(Roles="Player")]
     public class NewsController : Controller
     {
         private readonly GnexxDbContext _db;

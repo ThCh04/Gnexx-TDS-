@@ -21,6 +21,7 @@ namespace Gnexx.Controllers
             _validateUserSession = validateUserSession;
         }
 
+        [ServiceFilter(typeof(LoginFilter))]
         public ActionResult Index()
         {
             return View(new LoginVM());
@@ -144,9 +145,9 @@ namespace Gnexx.Controllers
             return RedirectToRoute(new { controller = "User", action = "Login" });
         }
 
-        public ActionResult SignOut()
+        public async Task<IActionResult> SignOut()
         {
-            _userService.SignOutAsync();
+            await _userService.SignOutAsync();
             HttpContext.Session.Remove("user");
             return RedirectToRoute(new { controller = "Auth", Action = "Index" });
         }

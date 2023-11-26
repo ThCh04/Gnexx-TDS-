@@ -16,7 +16,7 @@ namespace Gnexx.Middleware
         {
             if (_userSession.HasUser())
             {
-                var controller = (UserController)context.Controller;
+                var controller = (AuthController)context.Controller;
                 context.Result = controller.RedirectToAction("index", "Auth");
             }
             else
