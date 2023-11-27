@@ -1,12 +1,6 @@
-﻿using System;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
-using System.Linq;
-using Gnexx.Models;
+﻿using Microsoft.AspNetCore.Mvc;
 using Gnexx.Repository.Context;
 using Gnexx.Models.Entities;
-using System.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
 

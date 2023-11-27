@@ -41,7 +41,7 @@ namespace Gnexx.Controllers
                 HttpContext.Session.Set<AuthenticationResponse>("user", response);
                 if (response.Roles[0] == Roles.Player.ToString())
                 {
-                    return RedirectToRoute(new { controller = "Home", action = "Index" });
+                    return RedirectToRoute(new { controller = "News", action = "Index" });
                 }
                 return RedirectToRoute(new { controller = "Team", action = "Index" });
             }
