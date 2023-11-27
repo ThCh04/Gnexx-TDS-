@@ -8,6 +8,7 @@ namespace Gnexx.Services.Mappings
     {
         public GeneralProfile()
         {
+            #region user
             CreateMap<AuthenticationRequest, LoginVM>()
                 .ForMember(x => x.HasError, opt => opt.Ignore())
                 .ForMember(x => x.Error, opt => opt.Ignore())
@@ -39,6 +40,9 @@ namespace Gnexx.Services.Mappings
                .ReverseMap()
                .ForMember(x => x.HasError, opt => opt.Ignore())
                .ForMember(x => x.Error, opt => opt.Ignore());
+            #endregion
+
+
 
         }
     }
