@@ -16,4 +16,8 @@
     <ProjectReference Include="..\Gnexx.Data\Gnexx.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Repository\" />
+  </ItemGroup>
+
 </Project>

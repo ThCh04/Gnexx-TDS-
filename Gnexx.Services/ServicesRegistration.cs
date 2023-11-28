@@ -20,7 +20,6 @@ namespace Gnexx.Services
 
             #region Services
 
-            service.AddTransient(typeof(IGenericService<>),typeof(GenericService<>));
             service.AddTransient<IUserService, UserService>();
 
             #endregion
