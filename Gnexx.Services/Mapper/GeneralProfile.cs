@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
+using Gnexx.Models.Entities;
 using Gnexx.Services.DTOs.Account;
 using Gnexx.Services.Users;
+using Gnexx.Services.ViewModels.News;
 
 namespace Gnexx.Services.Mappings
 {
@@ -42,7 +44,8 @@ namespace Gnexx.Services.Mappings
                .ForMember(x => x.Error, opt => opt.Ignore());
             #endregion
 
-
+            CreateMap<News, NewsViewModel>()
+                .ReverseMap();
 
         }
     }

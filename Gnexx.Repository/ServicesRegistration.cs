@@ -2,6 +2,8 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Gnexx.Repository.Context;
+using Gnexx.Services.Interfaces.Repository;
+using Gnexx.Repository.Repositories;
 
 namespace Gnexx.Repository
 {
@@ -21,8 +23,8 @@ namespace Gnexx.Repository
             #region Dependency Injection
 
             //Generics
-            services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
-
+            services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            services.AddTransient<INewsRepo, NewsRepo>();
            
             //Other repos
 

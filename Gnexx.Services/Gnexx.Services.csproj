@@ -15,7 +15,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Gnexx.Data\Gnexx.Data.csproj" />
-    <ProjectReference Include="..\Gnexx.Repository\Gnexx.Repository.csproj" />
   </ItemGroup>
 
 </Project>

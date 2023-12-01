@@ -1,6 +1,5 @@
 ﻿using Gnexx.Services.Interfaces;
 using Gnexx.Services.Interfaces.Services;
-using Gnexx.Services.Repos;
 using Gnexx.Services.Services;
 using Gnexx.Services.Services.Interfaces;
 using Microsoft.Extensions.DependencyInjection;

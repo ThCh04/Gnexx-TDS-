@@ -1,4 +1,5 @@
 ﻿using Gnexx.Repository.Context;
+using Gnexx.Services.Interfaces.Repository;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,12 +9,12 @@ using System.Threading.Tasks;
 
 namespace Gnexx.Repository
 {
-    public class Repository<T> : IRepository<T> where T : class
+    public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
         private readonly GnexxDbContext _context;
         private readonly DbSet<T> entity;
 
-        public Repository(GnexxDbContext context)
+        public GenericRepository(GnexxDbContext context)
         {
             _context = context;
             entity = _context.Set<T>();
