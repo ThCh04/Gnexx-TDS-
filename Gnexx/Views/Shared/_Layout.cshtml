@@ -5,11 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Gnexx</title>
 
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/News/news-styles.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/Auth/register-styles.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/Auth/login-styles.css" asp-append-version="true" />
 
     <link rel="stylesheet" href="~/Gnexx.styles.css" asp-append-version="true" />
 
@@ -18,150 +16,114 @@
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@100;200;300;400;500;600;700;800;900&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
-
-    <div class="cuerpo">
-
-        <aside class="navbar">
-            <div class="navbar-heading">
-                <div class="logo-cont">
-                    <button id="toggleButton"><img src="../assets/img/logo.svg" alt="logo"></button>
-                </div>
-                <div class="menu">
-                    <box-icon name='menu-alt-right' color="#AAABB2"></box-icon>
-                </div>
+    
+    <div id="popup" class="popup">
+        <div class="publish-form-container">
+            <button class="close-btn" onclick="closePopup()"><box-icon name='x' color='#ffffff'></box-icon></button>
+            <div class="heading">
+                <h1>Crear Publicación</h1>
             </div>
-            <div class="navbar-container">
-                <ul class="links-top">
-                    <li class="nav-link">
-                        <a asp-controller="News" asp-action="Index">
-                            <box-icon type='solid' name='news' color="#AAABB2"></box-icon>
-                            <p>Noticias</p>
-                        </a>
-                        <span>Noticias</span>
-                    </li>
-                    <li class="nav-link">
-                        <a asp-controller="Community" asp-action="Index">
-                            <box-icon type='solid' name='message-dots' color="#AAABB2"></box-icon>
-                            <p>Comunidad</p>
-                        </a>
-                        <span>Comunidad</span>
-                    </li>
-                    <li class="nav-link">
-                        <a asp-controller="Team" asp-action="Index">
-                            <box-icon type='solid' name='group' color="#AAABB2"></box-icon>
-                            <p>Equipos</p>
-                        </a>
-                        <span>Equipos</span>
-                    </li>
-                    <li class="nav-link">
-                        <a href="#">
-                            <box-icon type='solid' name='user-plus' color="#AAABB2"></box-icon>
-                            <p>Amigos</p>
-                        </a>
-                        <span>Amigos</span>
-                    </li>
-                    <li class="nav-link">
-                        <a href="#">
-                            <box-icon type='solid' name='bell' color="#AAABB2"></box-icon>
-                            <p>Notificaciones</p>
-                        </a>
-                        <span>Notifica</span>
-                    </li>
-                </ul>
-
-                <ul class="links-bottom">
-                    <li class="separator"></li>
-                    <li class="nav-link">
-                        <a asp-controller="Settings" asp-action="Index">
-                            <box-icon type='solid' name='cog' color="#AAABB2"></box-icon>
-                            <p>Configuración</p>
-                        </a>
-                        <span>Configuración</span>
-                    </li>
-                    <li class="nav-link">
-                        <a asp-controller="Auth" asp-action="SignOut">
-                            <box-icon name='log-out' color="#AAABB2"></box-icon>
-                            <p>Cerrar Sesión</p>
-                        </a>
-                        <span>Cerrar Sesión</span>
-                    </li>
-                </ul>
-            </div>
-        </aside>
-
-        <div class="cont-principal">
-            <nav class="main-navbar">
-                <div class="user-bar">
-                    <div class="search-bar-container">
-                        <input type="search" name="search-blog" placeholder="Search" id="search-blog">
+            <form method="post" action="">
+                <div class="form">
+                    <div class="user-post-info">
+                        <img src="https://secure.virtualsiteinspections.com/images/default.png" alt="user-imagen" class="user-imagen">
+                        <select name="post-privacity" id="post-privacity" class="publish-privacity-select">
+                            <option value="public"><box-icon name='world' color='#ffffff'></box-icon> Publico</option>
+                            <option value="private"><box-icon name='world' color='#ffffff'></box-icon> Privado</option>
+                        </select>
                     </div>
-                    <div class="status">
-                        <a href="#">
-                            <box-icon type='solid' name='envelope' color="#AAABB2"></box-icon>
-                            <p>Correos</p>
-                        </a>
-                        <a href="#">
-                            <box-icon type='solid' name='bell' color="#AAABB2"></box-icon>
-                            <p>Notificaciones</p>
-                        </a>
+                    <textarea name="" id="" cols="30" rows="10" placeholder="Que estas pensando"></textarea>
+                </div>
+                <div class="add-media">
+                    <label for="fileInput" class="file-label">
+                        <span class="file-icon"><box-icon name='image-add' color='#ffffff'></box-icon></span>
+                        <span class="file-text">Photo / Video</span>
+                    </label>
+                    <input type="file" id="fileInput" class="hidden">
+                </div>
+                <button type="submit" class="publish-btn">
+                    Publicar
+                </button>
+            </form>
 
-                        <div class="profile-cont">
-                            <a href="#" class="profile">
-                                <div class="image-username">
-                                    <img src="https://s3-alpha-sig.figma.com/img/c4a2/e6dc/d983add0f953bee807109bdb91b2ea51?Expires=1701043200&Signature=cJQmwXSJ7NvlyaIadukg7RImgAHfPNTIHeCcxZ103Kgy8WsVHtk6PwAE5sNT4vuWWoqERzHgJRqHxGe6Q91SU0RhgMQBJx75PcLVu2NcuezMNpXrSu1fA0b-pLwhw2eOOT0GuCHHl1rE4AduuXECQRnQSf75ahbth-aLrtPV2F6Et0RpTWkZps2Yu~V7XE2h6e68QDai7NJuw1~shnXdEl~n8Rrc6jab7gjvFpgVqMZUISjDKy82ANxkCzAx66Q4sVOUH60PruRaSnOPDf5QqRKZytzz72q1zra8phbKOyxufAZol7elfvN-h5CNjA6V4vAAAli3qciPBoh0F3J3dw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
-                                         alt="#">
-                                    username
-                                </div>
-                            </a>
-                        </div>
+        </div>
+    </div>
+
+    <div class="principal-section">
+        <nav class="nav-bar">
+            <div class="logo">
+                <img class="hero-bg"
+                     src="https://s3-alpha-sig.figma.com/img/666e/6212/ff0403cca432239a832d234196f142d3?Expires=1702252800&Signature=WdbH8Yfxes5P4379Q5467Ve45TsKytUQHtATJ9IuPx7OyWBJMIeK-SlZ8pIVuZcR-iXGnkJnL3bnbNaT9kjOgePnCOfbyxaUaA3uLvut63YS~8Bh5CVADay7fSWQDwiPkhWa6X751ukyMTjwd1WAIpBZ23HF9fhdkoAlBxbhibJ0SuAkuUUEGdcH94myakJ6vEzf5-Wrp29X8LzNW7DW~o6Kjf2G4eUdRyxCsOUDJXA7yQPomKYOpRIyLKWxz~D6AhRhZu63hhWnPHxnayRxsffdOesUI2xsFRLzkEC1HscS9m0jgN6~d4ycLK74hbt3i8inXgJUzOYO1orgX0mlKg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+                     alt="">
+            </div>
+
+            <div class="nav-logo">
+                <img class="hero-bg"
+                     src="https://s3-alpha-sig.figma.com/img/666e/6212/ff0403cca432239a832d234196f142d3?Expires=1702252800&Signature=WdbH8Yfxes5P4379Q5467Ve45TsKytUQHtATJ9IuPx7OyWBJMIeK-SlZ8pIVuZcR-iXGnkJnL3bnbNaT9kjOgePnCOfbyxaUaA3uLvut63YS~8Bh5CVADay7fSWQDwiPkhWa6X751ukyMTjwd1WAIpBZ23HF9fhdkoAlBxbhibJ0SuAkuUUEGdcH94myakJ6vEzf5-Wrp29X8LzNW7DW~o6Kjf2G4eUdRyxCsOUDJXA7yQPomKYOpRIyLKWxz~D6AhRhZu63hhWnPHxnayRxsffdOesUI2xsFRLzkEC1HscS9m0jgN6~d4ycLK74hbt3i8inXgJUzOYO1orgX0mlKg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+                     alt="">
+            </div>
+
+            <div class="side-bar">
+                <button class="nav-side-bar-button">
+                    <box-icon name='menu' color="#fff"></box-icon>
+                </button>
+                <div class="nav-side-bar">
+                    <button class="nav-side-bar-close-button">
+                        <box-icon name='x' color="#fff"></box-icon>
+                    </button>
+                    <img src="https://s3-alpha-sig.figma.com/img/666e/6212/ff0403cca432239a832d234196f142d3?Expires=1702252800&Signature=WdbH8Yfxes5P4379Q5467Ve45TsKytUQHtATJ9IuPx7OyWBJMIeK-SlZ8pIVuZcR-iXGnkJnL3bnbNaT9kjOgePnCOfbyxaUaA3uLvut63YS~8Bh5CVADay7fSWQDwiPkhWa6X751ukyMTjwd1WAIpBZ23HF9fhdkoAlBxbhibJ0SuAkuUUEGdcH94myakJ6vEzf5-Wrp29X8LzNW7DW~o6Kjf2G4eUdRyxCsOUDJXA7yQPomKYOpRIyLKWxz~D6AhRhZu63hhWnPHxnayRxsffdOesUI2xsFRLzkEC1HscS9m0jgN6~d4ycLK74hbt3i8inXgJUzOYO1orgX0mlKg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+                         alt="">
+                    <div class="nav-side-bar-links-list">
+                        <a class="nav-link lang" href="#">Principal</a>
+                        <a class="nav-link lang" href="#">Noticias</a>
+                        <a class="nav-link lang" href="#">Equipos</a>
+                    </div>
+                    <div class="credits">
+                        <p>© 2023 - Gnexx</p>
                     </div>
                 </div>
+            </div>
+        </nav>
+
+        <div class="sections-container">
+            
+            <nav class="sidebar">
+                <ul class="navbar-container">
+                    <li class="nav-link"><a asp-controller="Home" asp-action="Index"><box-icon type='solid' name='home' color="#AAABB2"></box-icon> Principal</a></li>
+                    <li class="nav-link"><a asp-controller="News" asp-action="Index"><box-icon name='news' type='solid' color="#AAABB2"></box-icon> Noticias</a></li>
+                    <li class="nav-link"><a asp-controller="Team" asp-action="Index"><box-icon name='group' type='solid' color="#AAABB2"></box-icon> Equipos</a></li>
+                    <li><div class="separator"></div></li>
+
+                    <li class="dropdown">
+                        <button onclick="toggleElementVisibilityById('dropdown1')" class="dropdown-title">Juegos Populares</button>
+                        <ul class="dropdown-content" id="dropdown1" style="display: none;">
+                            <li class="dropdown-item"><a href="#">Valorant</a></li>
+                            <li class="dropdown-item"><a href="#">League of Legends</a></li>
+                            <li class="dropdown-item"><a href="#">Garena Free Fire</a></li>
+                            <li class="dropdown-item"><a href="#">Minecraft</a></li>
+                            <li class="dropdown-item"><a href="#">Brawlhalla</a></li>
+                        </ul>
+                    </li>
+
+                    <li><div class="separator"></div></li>
+                    <li class="dropdown">
+                        <button onclick="toggleElementVisibilityById('dropdown2')" class="dropdown-title">Categorias</button>
+                        <ul class="dropdown-content" id="dropdown2" style="display: none" ;>
+                            <li class="dropdown-item"><a href="#">Aventura</a></li>
+                            <li class="dropdown-item"><a href="#">Zombies</a></li>
+                            <li class="dropdown-item"><a href="#">Battle Royale</a></li>
+                        </ul>
+                    </li>
+                </ul>
             </nav>
+
             <main role="main">
                 @RenderBody()
             </main>
         </div>
-
-        <aside class="friends-teams">
-            <div class="nav-users-icon">
-                <box-icon type='solid' name='group' color="#AAABB2"></box-icon>
-            </div>
-
-            <div class="teams-aside">
-                <div class="aside-heading">
-                    <box-icon type='solid' name='group' color="#AAABB2"></box-icon>
-                    Equipos
-                </div>
-                <a href="#">
-                    <img src="#" alt="#">
-                </a>
-                <a href="#">
-                    <img src="#" alt="#">
-                </a>
-                <a href="#">
-                    <img src="#" alt="#">
-                </a>
-            </div>
-            <div class="friends-aside">
-                <div class="aside-heading">
-                    <box-icon type='solid' name='user-plus' color="#AAABB2"></box-icon>
-                    Amigos
-                </div>
-                <a href="#">
-                    <img src="#" alt="#">
-                </a>
-                <a href="#">
-                    <img src="#" alt="#">
-                </a>
-                <a href="#">
-                    <img src="#" alt="#">
-                </a>
-            </div>
-        </aside>
     </div>
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
     <script src="~/js/site.js" asp-append-version="true"></script>
 
     <script src="~/js/Auth/script_register.js" asp-append-version="true"></script>
