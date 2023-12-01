@@ -1,6 +1,9 @@
-﻿namespace Gnexx.Repository
+﻿using Gnexx.Models.Entities;
+
+namespace Gnexx.Services.Interfaces.Repository
 {
-    public interface IRepository<T> where T : class
+    // Interfaz Repositorio generico
+    public interface IGenericRepository <T> where T : class
     {
         IEnumerable<T> GetAll();
         T FindById(int ID);
