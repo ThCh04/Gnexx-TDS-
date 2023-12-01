@@ -688,7 +688,7 @@ li {
             font-weight: 400;
             line-height: normal;
             text-transform: capitalize;
-            transition: al 200ms ease-in-out;
+            transition: all 200ms ease-in-out;
         }
 
             .principal-section .sections-container .sidebar .navbar-container .nav-link a box-icon {
@@ -742,7 +742,7 @@ li {
                 border-radius: 0px 10px 10px 0px;
                 border-left: 0.5px solid #FFF;
                 opacity: 0.4;
-                transition: al 150ms ease-in-out;
+                transition: all 150ms ease-in-out;
             }
 
                 .principal-section .sections-container .sidebar .navbar-container .dropdown .dropdown-content .dropdown-item a {
@@ -761,7 +761,7 @@ li {
                 }
 
                 .principal-section .sections-container .sidebar .navbar-container .dropdown .dropdown-content .dropdown-item:hover {
-                    transition: al 150ms ease-in-out;
+                    transition: all 150ms ease-in-out;
                     border-radius: 0px 10px 10px 0px;
                     border-left: 0.5px solid #FFF;
                     background: rgba(255, 255, 255, 0.03);
