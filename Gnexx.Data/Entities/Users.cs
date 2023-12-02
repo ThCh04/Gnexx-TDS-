@@ -40,6 +40,8 @@ namespace Gnexx.Models.Entities
         public Player Players { get; set; }
         public int TeamID { get; set; }
         public Team Teams { get; set; }
+        
+        //navigation property
 
         public List<News> News { get; set; }
         public List<Response> Responses { get; set; }

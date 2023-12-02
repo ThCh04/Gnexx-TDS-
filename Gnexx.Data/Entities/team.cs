@@ -19,7 +19,6 @@ namespace Gnexx.Models.Entities
         [Required]
         public string? Description { get; set; }
         
-
         public int CoachID { get; set; }
 
         //navigation property

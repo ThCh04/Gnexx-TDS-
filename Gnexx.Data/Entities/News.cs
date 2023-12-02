@@ -26,6 +26,8 @@ namespace Gnexx.Models.Entities
         public string Status { get; set; }
 
         public int UserID { get; set; }
+
+        //navigation property
         public Users Users { get; set; }
 
     }
