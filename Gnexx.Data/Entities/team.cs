@@ -18,10 +18,14 @@ namespace Gnexx.Models.Entities
         public DateTime Create_date { get; set; }
         [Required]
         public string? Description { get; set; }
-        public List<Player> Players { get; set; }
+        
 
         public int CoachID { get; set; }
-        public Coach Coach { get; set; }
+
+        //navigation property
+
+        public List<Player> Players { get; set; }
+        public Coach Coach { get; set; }        
         public List<News> News { get; set; }
         public List<Comments> Comments { get; set; }
         public List<Response> Responses { get; set; }
