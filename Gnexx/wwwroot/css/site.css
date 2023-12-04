@@ -1,0 +1,82 @@
+.input-data {
+    margin-top: 20px;
+    height: 40px;
+    width: 100%;
+    position: relative;
+}
+
+    .input-data span {
+        color: rgba(162, 183, 255, 0.37);
+        font-family: Inter;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+    }
+
+    .input-data input,
+    textarea {
+        height: 100%;
+        width: 100%;
+        border: none;
+        background: transparent;
+        border-bottom: 1px solid #cccccc70;
+        outline: none;
+        color: #FFF;
+        font-family: Inter;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        padding-left: 6px;
+    }
+
+        .input-data input:focus ~ label,
+        .input-data input:valid ~ label {
+            transform: translateY(-20px);
+            font-size: 12px;
+            color: #596eda;
+            bottom: 20px;
+        }
+
+    .input-data textarea:focus ~ label,
+    .input-data textarea:valid ~ label {
+        transform: translateY(-20px);
+        font-size: 12px;
+        color: #596eda;
+        bottom: 25px;
+    }
+
+    .input-data label {
+        position: absolute;
+        bottom: 10px;
+        left: 0;
+        color: #666;
+        transition: all 0.3s ease;
+        font-family: Inter;
+        font-size: 14px;
+        pointer-events: none;
+    }
+
+    .input-data .underline {
+        position: absolute;
+        height: 2px;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+    }
+
+        .input-data .underline::before {
+            position: absolute;
+            content: "";
+            height: 100%;
+            width: 100%;
+            background: #4158d0;
+            transform: scaleX(0);
+            transform-origin: 0%;
+            transition: transform 0.3s ease-in;
+        }
+
+    .input-data input:focus ~ .underline:before,
+    textarea:focus ~ .underline::before .input-data input:valid ~ .underline::before,
+    textarea:valid ~ .underline::before {
+        transform: scaleX(1);
+    }

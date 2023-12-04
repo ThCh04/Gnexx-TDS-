@@ -1,0 +1,32 @@
+﻿
+<div id="popup" class="popup">
+    <div class="publish-form-container">
+        <button class="close-btn" onclick="closePopup()"><box-icon name='x' color='#ffffff'></box-icon></button>
+        <div class="heading">
+            <h1>Crear Publicación</h1>
+        </div>
+        <form method="post" action="">
+            <div class="form">
+                <div class="user-post-info">
+                    <img src="https://secure.virtualsiteinspections.com/images/default.png" alt="user-imagen" class="user-imagen">
+                    <select name="post-privacity" id="post-privacity" class="publish-privacity-select">
+                        <option value="public"><box-icon name='world' color='#ffffff'></box-icon> Publico</option>
+                        <option value="private"><box-icon name='world' color='#ffffff'></box-icon> Privado</option>
+                    </select>
+                </div>
+                <textarea name="" id="" cols="30" rows="10" placeholder="Que estas pensando"></textarea>
+            </div>
+            <div class="add-media">
+                <label for="fileInput" class="file-label">
+                    <span class="file-icon"><box-icon name='image-add' color='#ffffff'></box-icon></span>
+                    <span class="file-text">Photo / Video</span>
+                </label>
+                <input type="file" id="fileInput" class="hidden">
+            </div>
+            <button type="submit" class="publish-btn">
+                Publicar
+            </button>
+        </form>
+
+    </div>
+</div>
