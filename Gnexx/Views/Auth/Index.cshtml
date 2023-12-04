@@ -4,42 +4,38 @@
     Layout = "~/Views/Shared/_LayoutAuth.cshtml";
 }
 
-<div class="auth-main">
-    <div class="form-container" id="loginsect">
-        @if (Model.HasError)
-        {
-            <div class="alert alert-danger">
-                @Model.Error
-            </div>
-        }
-        <form asp-controller="Auth" asp-action="Index" method="post">
-            <div class="section" id="section1">
-                <h1><span>Inicia sesión</span> para continuar</h1>
-                <div class="form-fields">
-                    <div class="fields">
-                        <div class="input-label">
-                            <label asp-for="Email">Email</label>
-                            <input type="text" asp-for="Email" id="Email">
-                            <span asp-validation-for="Email" class="text-danger"></span>
-                        </div>
-                        <div class="input-label">
-                            <label asp-for="Password">Contraseña</label>
-                            <input type="password" asp-for="Password" id="Password">
-                            <span asp-validation-for="Password" class="text-danger"></span>
-                        </div>
-                        <div class="forgot-pass">
-                            <a asp-controller="Auth" asp-action="ForgotPassword">Olvidaste tu contraseña?</a>
-                        </div>
-                    </div>
-                    @*<button type="submit">Iniciar Sesión</button>*@
-                    <button type="submit" class="button-register" asp-controller="Auth" asp-action="Index">Iniciar Sesión</button>
-                </div>
-                <div class="auth-option">
-                    No tienes una cuenta creada? <a asp-controller="Auth" asp-action="Register">Registrate aqui!</a>
-                </div>
-            </div>
-        </form>
+<form action="" method="post">
+    <div class="heading">
+        <h2>Inicio de sesión</h2>
+        <p>Si aun no tienes una cuenta registrada que esperas? <a asp-controller="Auth" asp-action="Register">registrate ahora!</a></p>
     </div>
 
-</div>
-<img src="~/assets/img/auth-background-imagen.png" alt="background imagen">
+    <div class="form-fields">
+        <div class="input-data">
+            <input type="text" asp-for="Email" name="email" id="email" autofocus="" required="">
+            <div class="underline"></div>
+            <label ASP-for="Email">Correo Electronico</label>
+            <span asp-validation-for="Email"></span>
+        </div>
+        <div class="input-data">
+            <input type="password" asp-for="Password" name="password" id="password" autofocus="" required="">
+            <div class="underline"></div>
+            <label ASP-for="Password">Contraseña</label>
+            <span asp-validation-for="Password"></span>
+        </div>
+        <div class="forgot-password">
+            <a href="#">Olvido su contraseña?</a>
+        </div>
+    </div>
+
+    <button type="submit">Iniciar Sesión</button>
+
+    <div class="other-options">
+        <p>O continua con</p>
+        <ul class="options">
+            <li><a href="#"><img src="#" alt="#"></a></li>
+            <li><a href="#"><img src="#" alt="#"></a></li>
+            <li><a href="#"><img src="#" alt="#"></a></li>
+        </ul>
+    </div>
+</form>

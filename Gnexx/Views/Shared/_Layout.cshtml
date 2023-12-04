@@ -48,6 +48,7 @@
                         <a class="nav-link lang" href="#">Equipos</a>
                     </div>
                     <div class="credits">
+                        <li class="nav-link"><a asp-controller="Auth" asp-action="SignOut"><box-icon name='log-out' color="#AAABB2"></box-icon> Cerrar Sesión</a></li>
                         <p>© 2023 - Gnexx</p>
                     </div>
                 </div>
@@ -61,6 +62,7 @@
                     <li class="nav-link"><a asp-controller="Home" asp-action="Index"><box-icon type='solid' name='home' color="#AAABB2"></box-icon> Principal</a></li>
                     <li class="nav-link"><a asp-controller="News" asp-action="Index"><box-icon name='news' type='solid' color="#AAABB2"></box-icon> Noticias</a></li>
                     <li class="nav-link"><a asp-controller="Team" asp-action="Index"><box-icon name='group' type='solid' color="#AAABB2"></box-icon> Equipos</a></li>
+                    
                     <li><div class="separator"></div></li>
 
                     <li class="dropdown">
@@ -84,6 +86,10 @@
                         </ul>
                     </li>
                 </ul>
+                <ul class="navbar-container">
+                    <li class="nav-link"><a asp-controller="Auth" asp-action="SignOut"><box-icon name='log-out' color="#AAABB2"></box-icon> Cerrar Sesión</a></li>
+                </ul>
+                
             </nav>
 
             <main role="main">
