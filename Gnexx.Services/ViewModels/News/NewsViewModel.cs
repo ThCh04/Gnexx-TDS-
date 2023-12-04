@@ -9,6 +9,7 @@ namespace Gnexx.Services.ViewModels.News
 {
     public class NewsViewModel
     {
+        public int ID { get; set; }
         public string Author { get; set; }
 
         [Required]

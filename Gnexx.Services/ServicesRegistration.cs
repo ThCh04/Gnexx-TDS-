@@ -20,6 +20,7 @@ namespace Gnexx.Services
             #region Services
 
             service.AddTransient<IUserService, UserService>();
+            service.AddTransient<INewsService, NewsService>();
 
             #endregion
         }

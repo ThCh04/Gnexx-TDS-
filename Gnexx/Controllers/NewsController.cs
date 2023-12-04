@@ -3,30 +3,32 @@ using Gnexx.Repository.Context;
 using Gnexx.Models.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
+using Gnexx.Services.Interfaces.Services;
+using Gnexx.Services.ViewModels.News;
 
 namespace Gnexx.Controllers
 {
-    [Authorize(Roles="Player")]
+    [Authorize(Roles = "Player")]
     public class NewsController : Controller
     {
-        private readonly GnexxDbContext _db;
-        public NewsController( GnexxDbContext db)
+        private readonly INewsService _newsService;
+        public NewsController(INewsService newsService)
         {
-            _db=db;
-                
+            _newsService = newsService;
+
         }
         public ActionResult Index()
         {
-            return View();
+            return View(new NewsViewModel());
         }
 
-        public ActionResult GetAll()
+        public async Task<IActionResult> GetAll()
         {
-            List<News> newsList = _db.News.ToList();
+            List<NewsViewModel> newsList = await _newsService.GetAllViewModel();
             return View(newsList);
         }
 
-        
+
         public ActionResult Create()
         {
             return View("Publish/Create");
@@ -37,53 +39,49 @@ namespace Gnexx.Controllers
             return View("Publish/Details");
         }
 
-      
+
         [HttpPost]
-        public ActionResult Create(News news)
+        public async Task <IActionResult> Create(NewsViewModel news)
         {
             if (ModelState.IsValid)
             {
-                _db.News.Add(news);
-                _db.SaveChanges();
+                await _newsService.Add(news);
                 return RedirectToAction("GetAll");
             }
             return View("Publish/Create", news);
         }
 
       
-        public ActionResult Edit(int id)
+        public async Task <IActionResult> Edit(int id)
         {
-            News news = _db.News.Find(id);
+           NewsViewModel news = await _newsService.GetByIdSaveViewModel(id);
             return View("Publish/Edit", news);
         }
 
         
         [HttpPost]
-        public ActionResult Edit(News news)
+        public async Task <IActionResult> Edit(NewsViewModel news)
         {
             if (ModelState.IsValid)
             {
-                _db.Entry(news).State = EntityState.Modified;
-               _db.SaveChanges();
+                await _newsService.Update(news, news.ID); 
                 return RedirectToAction("GetAll");
             }
             return View("Publish/Edit", news);
         }
 
         
-        public ActionResult Delete(int id)
+        public async Task <IActionResult> Delete(int id)
         {
-            News news = _db.News.Find(id);
+            NewsViewModel news = await _newsService.GetByIdSaveViewModel(id);
             return View("Publish/Delete", news);
         }
 
        
         [HttpPost]
-        public ActionResult DeleteConfirmed(int id)
+        public async Task <IActionResult> DeleteConfirmed(int id)
         {
-            News news = _db.News.Find(id);
-            _db.News.Remove(news);
-            _db.SaveChanges();
+            await _newsService.Delete(id);
             return RedirectToAction("GetAll");
         }
     }
