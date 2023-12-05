@@ -145,6 +145,8 @@ namespace Gnexx.Controllers
             }
             return RedirectToRoute(new { controller = "Auth", action = "Index" });
         }
+
+
         [ServiceFilter(typeof(LoginFilter))]
         public IActionResult ResetPassword(string token)
         {

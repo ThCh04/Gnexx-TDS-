@@ -4,7 +4,7 @@ using Gnexx.Models.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
 using Gnexx.Services.Interfaces.Services;
-using Gnexx.Services.ViewModels.News;
+using Gnexx.Services.ViewModels.NewsViewModel;
 
 namespace Gnexx.Controllers
 {
