@@ -65,7 +65,7 @@ namespace Gnexx.Controllers
                     roles.Add(roleName);
                 }
             }
-            ViewBag.Rol = new SelectList(roles);
+            ViewBag.Rol = roles;
             return View(new SaveUserVM());
         }
 
