@@ -35,7 +35,8 @@ body {
     }
 
     .input-data input,
-    .input-data textarea {
+    .input-data textarea,
+    .input-data select {
         height: 100%;
         width: 100%;
         border: none;
@@ -139,6 +140,19 @@ body {
     flex-shrink: 0;
     align-self: stretch;
     overflow: auto;
+}
+@media (max-width: 450px) {
+    .auth-section .form-container {
+        padding: 35px 24px;
+    }
+
+        .auth-section .form-container form .heading h2 {
+            font-size: 30px !important;
+        }
+
+        .auth-section .form-container form .heading p {
+            font-size: 14px !important;
+        }
 }
 
     .auth-section .form-container::-webkit-scrollbar {
