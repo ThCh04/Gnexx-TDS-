@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Gnexx.Models.Entities;
 using Gnexx.Services.DTOs.Account;
-using Gnexx.Services.Users;
+using Gnexx.Services.UserIdentity;
 using Gnexx.Services.ViewModels.News;
 
 namespace Gnexx.Services.Mappings

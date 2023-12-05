@@ -19,6 +19,7 @@
     <ProjectReference Include="..\Gnexx.Identity\Gnexx.Identity.csproj" />
     <ProjectReference Include="..\Gnexx.Presistence.Shared\Gnexx.Presistence.Shared.csproj" />
     <ProjectReference Include="..\Gnexx.Repository\Gnexx.Repository.csproj" />
+    <ProjectReference Include="..\Gnexx.Services\Gnexx.Services.csproj" />
   </ItemGroup>
 
   <ItemGroup>

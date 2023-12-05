@@ -13,7 +13,7 @@ namespace Gnexx.Data.Entities
         public string R_body { get; set; }
         public DateTime DateTime { get; set; }
         public int UserID { get; set; }
-        public Users Users { get; set; }
+        public UsersEntitie Users { get; set; }
         public int CoachID { get; set; }
         public Coach Coaches { get; set; }
         public int PlayerID { get; set; }

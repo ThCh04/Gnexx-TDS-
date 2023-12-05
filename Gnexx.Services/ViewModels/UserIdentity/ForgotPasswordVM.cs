@@ -5,16 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gnexx.Services.Users
+namespace Gnexx.Services.UserIdentity
 {
-    public class LoginVM
+    public class ForgotPasswordVM
     {
         [Required(ErrorMessage = "Debes de colocar el correo del usuario. ")]
         [DataType(DataType.Text)]
         public string Email { get; set; }
-        [Required(ErrorMessage = "Debes de colocar la contraseña. ")]
-        [DataType(DataType.Password)]
-        public string Password { get; set; }
         public bool HasError { get; set; }
         public string? Error { get; set; }
     }

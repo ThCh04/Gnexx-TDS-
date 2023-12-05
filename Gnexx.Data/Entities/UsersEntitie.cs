@@ -8,7 +8,7 @@ using System.Net.Mail;
 
 namespace Gnexx.Models.Entities
 {
-    public class Users
+    public class UsersEntitie
     {
         [Key]
         public int Id { get; set; }

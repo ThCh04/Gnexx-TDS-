@@ -3,7 +3,7 @@ using Gnexx.Services.DTOs.Account;
 using Gnexx.Services.Enums;
 using Gnexx.Services.Helpers;
 using Gnexx.Services.Services.Interfaces;
-using Gnexx.Services.Users;
+using Gnexx.Services.UserIdentity;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;

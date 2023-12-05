@@ -15,7 +15,7 @@ namespace Gnexx.Data.Entities
         public DateTime Cmt_date { get; set; }
         public string Reaction { get; set; }
         public int UserID { get; set; }
-        public Users User { get; set; }
+        public UsersEntitie User { get; set; }
         public int CoachID { get; set; }
         public Coach Coaches { get; set; }
         public int PlayerID { get; set; }

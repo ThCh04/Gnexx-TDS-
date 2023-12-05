@@ -28,7 +28,7 @@ namespace Gnexx.Models.Entities
         public int UserID { get; set; }
 
         //navigation property
-        public Users Users { get; set; }
+        public UsersEntitie Users { get; set; }
 
     }
 }
