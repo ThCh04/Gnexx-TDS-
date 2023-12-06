@@ -51,6 +51,14 @@ body {
         padding-left: 6px;
     }
 
+    .input-data select option {
+        color: black;
+        font-family: Inter;
+        font-size: 14px;
+        font-weight: 400;
+        padding-left: 6px;
+    }
+
         .input-data input:focus ~ label,
         .input-data input:valid ~ label {
             transform: translateY(-20px);

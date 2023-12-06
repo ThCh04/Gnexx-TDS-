@@ -7,8 +7,8 @@
 
 <form action="" method="post">
     <div class="heading">
-        <h2>Inicio de sesión</h2>
-        <p>Llena todos los campos para realizar el registro, si ya estas registrado <a asp-controller="Auth" asp-action="Index">Inicia Sesión!</a></p>
+        <h2>Regístrate</h2>
+        <p>Llena todos los campos para registrarte, o ¿Tienes una cuenta? <a asp-controller="Auth" asp-action="Index">¡Inicia sesión!</a></p>
     </div>
 
     <div class="form-fields">
@@ -31,7 +31,7 @@
         <div class="input-data">
             <input type="email" asp-for="Email" name="Email" id="email" autofocus="" required="">
             <div class="underline"></div>
-            <label ASP-for="Email">Correo Electronico</label>
+            <label ASP-for="Email">Correo electronico</label>
             <span asp-validation-for="Email"></span>
         </div>
 
@@ -45,7 +45,7 @@
         <div class="input-data">
             <input type="number" asp-for="PhoneNumber" name="PhoneNumber" id="phonenumber" autofocus="" required="">
             <div class="underline"></div>
-            <label ASP-for="PhoneNumber">Numero de telefono</label>
+            <label ASP-for="PhoneNumber">Número de teléfono (Sin guiones)</label>
             <span asp-validation-for="PhoneNumber"></span>
         </div>
 
@@ -59,7 +59,7 @@
         <div class="input-data">
             <input type="password" asp-for="ConfirmPassword" name="ConfirmPassword" id="confirmpassword" autofocus="" required="">
             <div class="underline"></div>
-            <label ASP-for="ConfirmPassword">Confirmar Contraseña</label>
+            <label ASP-for="ConfirmPassword">Confirmar contraseña</label>
             <span asp-validation-for="ConfirmPassword"></span>
         </div>
 
@@ -78,7 +78,7 @@
         
     </div>
 
-    <button type="submit" asp-controller="Auth" asp-action="register">Registrarte</button>
+    <button type="submit" asp-controller="Auth" asp-action="register">Registrarme</button>
 </form>
 
 @*<div class="auth-main">
