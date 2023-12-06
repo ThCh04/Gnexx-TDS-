@@ -233,11 +233,11 @@ body {
             }
 
                 .auth-section .form-container form .form-fields .forgot-password a {
-                    color: #FFF;
+                    color: #615EDC;
                     font-family: Poppins;
-                    font-size: 14px;
+                    font-size: 16px;
                     font-style: normal;
-                    font-weight: 400;
+                    font-weight: 600;
                     line-height: 20px;
                 }
 

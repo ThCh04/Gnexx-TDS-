@@ -7,14 +7,14 @@
 <form action="" method="post">
     <div class="heading">
         <h2>Inicio de sesión</h2>
-        <p>Si aun no tienes una cuenta registrada que esperas? <a asp-controller="Auth" asp-action="Register">registrate ahora!</a></p>
+        <p>Si aun no tienes una cuenta registrada, ¡¿Qué esperas?! <a asp-controller="Auth" asp-action="Register">Registrate</a></p>
     </div>
 
     <div class="form-fields">
         <div class="input-data">
             <input type="text" asp-for="Email" name="email" id="email" autofocus="" required="">
             <div class="underline"></div>
-            <label ASP-for="Email">Correo Electronico</label>
+            <label ASP-for="Email">Correo electronico</label>
             <span asp-validation-for="Email"></span>
         </div>
         <div class="input-data">
@@ -24,18 +24,18 @@
             <span asp-validation-for="Password"></span>
         </div>
         <div class="forgot-password">
-            <a asp-controller="Auth" asp-action="ForgotPassword">Olvido su contraseña?</a>
+            <a asp-controller="Auth" asp-action="ForgotPassword">¿Olvidó su contraseña?</a>
         </div>
     </div>
 
-    <button type="submit">Iniciar Sesión</button>
+    <button type="submit">Iniciar sesión</button>
 
-    <div class="other-options">
+    @* <div class="other-options">
         <p>O continua con</p>
         <ul class="options">
             <li><a href="#"><img src="#" alt="#"></a></li>
             <li><a href="#"><img src="#" alt="#"></a></li>
             <li><a href="#"><img src="#" alt="#"></a></li>
         </ul>
-    </div>
+    </div> *@
 </form>
