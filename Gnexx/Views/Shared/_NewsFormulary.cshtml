@@ -1,0 +1,27 @@
+﻿
+<div id="popup" class="popup">
+    <div class="publish-form-container">
+        <button class="close-btn" onclick="closePopup()"><box-icon name='x' color='#ffffff'></box-icon></button>
+        <div class="heading">
+            <h1>Crear Publicación</h1>
+        </div>
+        <form method="post" action="">
+            <div class="form">
+                <div class="user-post-info">
+                    <img src="https://secure.virtualsiteinspections.com/images/default.png" alt="user-imagen" class="user-imagen">
+                    <select title="selectione" name="post-privacity" id="post-privacity" class="publish-privacity-select">
+                        <option value="public">Publico</option>
+                        <option value="private">Privado</option>
+                    </select>
+                </div>
+                <input type="text" name="title" id="id_title" placeholder="Titulo del post" required>
+                <textarea name="" id="" cols="30" rows="10" placeholder="Que estas pensando" required></textarea>
+                <input type="text" name="imagen_url" id="id_imagen_url" placeholder="url de imagen">
+            </div>
+            <button type="submit" class="publish-btn">
+                Publicar
+            </button>
+        </form>
+
+    </div>
+</div>

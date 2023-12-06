@@ -10,7 +10,12 @@
         <h2>Inicio de sesión</h2>
         <p>Llena todos los campos para realizar el registro, si ya estas registrado <a asp-controller="Auth" asp-action="Index">Inicia Sesión!</a></p>
     </div>
-
+    @{
+        if (@Model.HasError)
+        {
+            <h5>@Model.Error</h5>
+        }
+    }
     <div class="form-fields">
         <div style="display: flex; justify-content: center; align-items: flex-start; gap: 16px; align-self: stretch;">
             <div class="input-data">
@@ -65,11 +70,10 @@
 
         <div class="input-data">
             <select>
-                <option value="">Seleccione una opción</option>
+                <option value="">--- Seleccione una opción ---</option>
                 @{
                     foreach (var item in ViewBag.Rol)
                     {
-                
                         <option value="@item">@item</option>
                     }
                 }
