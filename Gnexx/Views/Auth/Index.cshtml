@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_LayoutAuth.cshtml";
 }
 
-<form action="" method="post">
+<form asp-controller="Auth" asp-action="Index" method="post">
     <div class="heading">
         <h2>Inicio de sesión</h2>
         <p>Si aun no tienes una cuenta registrada, ¡¿Qué esperas?! <a asp-controller="Auth" asp-action="Register">Registrate</a></p>
