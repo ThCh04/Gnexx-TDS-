@@ -19,7 +19,7 @@ namespace Gnexx.Data.Entities
         public string C_Specialization { get; set; }
         public string C_Contact { get; set; }
         public int UserID { get; set; }
-        public Users Users { get; set; }
+        public UsersEntitie Users { get; set; }
         public int TeamID { get; set; }
         public Team Teams { get; set; }
     }

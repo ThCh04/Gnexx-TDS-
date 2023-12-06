@@ -2,7 +2,7 @@
 using Gnexx.Services.DTOs.Account;
 using Gnexx.Services.Interfaces;
 using Gnexx.Services.Services.Interfaces;
-using Gnexx.Services.Users;
+using Gnexx.Services.UserIdentity;
 using RealEstateApp.Core.Aplication.DTOs.Account;
 
 namespace Gnexx.Services.Services

@@ -1,8 +1,15 @@
 ﻿using AutoMapper;
+using Gnexx.Data.Entities;
 using Gnexx.Models.Entities;
 using Gnexx.Services.DTOs.Account;
-using Gnexx.Services.Users;
-using Gnexx.Services.ViewModels.News;
+using Gnexx.Services.UserIdentity;
+using Gnexx.Services.ViewModels.CoachViewModel;
+using Gnexx.Services.ViewModels.CommentsViewModel;
+using Gnexx.Services.ViewModels.NewsViewModel;
+using Gnexx.Services.ViewModels.PlayerViewModel;
+using Gnexx.Services.ViewModels.ResponseViewModel;
+using Gnexx.Services.ViewModels.TeamViewModel;
+using Gnexx.Services.ViewModels.UserEntitie;
 
 namespace Gnexx.Services.Mappings
 {
@@ -44,9 +51,24 @@ namespace Gnexx.Services.Mappings
                .ForMember(x => x.Error, opt => opt.Ignore());
             #endregion
 
+            #region entities
+
             CreateMap<News, NewsViewModel>()
                 .ReverseMap();
+            CreateMap<Coach, CoachViewModel>()
+                .ReverseMap();
+            CreateMap<Response, ResponseViewModel>()
+                .ReverseMap();
+            CreateMap<Comments, CommentsViewModel>()
+                .ReverseMap();
+            CreateMap<Team, TeamViewModel>()
+                .ReverseMap();
+            CreateMap<Player, PlayerViewModel>()
+                .ReverseMap();
+            CreateMap<UsersEntitie, UserEntitieViewModel>()
+                .ReverseMap();
 
+            #endregion
         }
     }
 }

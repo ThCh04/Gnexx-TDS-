@@ -1,15 +1,15 @@
-﻿using Gnexx.Models.Entities;
+﻿using Gnexx.Data.Entities;
+using Gnexx.Models.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gnexx.Data.Entities
+namespace Gnexx.Services.ViewModels.ResponseViewModel
 {
-    public class Response
-    {
-        public int Id { get; set; }
+    public class ResponseViewModel
+    {        public int Id { get; set; }
         public string R_body { get; set; }
         public DateTime DateTime { get; set; }
         public int UserID { get; set; }

@@ -15,7 +15,7 @@ namespace Gnexx.Repository.Context
         {
 
         }
-        public DbSet<Users> User { get; set; }
+        public DbSet<UsersEntitie> User { get; set; }
         public DbSet<News> News { get; set; }
         public DbSet<Team> Teams { get; set; }
         public DbSet<Player> Player { get; set; }
@@ -26,7 +26,7 @@ namespace Gnexx.Repository.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // Relación uno a uno entre User y Player
-            modelBuilder.Entity<Users>()
+            modelBuilder.Entity<UsersEntitie>()
                 .HasOne(u => u.Players)
                 .WithOne(p => p.Users)
                 .HasForeignKey<Player>(p => p.UserID)
@@ -34,7 +34,7 @@ namespace Gnexx.Repository.Context
                 
 
             // Relación uno a uno entre User y Coach
-            modelBuilder.Entity<Users>()
+            modelBuilder.Entity<UsersEntitie>()
                 .HasOne(u => u.Coaches)
                 .WithOne(c => c.Users)
                 .HasForeignKey<Coach>(c => c.UserID)
@@ -58,21 +58,21 @@ namespace Gnexx.Repository.Context
 
 
             // Relaciones uno a muchos entre User y News, Comments y Responses
-            modelBuilder.Entity<Users>()
+            modelBuilder.Entity<UsersEntitie>()
                 .HasMany(u => u.News)
                 .WithOne(n => n.Users)
                 .HasForeignKey(n => n.UserID)
                 .OnDelete(DeleteBehavior.NoAction);
 
 
-            modelBuilder.Entity<Users>()
+            modelBuilder.Entity<UsersEntitie>()
                 .HasMany(u => u.Comments)
                 .WithOne(c => c.User)
                 .HasForeignKey(c => c.UserID)
                 .OnDelete(DeleteBehavior.NoAction);
 
 
-            modelBuilder.Entity<Users>()
+            modelBuilder.Entity<UsersEntitie>()
                 .HasMany(u => u.Responses)
                 .WithOne(r => r.Users)
                 .HasForeignKey(r => r.UserID)

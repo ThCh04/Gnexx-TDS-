@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gnexx.Services.ViewModels.News
+namespace Gnexx.Services.ViewModels.NewsViewModel
 {
     public class NewsViewModel
     {

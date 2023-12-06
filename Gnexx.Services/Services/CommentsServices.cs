@@ -1,22 +1,22 @@
 ﻿using AutoMapper;
-using Gnexx.Models.Entities;
+using Gnexx.Data.Entities;
 using Gnexx.Services.DTOs.Account;
 using Gnexx.Services.Helpers;
 using Gnexx.Services.Interfaces.Repository;
 using Gnexx.Services.Interfaces.Services;
-using Gnexx.Services.ViewModels.NewsViewModel;
+using Gnexx.Services.ViewModels.CommentsViewModel;
 using Microsoft.AspNetCore.Http;
 
 namespace Gnexx.Services.Services
 {
-    public class NewsService : GenericService<NewsViewModel, News>, INewsService
+    public class CommentsServices : GenericService<CommentsViewModel, Comments>, ICommentsService
     {
-        private readonly INewsRepo _newsRepository;
+        private readonly ICommentsRepo _newsRepository;
         private readonly IMapper _mapper;
         private readonly IHttpContextAccessor _http;
         private readonly AuthenticationResponse userView;
 
-        public NewsService(INewsRepo repository, IMapper mapper, IHttpContextAccessor http) : base(repository, mapper)
+        public CommentsServices(ICommentsRepo repository, IMapper mapper, IHttpContextAccessor http) : base(repository, mapper)
         {
             _newsRepository = repository;
             _mapper = mapper;

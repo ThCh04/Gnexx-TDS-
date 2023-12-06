@@ -1,9 +1,4 @@
-﻿using Gnexx.Services.ViewModels.News;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Gnexx.Services.ViewModels.NewsViewModel;
 
 namespace Gnexx.Services.Interfaces.Services
 {

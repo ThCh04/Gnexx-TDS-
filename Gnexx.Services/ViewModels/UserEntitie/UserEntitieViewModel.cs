@@ -1,16 +1,16 @@
-﻿
-
-using Gnexx.Data.Entities;
-using Microsoft.AspNetCore.Identity;
+﻿using Gnexx.Data.Entities;
+using Gnexx.Models.Entities;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Net.Mail;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Gnexx.Models.Entities
+namespace Gnexx.Services.ViewModels.UserEntitie
 {
-    public class Users
+    public class UserEntitieViewModel
     {
-        [Key]
         public int Id { get; set; }
 
         [Required]
@@ -40,12 +40,12 @@ namespace Gnexx.Models.Entities
         public Player Players { get; set; }
         public int TeamID { get; set; }
         public Team Teams { get; set; }
-        
+
         //navigation property
 
-        public List<News> News { get; set; }
+        public List<Gnexx.Models.Entities.News> news { get; set; }
         public List<Response> Responses { get; set; }
         public List<Comments> Comments { get; set; }
     }
-
 }
+

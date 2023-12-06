@@ -36,6 +36,6 @@ namespace Gnexx.Models.Entities
         public int TeamID { get; set; }
         public Team Teams { get; set; }
         public int UserID { get; set; }
-        public Users Users { get; set; }
+        public UsersEntitie Users { get; set; }
     }
 }

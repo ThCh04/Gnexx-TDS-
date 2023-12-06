@@ -5,20 +5,21 @@ using Gnexx.Services.Helpers;
 using Gnexx.Services.Interfaces.Repository;
 using Gnexx.Services.Interfaces.Services;
 using Gnexx.Services.ViewModels.NewsViewModel;
+using Gnexx.Services.ViewModels.TeamViewModel;
 using Microsoft.AspNetCore.Http;
 
 namespace Gnexx.Services.Services
 {
-    public class NewsService : GenericService<NewsViewModel, News>, INewsService
+    public class TeamsService : GenericService<TeamViewModel, Team>, ITeamsService
     {
-        private readonly INewsRepo _newsRepository;
+        private readonly ITeamsRepo _teamRepository;
         private readonly IMapper _mapper;
         private readonly IHttpContextAccessor _http;
         private readonly AuthenticationResponse userView;
 
-        public NewsService(INewsRepo repository, IMapper mapper, IHttpContextAccessor http) : base(repository, mapper)
+        public TeamsService(ITeamsRepo repository, IMapper mapper, IHttpContextAccessor http) : base(repository, mapper)
         {
-            _newsRepository = repository;
+            _teamRepository = repository;
             _mapper = mapper;
             _http = http;
             userView = _http.HttpContext.Session.Get<AuthenticationResponse>("user");
