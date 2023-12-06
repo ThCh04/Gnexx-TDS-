@@ -1,0 +1,19 @@
+﻿* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+body {
+    display: flex;
+    gap: 10px;
+    background: linear-gradient(180deg, #0E1719 0%, #090F11 100%), linear-gradient(180deg, #19273B 0%, #08121D 45.95%);
+}
