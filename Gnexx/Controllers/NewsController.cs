@@ -34,12 +34,6 @@ namespace Gnexx.Controllers
             return View("Publish/Create");
         }
 
-        public ActionResult Details(int id)
-        {
-            return View("Publish/Details");
-        }
-
-
         [HttpPost]
         public async Task <IActionResult> Create(NewsViewModel news)
         {
@@ -51,7 +45,11 @@ namespace Gnexx.Controllers
             return View("Publish/Create", news);
         }
 
-      
+        public ActionResult Details(int id)
+        {
+            return View("Publish/Details");
+        }
+
         public async Task <IActionResult> Edit(int id)
         {
            NewsViewModel news = await _newsService.GetByIdSaveViewModel(id);

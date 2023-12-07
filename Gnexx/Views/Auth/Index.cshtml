@@ -4,6 +4,12 @@
     Layout = "~/Views/Shared/_LayoutAuth.cshtml";
 }
 
+@{
+    if (@Model.HasError)
+    {
+        <h5>@Model.Error</h5>
+    }
+}
 <form asp-controller="Auth" asp-action="Index" method="post">
     <div class="heading">
         <h2>Inicio de sesión</h2>
