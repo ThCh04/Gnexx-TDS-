@@ -12,6 +12,103 @@ li {
     list-style: none;
 }
 
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+#popupDeletePost {
+    width: 359px;
+    height: auto;
+    padding: 24px 23px;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    border-radius: 15px;
+    border: 2px solid rgba(85, 85, 85, 0.1137254902);
+    background: #242526;
+    box-shadow: 1px 4px 18px 0px rgba(0, 0, 0, 0.2);
+    -webkit-backdrop-filter: blur(4.4000000954px);
+    backdrop-filter: blur(4.4000000954px);
+    position: absolute;
+    left: calc(50% - 179px);
+    top: calc(50% - 110px);
+    z-index: 1000;
+}
+
+    #popupDeletePost .heading {
+        display: flex;
+        padding: 4px 0px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        align-self: stretch;
+    }
+
+        #popupDeletePost .heading img {
+            width: 100px;
+            height: 100px;
+        }
+
+        #popupDeletePost .heading p {
+            align-self: stretch;
+            color: #ABABAB;
+            text-align: center;
+            font-family: Inter;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 24px;
+            letter-spacing: 0.1px;
+        }
+
+    #popupDeletePost .popup-buttons {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        align-self: stretch;
+    }
+
+        #popupDeletePost .popup-buttons button {
+            display: flex;
+            padding: 11px 42px;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            flex: 1 0 0;
+            border-radius: 8px;
+            background-color: #0866FF;
+            border: none;
+            cursor: pointer;
+            transition: all 250ms ease-in-out;
+            color: #FFF;
+            font-family: Inter;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+        }
+
+            #popupDeletePost .popup-buttons button:hover {
+                background-color: #075ce5;
+            }
+
+        #popupDeletePost .popup-buttons .button-cancel {
+            background-color: #FF0834;
+        }
+
+            #popupDeletePost .popup-buttons .button-cancel:hover {
+                transition: all 250ms ease-in-out;
+                background-color: #e30730;
+            }
+
 .popup {
     display: none;
     position: fixed;
@@ -1080,13 +1177,69 @@ li {
                 height: 50px;
                 justify-content: space-between;
                 align-items: center;
+                position: relative;
             }
 
-                .principal-section .sections-container main[role=main] .section-posts .publish-card .heading-post .post-menu-options box-icon {
-                    width: 26px;
-                    height: 26px;
-                    flex-shrink: 0;
+                .principal-section .sections-container main[role=main] .section-posts .publish-card .heading-post .post-menu-options button.options {
+                    display: flex;
+                    width: 50px;
+                    height: 50px;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: transparent;
+                    border: none;
+                    cursor: pointer;
+                    transition: all 250ms ease-in-out;
+                    border-radius: 50%;
                 }
+
+                    .principal-section .sections-container main[role=main] .section-posts .publish-card .heading-post .post-menu-options button.options:hover {
+                        transition: all 250ms ease-in-out;
+                        background-color: rgba(255, 255, 255, 0.098);
+                    }
+
+                .principal-section .sections-container main[role=main] .section-posts .publish-card .heading-post .post-menu-options .dropdown-menu {
+                    display: none;
+                    width: 182px;
+                    padding: 12px 0px;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: flex-start;
+                    border-radius: 5px;
+                    background: #141B1D;
+                    position: absolute;
+                    right: 24px;
+                }
+
+                    .principal-section .sections-container main[role=main] .section-posts .publish-card .heading-post .post-menu-options .dropdown-menu li {
+                        opacity: 0.7;
+                        transition: all 200ms ease-in-out;
+                    }
+
+                        .principal-section .sections-container main[role=main] .section-posts .publish-card .heading-post .post-menu-options .dropdown-menu li a,
+                        .principal-section .sections-container main[role=main] .section-posts .publish-card .heading-post .post-menu-options .dropdown-menu li button {
+                            display: flex;
+                            padding: 10px 20px;
+                            align-items: center;
+                            gap: 10px;
+                            width: 100%;
+                            align-self: stretch;
+                            background-color: transparent;
+                            border: none;
+                            cursor: pointer;
+                            color: #FFF;
+                            font-family: Inter;
+                            font-size: 15px;
+                            font-style: normal;
+                            font-weight: 400;
+                            line-height: normal;
+                        }
+
+                        .principal-section .sections-container main[role=main] .section-posts .publish-card .heading-post .post-menu-options .dropdown-menu li:hover {
+                            transition: all 200ms ease-in-out;
+                            opacity: 1;
+                            background: rgba(255, 255, 255, 0.05);
+                        }
 
         .principal-section .sections-container main[role=main] .section-posts .publish-card .post-description {
             display: flex;
