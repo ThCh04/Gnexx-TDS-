@@ -9,7 +9,7 @@ namespace Gnexx.Repository.Context
     public class Interaccion
     {
         public int InteraccionId { get; set; }
-        public string Tipo { get; set; }
+        public string ?Tipo { get; set; }
         public DateTime FechaInteraccion { get; set; }
 
         // Relaciones
