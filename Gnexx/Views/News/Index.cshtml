@@ -4,6 +4,17 @@
     ViewData["Title"] = "Noticias";
 }
 
+<div class="popup" id="popupDeletePost">
+    <div class="heading">
+        <img src="~/assets/img/News/warning-sign.png" alt="#">
+        <p>¿Esta seguro de que desea eliminar esta publicación?</p>
+    </div>
+    <div class="popup-buttons">
+        <button onclick="cancelar()" class="button-cancel">Cancelar</button>
+        <button onclick="aceptar()">Aceptar</button>
+    </div>
+</div>
+
 <aside>
     <div class="ad">
         <img src="#" alt="#">
@@ -92,9 +103,6 @@
         }
 
 }
-
-
-   
 
 <aside>
     <div class="action-card">
