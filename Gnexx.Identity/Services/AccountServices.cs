@@ -209,7 +209,7 @@ namespace Gnexx.Identity.Services
                     UserName = vm.UserName,
                     Email = vm.Email,
                     Roles = rol.ToList(),
-                    Verified = vm.Verified
+                    Verified = vm.Verified == null ? false : true   
                 };
 
                 if (item.Roles.Count() == 1)

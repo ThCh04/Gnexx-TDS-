@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Gnexx.Repository.Context;
-using Gnexx.Models.Entities;
-using Microsoft.EntityFrameworkCore;
+using Gnexx.Services.Helpers;
 using Microsoft.AspNetCore.Authorization;
 using Gnexx.Services.Interfaces.Services;
 using Gnexx.Services.ViewModels.NewsViewModel;
+using Gnexx.Services.DTOs.Account;
+
 
 namespace Gnexx.Controllers
 {
@@ -12,13 +12,18 @@ namespace Gnexx.Controllers
     public class NewsController : Controller
     {
         private readonly INewsService _newsService;
-        public NewsController(INewsService newsService)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        public NewsController(INewsService newsService, IHttpContextAccessor httpContextAccessor)
         {
             _newsService = newsService;
-
+            _httpContextAccessor = httpContextAccessor;
         }
         public ActionResult Index()
         {
+            string name = _httpContextAccessor.HttpContext.Session.Get<AuthenticationResponse>("user").FirstName;
+            string uname =_httpContextAccessor.HttpContext.Session.Get<AuthenticationResponse>("user").UserName;
+
+            ViewBag.name = name; ViewBag.uname = '@'+uname;
             return View(new NewsViewModel());
         }
 
