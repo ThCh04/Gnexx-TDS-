@@ -60,10 +60,11 @@ namespace Gnexx.Controllers
             List<string> roles = new List<string>();
             foreach (var roleName in rolesNames)
             {
-                if(roleName != Roles.SuperAdmin.ToString())
-                {
-                    roles.Add(roleName);
-                }
+                //if(roleName != Roles.SuperAdmin.ToString())
+                //{
+                //    roles.Add(roleName);
+                //}
+                roles.Add(roleName);
             }
             ViewBag.Rol = roles;
             return View(new SaveUserVM());
