@@ -3,39 +3,42 @@
     ViewData["Title"] = "Noticias";
 }
 
-<section class="section-posts">
-    <div class="publish-form">
-                        <div class="action-form">
-                            <div class="user-post-info">
-                                <img src="https://secure.virtualsiteinspections.com/images/default.png" alt="user-imagen">
-                                <div class="user-info">
-                                    <span>@ViewBag.name</span>
-                    <p>@ViewBag.uname</p>
-                                </div>
-                            </div>
+<aside>
+    <div class="ad">
+        <img src="#" alt="#">
+    </div>
+</aside>
 
-                            <button class="publish-button" id="openPopup">
-                                Nueva Publicación
-                            </button>
+<div class="container">
+    <div class="empty-section">
+        <div class="empty-section-message">
+            <h3>No hay Noticias</h3>
+            <p>Por el momento no hay noticias registradas </p>
+        </div>
+    </div>
+
+    <section class="section publications">
+        <div class="news-publication">
+            <div class="heading-post">
+                <div class="user-info">
+                    <img src="https://secure.virtualsiteinspections.com/images/default.png"
+                         alt="user profile image" class="image">
+                    <div class="about-user-publication">
+                        <h5 class="fullname">@ViewBag.name</h5>
+                        <div class="related-info">
+                            <div class="place">
+                                <box-icon name='edit-location' type='solid' color='#ffffff'></box-icon>
+                                <p>Santo Domingo</p>
+                            </div>
+                            <p class="time-ago">hace 4 horas</p>
                         </div>
                     </div>
-
-    <div class="publish-card">
-        <div class="heading-post">
-            <div class="post-user-info">
-                <img src="https://secure.virtualsiteinspections.com/images/default.png" alt="user-imagen">
-                <div class="info">
-                    <span class="full-name">Isael Diroche</span>
-                    <span class="username">IsaelDD</span>
-                    <p class="dot">·</p>
-                    <span class="date">7 Feb</span>
                 </div>
-            </div>
-            <div class="post-menu-options">
-                <div class="dropdown">
-                    <button class="options" onclick="openPostOptions()">
-                        <box-icon name='dots-vertical-rounded' color='#ffffff'></box-icon>
+                <div class="menu-cont">
+                    <button class="menu-action-button" onclick="openPostOptions()">
+                        <box-icon name='dots-horizontal-rounded' color='#fff'></box-icon>
                     </button>
+
                     <ul class="dropdown-menu" id="post_options">
                         <li><button id="openPopupEdit"><box-icon name='edit-alt' color='#ffffff'></box-icon> Editar</button></li>
                         <li>
@@ -45,25 +48,55 @@
                     </ul>
                 </div>
             </div>
+            <div class="content-post">
+                <p class="title">
+                    Feugiat in fermentum posuere urna nec tincidunt praesent. Nunc lobortis mattis
+                    aliquam faucibus puru fermentum posuere urna nec tincidunt praesent.
+                </p>
+                <img src="https://www.wallpaperup.com/uploads/wallpapers/2014/01/30/242592/83f6fb0ce5112fbcbf62cd2cf7f7ce46-700.jpg" alt="publication image" class="publication-image">
+                <a href="#" class="url-source">www.jumanjibuggytours.com</a>
+            </div>
+            <ul class="action-bar-items">
+                <li class="item">
+                    <a href="#">
+                        <box-icon name='heart' color='#ffffff'></box-icon>
+                        <p>Me Gusta</p>
+                    </a>
+                </li>
+                <li class="item">
+                    <a href="#">
+                        <box-icon name='message-rounded-dots' color='#ffffff'></box-icon>
+                        <p>Comentarios</p>
+                    </a>
+                </li>
+                <li class="item">
+                    <a href="#">
+                        <box-icon name='share-alt' color='#ffffff'></box-icon>
+                        <p>Compartir</p>
+                    </a>
+                </li>
+            </ul>
         </div>
-        <div class="post-description">
-            <p>
-                Feugiat in fermentum posuere urna nec tincidunt praesent. Nunc lobortis mattis aliquam
-                faucibus puru fermentum posuere urna nec tincidunt praesent.
-            </p>
-            <img src="#" alt="post-imagen">
-            <div class="actions">
-                <a href="#">
-                    <box-icon name='heart' color='#ffffff'></box-icon>
-                </a>
-                <a href="#">
-                    <box-icon name='message-rounded-dots' color='#ffffff'></box-icon>
-                </a>
+    </section>
+</div>
+
+<aside>
+    <div class="action-card">
+        <div class="card-header">
+            <a href="#" class="edit-profile-btn">
+                <box-icon name='edit-alt' type='solid' color='#ffffff'></box-icon>
+            </a>
+            <img src="https://secure.virtualsiteinspections.com/images/default.png" alt="user profile image"
+                 class="user-profile">
+            <div class="user-info">
+                <h3>@ViewBag.name</h3>
+                <h4>@ViewBag.uname</h4>
             </div>
         </div>
-    </div>
-</section>
 
-<aside class="aside-posts">
-    <div class="banner"></div>
+        <button class="action-card-button" id="openPopup">
+            <box-icon name='videos' type='solid' color='#ffffff'></box-icon>
+            <p>Añadir Noticia</p>
+        </button>
+    </div>
 </aside>

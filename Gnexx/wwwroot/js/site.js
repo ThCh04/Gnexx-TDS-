@@ -6,12 +6,11 @@ const openPopupButton = document.getElementById('openPopup');
 const openPopupEdit = document.getElementById('openPopupEdit');
 
 navSideBarButton.addEventListener('click', (e) => {
-    navSideBar.style.transform = 'translateX(0%)';
-    navSideBar.style.opacity = '100%';
+    navSideBar.style.transform = 'translateX(-10%)';
 });
+
 navSideBarCloseButton.addEventListener('click', (e) => {
-    navSideBar.style.transform = 'translateX(100%)';
-    navSideBar.style.opacity = '0%';
+    navSideBar.style.transform = 'translateX(-110%)';
 });
 
 function openPostOptions() {

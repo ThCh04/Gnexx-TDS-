@@ -14,91 +14,112 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@100;200;300;400;500;600;700;800;900&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-    <div class="overlay" id="overlay" onclick="hideConfirmDeletePost()"></div>
-    @Html.Partial("News/_NewsFormulary")
-    @Html.Partial("News/_ConfirmDeletePost")
 
-    <div class="principal-section">
-        <nav class="nav-bar">
-            <div class="logo">
-                <img class="hero-bg"
-                     src="https://s3-alpha-sig.figma.com/img/666e/6212/ff0403cca432239a832d234196f142d3?Expires=1702252800&Signature=WdbH8Yfxes5P4379Q5467Ve45TsKytUQHtATJ9IuPx7OyWBJMIeK-SlZ8pIVuZcR-iXGnkJnL3bnbNaT9kjOgePnCOfbyxaUaA3uLvut63YS~8Bh5CVADay7fSWQDwiPkhWa6X751ukyMTjwd1WAIpBZ23HF9fhdkoAlBxbhibJ0SuAkuUUEGdcH94myakJ6vEzf5-Wrp29X8LzNW7DW~o6Kjf2G4eUdRyxCsOUDJXA7yQPomKYOpRIyLKWxz~D6AhRhZu63hhWnPHxnayRxsffdOesUI2xsFRLzkEC1HscS9m0jgN6~d4ycLK74hbt3i8inXgJUzOYO1orgX0mlKg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
-                     alt="">
+    <nav class="navbar">
+        <div class="container">
+            <div class="menu-options">
+                <a href="#" class="option nav-side-bar-button"><box-icon name='menu' color="#FFF"></box-icon></a>
             </div>
-
-            <div class="nav-logo">
-                <img class="hero-bg"
-                     src="https://s3-alpha-sig.figma.com/img/666e/6212/ff0403cca432239a832d234196f142d3?Expires=1702252800&Signature=WdbH8Yfxes5P4379Q5467Ve45TsKytUQHtATJ9IuPx7OyWBJMIeK-SlZ8pIVuZcR-iXGnkJnL3bnbNaT9kjOgePnCOfbyxaUaA3uLvut63YS~8Bh5CVADay7fSWQDwiPkhWa6X751ukyMTjwd1WAIpBZ23HF9fhdkoAlBxbhibJ0SuAkuUUEGdcH94myakJ6vEzf5-Wrp29X8LzNW7DW~o6Kjf2G4eUdRyxCsOUDJXA7yQPomKYOpRIyLKWxz~D6AhRhZu63hhWnPHxnayRxsffdOesUI2xsFRLzkEC1HscS9m0jgN6~d4ycLK74hbt3i8inXgJUzOYO1orgX0mlKg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
-                     alt="">
+            <a href="#">
+                <img src="~/assets/img/register-logo.png" alt="logo" class="logo">
+            </a>
+            <div class="configuration-options">
+                <a href="#" class="option"><box-icon name='bell' type='solid' color="#FFF"></box-icon></a>
+                <a href="#" class="option"><box-icon type='solid' name='cog' color="#FFF"></box-icon></a>
             </div>
+        </div>
 
-            <div class="side-bar">
-                <button class="nav-side-bar-button">
-                    <box-icon name='menu' color="#fff"></box-icon>
+        <div class="side-bar">
+            <div class="nav-side-bar">
+                <button class="nav-side-bar-close-button">
+                    <box-icon name='x' color="#fff"></box-icon>
                 </button>
-                <div class="nav-side-bar">
-                    <button class="nav-side-bar-close-button">
-                        <box-icon name='x' color="#fff"></box-icon>
-                    </button>
-                    <img src="https://s3-alpha-sig.figma.com/img/666e/6212/ff0403cca432239a832d234196f142d3?Expires=1702252800&Signature=WdbH8Yfxes5P4379Q5467Ve45TsKytUQHtATJ9IuPx7OyWBJMIeK-SlZ8pIVuZcR-iXGnkJnL3bnbNaT9kjOgePnCOfbyxaUaA3uLvut63YS~8Bh5CVADay7fSWQDwiPkhWa6X751ukyMTjwd1WAIpBZ23HF9fhdkoAlBxbhibJ0SuAkuUUEGdcH94myakJ6vEzf5-Wrp29X8LzNW7DW~o6Kjf2G4eUdRyxCsOUDJXA7yQPomKYOpRIyLKWxz~D6AhRhZu63hhWnPHxnayRxsffdOesUI2xsFRLzkEC1HscS9m0jgN6~d4ycLK74hbt3i8inXgJUzOYO1orgX0mlKg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
-                         alt="">
-                    <div class="nav-side-bar-links-list">
-                        <a class="nav-link lang" href="#">Principal</a>
-                        <a class="nav-link lang" href="#">Noticias</a>
-                        <a class="nav-link lang" href="#">Equipos</a>
-                    </div>
-                    <div class="credits">
-                        <li class="nav-link"><a asp-controller="Auth" asp-action="SignOut"><box-icon name='log-out' color="#AAABB2"></box-icon> Cerrar Sesión</a></li>
-                        <p>© 2023 - Gnexx</p>
-                    </div>
+                <img src="~/assets/img/register-logo.png" alt="logo">
+
+                <div class="nav-side-bar-links-list">
+                    <ul class="navbar-container">
+                        <li class="nav-link">
+                            <a href="#">
+                                <box-icon name='news' type='solid' color="#AAABB2"></box-icon>
+                                Noticias
+                            </a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="#">
+                                <box-icon name='group' type='solid' color="#AAABB2"></box-icon>
+                                Equipos
+                            </a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="#">
+                                <box-icon type='solid' name='message-dots'
+                                          color="#AAABB2"></box-icon>
+                                Comunidad
+                            </a>
+                        </li>
+                        <li>
+                            <div class="separator"></div>
+                        </li>
+
+                        <li class="dropdown">
+                            <button onclick="toggleElementVisibilityById('dropdown1')" class="dropdown-title">
+                                Juegos
+                                Populares
+                            </button>
+                            <ul class="dropdown-content" id="dropdown1">
+                                <li class="dropdown-item"><a href="#">Valorant</a></li>
+                                <li class="dropdown-item"><a href="#">League of Legends</a></li>
+                                <li class="dropdown-item"><a href="#">Garena Free Fire</a></li>
+                                <li class="dropdown-item"><a href="#">Minecraft</a></li>
+                                <li class="dropdown-item"><a href="#">Brawlhalla</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <div class="separator"></div>
+                        </li>
+                        <li class="dropdown">
+                            <button onclick="toggleElementVisibilityById('dropdown2')"
+                                    class="dropdown-title">
+                                Categorias
+                            </button>
+                            <ul class="dropdown-content" id="dropdown2">
+                                <li class="dropdown-item"><a href="#">Aventura</a></li>
+                                <li class="dropdown-item"><a href="#">Zombies</a></li>
+                                <li class="dropdown-item"><a href="#">Battle Royale</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="navbar-container">
+                        <li class="nav-link">
+                            <a asp-controller="Auth" asp-action="SignOut">
+                                <box-icon name='log-out'
+                                          color='#fff'></box-icon> Cerrar Sesión
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="credits">
+                    <p>© 2023 - Gnexx</p>
                 </div>
             </div>
-        </nav>
-
-        <div class="sections-container">
-            
-            <nav class="sidebar">
-                <ul class="navbar-container">
-                    <li class="nav-link"><a asp-controller="Home" asp-action="Index"><box-icon type='solid' name='home' color="#AAABB2"></box-icon> Principal</a></li>
-                    <li class="nav-link"><a asp-controller="News" asp-action="Index"><box-icon name='news' type='solid' color="#AAABB2"></box-icon> Noticias</a></li>
-                    <li class="nav-link"><a asp-controller="Team" asp-action="Index"><box-icon name='group' type='solid' color="#AAABB2"></box-icon> Equipos</a></li>
-                    
-                    <li><div class="separator"></div></li>
-
-                    <li class="dropdown">
-                        <button onclick="toggleElementVisibilityById('dropdown1')" class="dropdown-title">Juegos Populares</button>
-                        <ul class="dropdown-content" id="dropdown1" style="display: none;">
-                            <li class="dropdown-item"><a href="#">Valorant</a></li>
-                            <li class="dropdown-item"><a href="#">League of Legends</a></li>
-                            <li class="dropdown-item"><a href="#">Garena Free Fire</a></li>
-                            <li class="dropdown-item"><a href="#">Minecraft</a></li>
-                            <li class="dropdown-item"><a href="#">Brawlhalla</a></li>
-                        </ul>
-                    </li>
-
-                    <li><div class="separator"></div></li>
-                    <li class="dropdown">
-                        <button onclick="toggleElementVisibilityById('dropdown2')" class="dropdown-title">Categorias</button>
-                        <ul class="dropdown-content" id="dropdown2" style="display: none" ;>
-                            <li class="dropdown-item"><a href="#">Aventura</a></li>
-                            <li class="dropdown-item"><a href="#">Zombies</a></li>
-                            <li class="dropdown-item"><a href="#">Battle Royale</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <ul class="navbar-container">
-                    <li class="nav-link"><a asp-controller="Auth" asp-action="SignOut"><box-icon name='log-out' color="#AAABB2"></box-icon> Cerrar Sesión</a></li>
-                </ul>
-                
-            </nav>
-
-            <main role="main">
-                @RenderBody()
-            </main>
         </div>
-    </div>
+    </nav>
+    
+    <div class="overlay" id="overlay" onclick="hideConfirmDeletePost()"></div>
+
+    @Html.Partial("News/_NewsFormulary")
+
+    @Html.Partial("News/_ConfirmDeletePost")
+
+
+    <main role="main">
+        @RenderBody()
+    </main>
 
     <script src="~/js/site.js" asp-append-version="true"></script>
 
