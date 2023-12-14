@@ -1,11 +1,15 @@
-﻿
+﻿@model Gnexx.Services.ViewModels.NewsViewModel.NewsViewModel
+
 <div id="popup" class="popup">
     <div class="publish-form-container">
         <button class="close-btn" onclick="closePopup()"><box-icon name='x' color='#ffffff'></box-icon></button>
         <div class="heading">
             <h1>Crear Publicación</h1>
         </div>
-        <form method="post" action="">
+        <form asp-controller="News" asp-action="Create" method="post">
+            <input hidden asp-for="Author" value="@ViewBag.uname">
+            <input hidden asp-for="ID" value="@ViewBag.uid">
+            <input hidden asp-for="Status" value="public">
             <div class="form">
                 <div class="user-post-info">
                     <img src="https://secure.virtualsiteinspections.com/images/default.png" alt="user-imagen" class="user-imagen">
@@ -13,10 +17,16 @@
                         <option value="public">Publico</option>
                         <option value="private">Privado</option>
                     </select>
+                    <span asp-validation-for="Status"></span>
                 </div>
-                <input type="text" name="title" id="id_title" placeholder="Titulo del post" required>
-                <textarea name="" id="" cols="30" rows="10" placeholder="Que estas pensando" required></textarea>
-                <input type="text" name="imagen_url" id="id_imagen_url" placeholder="url de imagen">
+				<input asp-for="Title" type="text" name="title" id="title" placeholder="Título">
+                <span asp-validation-for="Title"></span>
+                <textarea asp-for="News_body" cols="30" rows="10" placeholder="Que estas pensando"></textarea>
+                <span asp-validation-for="News_body"></span>
+                <input  type="text" name="imagen_url" id="id_imagen_url" placeholder="url de imagen">
+                <input asp-for="Source" type="text" name="source" id="source" placeholder="Fuente">
+                <span asp-validation-for="Source"></span>
+
             </div>
             <button type="submit" class="publish-btn">
                 Publicar

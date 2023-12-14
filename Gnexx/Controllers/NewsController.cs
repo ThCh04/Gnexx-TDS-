@@ -22,8 +22,9 @@ namespace Gnexx.Controllers
         {
             string name = _httpContextAccessor.HttpContext.Session.Get<AuthenticationResponse>("user").FirstName;
             string uname =_httpContextAccessor.HttpContext.Session.Get<AuthenticationResponse>("user").UserName;
+            string uid = _httpContextAccessor.HttpContext.Session.Get<AuthenticationResponse>("user").Id;
 
-            ViewBag.name = name; ViewBag.uname = '@'+uname;
+            ViewBag.name = name; ViewBag.uname = '@'+uname; ViewBag.uid = uid;
             return View(new NewsViewModel());
         }
 
@@ -34,10 +35,7 @@ namespace Gnexx.Controllers
         }
 
 
-        public ActionResult Create()
-        {
-            return View("Publish/Create");
-        }
+   
 
         [HttpPost]
         public async Task <IActionResult> Create(NewsViewModel news)
@@ -47,7 +45,7 @@ namespace Gnexx.Controllers
                 await _newsService.Add(news);
                 return RedirectToAction("GetAll");
             }
-            return View("Publish/Create", news);
+            return RedirectToRoute("#");
         }
 
         public ActionResult Details(int id)
