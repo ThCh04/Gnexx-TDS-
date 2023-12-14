@@ -1,0 +1,26 @@
+﻿@{
+    @using Gnexx.Services.ViewModels.NewsViewModel;
+    @model NewsViewModel;
+}
+<div class="container">
+    <section class="news-publish-form">
+        <form action="" method="post">
+            <div class="text">
+                <h3>Añadir Noticia</h3>
+                <p>Llene todos los campos para añadir una nueva noticia</p>
+            </div>
+            <div class="fields">
+                <input for="Title" type="text" name="title" id="title" placeholder="Título">
+                <span for="title"></span>
+                <textarea for="News_body" cols="30" rows="10" placeholder="Que estas pensando"></textarea>
+                <span for="News_body"></span>
+                <input type="text" name="imagen_url" id="id_imagen_url" placeholder="url de imagen">
+                <input for="Source" type="text" name="source" id="source" placeholder="Fuente">
+                <span for="Source"></span>
+            </div>
+            <button type="submit" class="publish-btn">
+                Publicar
+            </button>
+        </form>
+    </section>
+</div>
