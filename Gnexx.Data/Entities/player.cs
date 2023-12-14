@@ -37,5 +37,7 @@ namespace Gnexx.Models.Entities
         public Team Teams { get; set; }
         public int UserID { get; set; }
         public UsersEntitie Users { get; set; }
+        public int postID { get; set; }
+        public Postulation Postulations { get; set; }
     }
 }

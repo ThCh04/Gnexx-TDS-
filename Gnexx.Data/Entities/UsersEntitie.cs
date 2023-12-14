@@ -25,7 +25,7 @@ namespace Gnexx.Models.Entities
         [Required]
         public string Type_user { get; set; }
 
-        
+        public string Country { get; set; }
         public string? Profile_img { get; set; }
 
         public DateTime? BirthDate { get; set; }
@@ -38,7 +38,8 @@ namespace Gnexx.Models.Entities
         public Player Players { get; set; }
         public int? TeamID { get; set; }
         public Team Teams { get; set; }
-        
+
+
         //navigation property
 
         public List<News> News { get; set; }
