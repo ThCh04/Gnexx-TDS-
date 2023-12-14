@@ -8,7 +8,7 @@ using Gnexx.Services.DTOs.Account;
 
 namespace Gnexx.Controllers
 {
-    [Authorize(Roles = "Player")]
+    //[Authorize(Roles = "Player")]
     public class NewsController : Controller
     {
         private readonly INewsService _newsService;
@@ -18,24 +18,20 @@ namespace Gnexx.Controllers
             _newsService = newsService;
             _httpContextAccessor = httpContextAccessor;
         }
-        public ActionResult Index()
+        public async Task<IActionResult> Index()
         {
             string name = _httpContextAccessor.HttpContext.Session.Get<AuthenticationResponse>("user").FirstName;
             string uname =_httpContextAccessor.HttpContext.Session.Get<AuthenticationResponse>("user").UserName;
-            string uid = _httpContextAccessor.HttpContext.Session.Get<AuthenticationResponse>("user").Id;
+            string uid = "1";
 
             ViewBag.name = name; ViewBag.uname = '@'+uname; ViewBag.uid = uid;
-            return View(new NewsViewModel());
-        }
-
-        public async Task<IActionResult> GetAll()
-        {
-            List<NewsViewModel> newsList = await _newsService.GetAllViewModel();
+            var newsList = await _newsService.GetAllViewModel();
+            List<Gnexx.Services.ViewModels.NewsViewModel.NewsViewModel> list = newsList.ToList();
             return View(newsList);
         }
 
+      
 
-   
 
         [HttpPost]
         public async Task <IActionResult> Create(NewsViewModel news)
@@ -45,7 +41,7 @@ namespace Gnexx.Controllers
                 await _newsService.Add(news);
                 return RedirectToAction("GetAll");
             }
-            return RedirectToRoute("#");
+            return View(news);
         }
 
         public ActionResult Details(int id)

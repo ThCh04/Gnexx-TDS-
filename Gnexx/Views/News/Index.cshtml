@@ -1,4 +1,5 @@
-﻿
+﻿@using Gnexx.Services.ViewModels.NewsViewModel;
+@model List<NewsViewModel>
 @{
     ViewData["Title"] = "Noticias";
 }
@@ -9,76 +10,91 @@
     </div>
 </aside>
 
-<div class="container">
-    <div class="empty-section">
-        <div class="empty-section-message">
-            <h3>No hay Noticias</h3>
-            <p>Por el momento no hay noticias registradas </p>
+@if(Model.Count() == 0 || Model == null)
+{
+    <div class="container">
+        <div class="empty-section">
+            <div class="empty-section-message">
+                <h3>No hay Noticias</h3>
+                <p>Por el momento no hay noticias registradas </p>
+            </div>
         </div>
     </div>
+}else{
 
-    <section class="section publications">
-        <div class="news-publication">
-            <div class="heading-post">
-                <div class="user-info">
-                    <img src="https://secure.virtualsiteinspections.com/images/default.png"
-                         alt="user profile image" class="image">
-                    <div class="about-user-publication">
-                        <h5 class="fullname">@ViewBag.name</h5>
-                        <div class="related-info">
-                            <div class="place">
-                                <box-icon name='edit-location' type='solid' color='#ffffff'></box-icon>
-                                <p>Santo Domingo</p>
+        @foreach(var item in Model)
+        {
+        <div class="container">
+            <section class="section publications">
+                <div class="news-publication">
+                    <div class="heading-post">
+                        <div class="user-info">
+                            <img src="https://secure.virtualsiteinspections.com/images/default.png"
+                                 alt="user profile image" class="image">
+                            <div class="about-user-publication">
+                                <h5 class="fullname">@item.Author</h5>
+                                <div class="related-info">
+                                    <div class="place">
+                                        <box-icon name='edit-location' type='solid' color='#ffffff'></box-icon>
+                                        <p>Santo Domingo</p>
+                                    </div>
+                                    <p class="time-ago">@item.Pub_date.ToString("dd/MM/yyyy")</p>
+                                </div>
                             </div>
-                            <p class="time-ago">hace 4 horas</p>
+                        </div>
+                        <div class="menu-cont">
+                            <button class="menu-action-button" onclick="openPostOptions()">
+                                <box-icon name='dots-horizontal-rounded' color='#fff'></box-icon>
+                            </button>
+
+                            <ul class="dropdown-menu" id="post_options">
+                                <li><button id="openPopupEdit"><box-icon name='edit-alt' color='#ffffff'></box-icon> Editar</button></li>
+                                <li>
+                                    <button onclick="showConfirmDeletePost()"><box-icon name='trash' color='#ffffff'></box-icon> Eliminar</button>
+                                </li>
+                                <li><button onclick="closePostOptions()"><box-icon name='share-alt' type='solid' color='#ffffff'></box-icon> Compartir</button></li>
+                            </ul>
                         </div>
                     </div>
-                </div>
-                <div class="menu-cont">
-                    <button class="menu-action-button" onclick="openPostOptions()">
-                        <box-icon name='dots-horizontal-rounded' color='#fff'></box-icon>
-                    </button>
-
-                    <ul class="dropdown-menu" id="post_options">
-                        <li><button id="openPopupEdit"><box-icon name='edit-alt' color='#ffffff'></box-icon> Editar</button></li>
-                        <li>
-                            <button onclick="showConfirmDeletePost()"><box-icon name='trash' color='#ffffff'></box-icon> Eliminar</button>
+                    <div class="content-post">
+                        <p class="title">
+                           @item.News_body
+                        </p>
+                        <img src="@item.News_img" alt="publication image" class="publication-image">
+                        <a href="#" class="url-source">www.jumanjibuggytours.com</a>
+                    </div>
+                    <ul class="action-bar-items">
+                        <li class="item">
+                            <a href="#">
+                                <box-icon name='heart' color='#ffffff'></box-icon>
+                                <p>Me Gusta</p>
+                            </a>
                         </li>
-                        <li><button onclick="closePostOptions()"><box-icon name='share-alt' type='solid' color='#ffffff'></box-icon> Compartir</button></li>
+                        <li class="item">
+                            <a href="#">
+                                <box-icon name='message-rounded-dots' color='#ffffff'></box-icon>
+                                <p>Comentarios</p>
+                            </a>
+                        </li>
+                        <li class="item">
+                            <a href="#">
+                                <box-icon name='share-alt' color='#ffffff'></box-icon>
+                                <p>Compartir</p>
+                            </a>
+                        </li>
                     </ul>
                 </div>
-            </div>
-            <div class="content-post">
-                <p class="title">
-                    Feugiat in fermentum posuere urna nec tincidunt praesent. Nunc lobortis mattis
-                    aliquam faucibus puru fermentum posuere urna nec tincidunt praesent.
-                </p>
-                <img src="https://www.wallpaperup.com/uploads/wallpapers/2014/01/30/242592/83f6fb0ce5112fbcbf62cd2cf7f7ce46-700.jpg" alt="publication image" class="publication-image">
-                <a href="#" class="url-source">www.jumanjibuggytours.com</a>
-            </div>
-            <ul class="action-bar-items">
-                <li class="item">
-                    <a href="#">
-                        <box-icon name='heart' color='#ffffff'></box-icon>
-                        <p>Me Gusta</p>
-                    </a>
-                </li>
-                <li class="item">
-                    <a href="#">
-                        <box-icon name='message-rounded-dots' color='#ffffff'></box-icon>
-                        <p>Comentarios</p>
-                    </a>
-                </li>
-                <li class="item">
-                    <a href="#">
-                        <box-icon name='share-alt' color='#ffffff'></box-icon>
-                        <p>Compartir</p>
-                    </a>
-                </li>
-            </ul>
+            </section>
+
         </div>
-    </section>
-</div>
+
+
+        }
+
+}
+
+
+   
 
 <aside>
     <div class="action-card">

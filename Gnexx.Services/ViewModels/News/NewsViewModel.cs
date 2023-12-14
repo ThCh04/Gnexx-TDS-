@@ -10,6 +10,8 @@ namespace Gnexx.Services.ViewModels.NewsViewModel
     public class NewsViewModel
     {
         public int ID { get; set; }
+        [Required]
+        public int UserID { get; set; }
         public string Author { get; set; }
 
         [Required]
@@ -22,7 +24,7 @@ namespace Gnexx.Services.ViewModels.NewsViewModel
         public string News_body { get; set; }
 
         [Required]
-        public string Image { get; set; }
+        public string News_img { get; set; }
 
         [Required]
         public string Source { get; set; }

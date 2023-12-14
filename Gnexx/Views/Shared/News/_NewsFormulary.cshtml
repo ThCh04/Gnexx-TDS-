@@ -1,4 +1,5 @@
-﻿@model Gnexx.Services.ViewModels.NewsViewModel.NewsViewModel
+﻿@using Gnexx.Services.ViewModels.NewsViewModel;
+@model List<NewsViewModel>
 
 <div id="popup" class="popup">
     <div class="publish-form-container">
@@ -6,32 +7,39 @@
         <div class="heading">
             <h1>Crear Publicación</h1>
         </div>
-        <form asp-controller="News" asp-action="Create" method="post">
+        @{
+        /*
+            <form asp-controller="News" asp-action="Create" method="post">
             <input hidden asp-for="Author" value="@ViewBag.uname">
-            <input hidden asp-for="ID" value="@ViewBag.uid">
+            <input hidden asp-for="UserID" value="@ViewBag.uid">
             <input hidden asp-for="Status" value="public">
             <div class="form">
-                <div class="user-post-info">
-                    <img src="https://secure.virtualsiteinspections.com/images/default.png" alt="user-imagen" class="user-imagen">
-                    <select title="selectione" name="post-privacity" id="post-privacity" class="publish-privacity-select">
-                        <option value="public">Publico</option>
-                        <option value="private">Privado</option>
-                    </select>
-                    <span asp-validation-for="Status"></span>
-                </div>
-				<input asp-for="Title" type="text" name="title" id="title" placeholder="Título">
-                <span asp-validation-for="Title"></span>
-                <textarea asp-for="News_body" cols="30" rows="10" placeholder="Que estas pensando"></textarea>
-                <span asp-validation-for="News_body"></span>
-                <input  type="text" name="imagen_url" id="id_imagen_url" placeholder="url de imagen">
-                <input asp-for="Source" type="text" name="source" id="source" placeholder="Fuente">
-                <span asp-validation-for="Source"></span>
+            <div class="user-post-info">
+            <img src="https://secure.virtualsiteinspections.com/images/default.png" alt="user-imagen" class="user-imagen">
+            <select title="selectione" name="post-privacity" id="post-privacity" class="publish-privacity-select">
+            <option value="public">Publico</option>
+            <option value="private">Privado</option>
+            </select>
+            <span asp-validation-for="Status"></span>
+            </div>
+            <input asp-for="Title" type="text" name="title" id="title" placeholder="Título">
+            <span asp-validation-for="Title"></span>
+            <textarea asp-for="News_body" cols="30" rows="10" placeholder="Que estas pensando"></textarea>
+            <span asp-validation-for="News_body"></span>
+            <input asp-for="News_img" type="text" name="news_img" id="news_img" placeholder="url de imagen">
+            <input asp-for="Source" type="text" name="source" id="source" placeholder="Fuente">
+            <span asp-validation-for="Source"></span>
 
             </div>
             <button type="submit" class="publish-btn">
-                Publicar
+            Publicar
             </button>
-        </form>
+            </form>
+            */
+        
+        
+        }
+        
 
     </div>
 </div>
