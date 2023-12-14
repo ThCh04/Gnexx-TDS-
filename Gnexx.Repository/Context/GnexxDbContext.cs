@@ -15,6 +15,7 @@ namespace Gnexx.Repository.Context
         {
 
         }
+        public DbSet<Postulation> Posts { get; set; }
         public DbSet<UsersEntitie> User { get; set; }
         public DbSet<News> News { get; set; }
         public DbSet<Team> Teams { get; set; }
