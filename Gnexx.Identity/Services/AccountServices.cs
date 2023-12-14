@@ -56,8 +56,6 @@ namespace Gnexx.Identity.Services
 
             response.Id = user.Id;
             response.UserName = user.UserName;
-            response.FirstName = user.FirstName;
-            response.LastName = user.LastName;
             response.Email = user.Email;
             var rolesList = await _userManager.GetRolesAsync(user).ConfigureAwait(false);
             response.Roles = rolesList.ToList();
