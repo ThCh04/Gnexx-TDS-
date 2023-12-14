@@ -18,12 +18,16 @@ namespace Gnexx.Models.Entities
         public DateTime Pub_date { get; set; }
 
         [Required]
-        public string News_body { get; set; } 
+        public string News_body { get; set; }
+
+        [Required]
+        public string News_img { get; set; }
 
         [Required]
         public string Source { get; set; }
 
         public string Status { get; set; }
+
 
         public int UserID { get; set; }
 

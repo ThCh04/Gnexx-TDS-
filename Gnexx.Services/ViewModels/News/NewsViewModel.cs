@@ -22,6 +22,9 @@ namespace Gnexx.Services.ViewModels.NewsViewModel
         public string News_body { get; set; }
 
         [Required]
+        public string Image { get; set; }
+
+        [Required]
         public string Source { get; set; }
 
         public string Status { get; set; }
