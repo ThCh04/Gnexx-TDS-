@@ -25,20 +25,20 @@ namespace Gnexx.Services.ViewModels.UserEntitie
         [Required]
         public string Type_user { get; set; }
 
-        [Required]
-        public string Profile_img { get; set; }
+        
+        public string? Profile_img { get; set; }
 
-        public DateTime BirthDate { get; set; }
+        public DateTime? BirthDate { get; set; }
 
         public string Email { get; set; }
 
         public string Password { get; set; }
 
-        public int CoachID { get; set; }
+        public int? CoachID { get; set; }
         public Coach Coaches { get; set; }
-        public int PlayerID { get; set; }
+        public int? PlayerID { get; set; }
         public Player Players { get; set; }
-        public int TeamID { get; set; }
+        public int? TeamID { get; set; }
         public Team Teams { get; set; }
 
         //navigation property

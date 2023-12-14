@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
+using Gnexx.Models.Entities;
 using Gnexx.Services.DTOs.Account;
 using Gnexx.Services.Interfaces;
+using Gnexx.Services.Interfaces.Repository;
 using Gnexx.Services.Services.Interfaces;
 using Gnexx.Services.UserIdentity;
 using RealEstateApp.Core.Aplication.DTOs.Account;
@@ -11,9 +13,11 @@ namespace Gnexx.Services.Services
     {
         private readonly IAccountService _accountServices;
         private readonly IMapper _mapper;
+        private readonly IUserEntityrepo _userEntityrepo;
 
-        public UserService(IAccountService accountServices, IMapper mapper)
+        public UserService(IUserEntityrepo userEntityrepo,IAccountService accountServices, IMapper mapper)
         {
+            _userEntityrepo = userEntityrepo;
             _accountServices = accountServices;
             _mapper = mapper;
         }
@@ -59,6 +63,14 @@ namespace Gnexx.Services.Services
 
         public async Task<RegisterResponse> RegisterAsync(SaveUserVM vm, string origin)
         {
+            UsersEntitie usersEntitie = new();
+            usersEntitie.Username = vm.Username;
+            usersEntitie.Email = vm.Email;
+            usersEntitie.Name = vm.Firstname;
+            usersEntitie.Lastname = vm.Lastname;
+            usersEntitie.Type_user = vm.Rol;
+
+            await _userEntityrepo.CreateAsync(usersEntitie);
             RegisterRequest registerRequest = _mapper.Map<RegisterRequest>(vm);
             return await _accountServices.RegistereBasicAsync(registerRequest, origin);
         }

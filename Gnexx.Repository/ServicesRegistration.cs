@@ -25,7 +25,8 @@ namespace Gnexx.Repository
             //Generics
             services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddTransient<INewsRepo, NewsRepo>();
-           
+            services.AddTransient<IUserEntityrepo, UserEntityrepo>();
+
             //Other repos
 
             #endregion
