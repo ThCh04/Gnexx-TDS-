@@ -13,6 +13,6 @@ namespace Gnexx.Identity.Entities
 
         public string? LastName { get; set; }
 
-        public bool? Verified { get; set; }
+        public bool Verified { get; set; }
     }
 }
