@@ -1,3 +1,26 @@
+.publish-btn {
+    display: flex;
+    padding: 11px 42px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+    border-radius: 8px;
+    border: none;
+    background: linear-gradient(0deg, #0866FF 0%, #0866FF 100%), linear-gradient(180deg, #71031D 0%, #880A0A 100%);
+    color: #FFF;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    cursor: pointer;
+}
+
+    .publish-btn:hover {
+        background: linear-gradient(0deg, #2b7cff 0%, #4d91ff 100%), linear-gradient(180deg, #71031D 0%, #880A0A 100%);
+    }
+
 .input-data {
     margin-top: 20px;
     height: 40px;

@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Gnexx</title>
 
-    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/News/news-styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/Team/team-styles.css" asp-append-version="true" />
 
     <link rel="stylesheet" href="~/Gnexx.styles.css" asp-append-version="true" />
 
@@ -48,13 +48,13 @@
                             </a>
                         </li>
                         <li class="nav-link">
-                            <a href="#">
+                            <a asp-controller="Team" asp-action="Index">
                                 <box-icon name='group' type='solid' color="#AAABB2"></box-icon>
                                 Equipos
                             </a>
                         </li>
                         <li class="nav-link">
-                            <a href="#">
+                            <a asp-controller="Community" asp-action="Index">
                                 <box-icon type='solid' name='message-dots'
                                           color="#AAABB2"></box-icon>
                                 Comunidad
