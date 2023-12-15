@@ -32,7 +32,24 @@ li {
     /*box-shadow: 2px 2px 3px #999;*/
 
 }
-
+.float_2{
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 800px;
+    right: 60px;
+    /*background-color: #0C9;
+    color: #FFF;*/
+    border-radius: 8px;
+    text-align: center;
+    
+    /*box-shadow: 2px 2px 3px #999;*/
+}
+.my-float_2 {
+    margin-top: 2px;
+    font-size: 15px;
+    text-align: center;
+}
 
 
 .my-float {
@@ -610,6 +627,7 @@ li {
 
 main[role=main] {
     display: flex;
+    height: calc(100vh - 70px);
     padding: 35px 50px;
     align-items: flex-start;
     gap: 40px;
@@ -1816,6 +1834,7 @@ main[role=main] .container .section.publications .news-publication ul.action-bar
 
 .menu-cont .dropdown-menu {
     position: absolute;
+    z-index: 1000;
     right: 0px;
     top: 55px;
     width: 182px;
