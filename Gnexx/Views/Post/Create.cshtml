@@ -1,7 +1,34 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@using Gnexx.Services.ViewModels.PostulationViewModel
 
-<h1>Create</h1>
+@model PostulationViewModel
+
+
+<form asp-controller="Post" asp-action="Create" method="post">
+   
+    <div>
+        <label asp-for="Author_post"></label>
+        <input asp-for="Author_post" />
+    </div>
+
+    <div>
+        <label asp-for="Category"></label>
+        <input asp-for="Category" />
+    </div>
+
+    <div>
+        <label asp-for="Description_post"></label>
+        <textarea asp-for="Description_post"></textarea>
+    </div>
+
+    <div>
+        <label asp-for="Cv_post"></label>
+        <input asp-for="Cv_post" />
+    </div>
+
+    <div>
+        <label asp-for="Status"></label>
+        <input asp-for="Status" />
+    </div>
+
+    <button type="submit">Publicar</button>
+</form>

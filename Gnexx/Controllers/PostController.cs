@@ -16,9 +16,11 @@ namespace Gnexx.Controllers
         {
             _postService = postService;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var postList = await _postService.GetAllViewModel();
+            List<PostulationViewModel> list = postList.ToList();
+            return View(postList);
         }
 
         public ActionResult Create()
