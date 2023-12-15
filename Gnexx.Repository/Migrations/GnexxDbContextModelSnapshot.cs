@@ -17,7 +17,7 @@ namespace Gnexx.Repository.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.13")
+                .HasAnnotation("ProductVersion", "7.0.14")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -114,6 +114,34 @@ namespace Gnexx.Repository.Migrations
                     b.ToTable("Comments");
                 });
 
+            modelBuilder.Entity("Gnexx.Data.Entities.Postulation", b =>
+                {
+                    b.Property<int>("Id_post")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id_post"));
+
+                    b.Property<string>("Author_post")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Cv_post")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateTime_post")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description_post")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id_post");
+
+                    b.ToTable("Posts");
+                });
+
             modelBuilder.Entity("Gnexx.Data.Entities.Response", b =>
                 {
                     b.Property<int>("Id")
@@ -135,13 +163,12 @@ namespace Gnexx.Repository.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("R_body")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Team")
                         .HasColumnType("int");
 
-                    b.Property<int>("TeamsId")
+                    b.Property<int?>("TeamsId")
                         .HasColumnType("int");
 
                     b.Property<int>("UserID")
@@ -175,6 +202,10 @@ namespace Gnexx.Repository.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("News_body")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("News_img")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -247,13 +278,21 @@ namespace Gnexx.Repository.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("PostulationsId_post")
+                        .HasColumnType("int");
+
                     b.Property<int>("TeamID")
                         .HasColumnType("int");
 
                     b.Property<int>("UserID")
                         .HasColumnType("int");
 
+                    b.Property<int>("postID")
+                        .HasColumnType("int");
+
                     b.HasKey("id");
+
+                    b.HasIndex("PostulationsId_post");
 
                     b.HasIndex("TeamID");
 
@@ -294,7 +333,7 @@ namespace Gnexx.Repository.Migrations
                     b.ToTable("Teams");
                 });
 
-            modelBuilder.Entity("Gnexx.Models.Entities.Users", b =>
+            modelBuilder.Entity("Gnexx.Models.Entities.UsersEntitie", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -302,11 +341,15 @@ namespace Gnexx.Repository.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("BirthDate")
+                    b.Property<DateTime?>("BirthDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("CoachID")
                         .HasColumnType("int");
+
+                    b.Property<string>("Country")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -320,18 +363,13 @@ namespace Gnexx.Repository.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("PlayerID")
+                    b.Property<int?>("PlayerID")
                         .HasColumnType("int");
 
                     b.Property<string>("Profile_img")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("TeamID")
+                    b.Property<int?>("TeamID")
                         .HasColumnType("int");
 
                     b.Property<string>("Type_user")
@@ -357,7 +395,7 @@ namespace Gnexx.Repository.Migrations
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.HasOne("Gnexx.Models.Entities.Users", "Users")
+                    b.HasOne("Gnexx.Models.Entities.UsersEntitie", "Users")
                         .WithOne("Coaches")
                         .HasForeignKey("Gnexx.Data.Entities.Coach", "UserID")
                         .OnDelete(DeleteBehavior.NoAction)
@@ -388,7 +426,7 @@ namespace Gnexx.Repository.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Gnexx.Models.Entities.Users", "User")
+                    b.HasOne("Gnexx.Models.Entities.UsersEntitie", "User")
                         .WithMany("Comments")
                         .HasForeignKey("UserID")
                         .OnDelete(DeleteBehavior.NoAction)
@@ -425,11 +463,9 @@ namespace Gnexx.Repository.Migrations
 
                     b.HasOne("Gnexx.Models.Entities.Team", "Teams")
                         .WithMany("Responses")
-                        .HasForeignKey("TeamsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("TeamsId");
 
-                    b.HasOne("Gnexx.Models.Entities.Users", "Users")
+                    b.HasOne("Gnexx.Models.Entities.UsersEntitie", "Users")
                         .WithMany("Responses")
                         .HasForeignKey("UserID")
                         .OnDelete(DeleteBehavior.NoAction)
@@ -452,7 +488,7 @@ namespace Gnexx.Repository.Migrations
                         .WithMany("News")
                         .HasForeignKey("TeamId");
 
-                    b.HasOne("Gnexx.Models.Entities.Users", "Users")
+                    b.HasOne("Gnexx.Models.Entities.UsersEntitie", "Users")
                         .WithMany("News")
                         .HasForeignKey("UserID")
                         .OnDelete(DeleteBehavior.NoAction)
@@ -463,30 +499,36 @@ namespace Gnexx.Repository.Migrations
 
             modelBuilder.Entity("Gnexx.Models.Entities.Player", b =>
                 {
+                    b.HasOne("Gnexx.Data.Entities.Postulation", "Postulations")
+                        .WithMany()
+                        .HasForeignKey("PostulationsId_post")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Gnexx.Models.Entities.Team", "Teams")
                         .WithMany("Players")
                         .HasForeignKey("TeamID")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.HasOne("Gnexx.Models.Entities.Users", "Users")
+                    b.HasOne("Gnexx.Models.Entities.UsersEntitie", "Users")
                         .WithOne("Players")
                         .HasForeignKey("Gnexx.Models.Entities.Player", "UserID")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
+
+                    b.Navigation("Postulations");
 
                     b.Navigation("Teams");
 
                     b.Navigation("Users");
                 });
 
-            modelBuilder.Entity("Gnexx.Models.Entities.Users", b =>
+            modelBuilder.Entity("Gnexx.Models.Entities.UsersEntitie", b =>
                 {
                     b.HasOne("Gnexx.Models.Entities.Team", "Teams")
                         .WithMany()
-                        .HasForeignKey("TeamID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("TeamID");
 
                     b.Navigation("Teams");
                 });
@@ -510,7 +552,7 @@ namespace Gnexx.Repository.Migrations
                     b.Navigation("Responses");
                 });
 
-            modelBuilder.Entity("Gnexx.Models.Entities.Users", b =>
+            modelBuilder.Entity("Gnexx.Models.Entities.UsersEntitie", b =>
                 {
                     b.Navigation("Coaches")
                         .IsRequired();

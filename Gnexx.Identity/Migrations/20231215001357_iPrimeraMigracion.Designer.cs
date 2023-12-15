@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Gnexx.Identity.Migrations
 {
     [DbContext(typeof(IdentityContext))]
-    [Migration("20231214182312_cuartaMigracion")]
-    partial class cuartaMigracion
+    [Migration("20231215001357_iPrimeraMigracion")]
+    partial class iPrimeraMigracion
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -6,11 +6,27 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Gnexx.Repository.Migrations
 {
     /// <inheritdoc />
-    public partial class PrimeraMig : Migration
+    public partial class primeraMigracion : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Posts",
+                columns: table => new
+                {
+                    Id_post = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Author_post = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Description_post = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DateTime_post = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Cv_post = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Posts", x => x.Id_post);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Teams",
                 columns: table => new
@@ -38,13 +54,13 @@ namespace Gnexx.Repository.Migrations
                     Lastname = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Username = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Type_user = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Profile_img = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    BirthDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Country = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Profile_img = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    BirthDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CoachID = table.Column<int>(type: "int", nullable: false),
-                    PlayerID = table.Column<int>(type: "int", nullable: false),
-                    TeamID = table.Column<int>(type: "int", nullable: false)
+                    PlayerID = table.Column<int>(type: "int", nullable: true),
+                    TeamID = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -53,8 +69,7 @@ namespace Gnexx.Repository.Migrations
                         name: "FK_User_Teams_TeamID",
                         column: x => x.TeamID,
                         principalTable: "Teams",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -97,6 +112,7 @@ namespace Gnexx.Repository.Migrations
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Pub_date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     News_body = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    News_img = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Source = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Status = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UserID = table.Column<int>(type: "int", nullable: false),
@@ -132,11 +148,19 @@ namespace Gnexx.Repository.Migrations
                     P_Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     P_Contact = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     TeamID = table.Column<int>(type: "int", nullable: false),
-                    UserID = table.Column<int>(type: "int", nullable: false)
+                    UserID = table.Column<int>(type: "int", nullable: false),
+                    postID = table.Column<int>(type: "int", nullable: false),
+                    PostulationsId_post = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Player", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_Player_Posts_PostulationsId_post",
+                        column: x => x.PostulationsId_post,
+                        principalTable: "Posts",
+                        principalColumn: "Id_post",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Player_Teams_TeamID",
                         column: x => x.TeamID,
@@ -197,13 +221,13 @@ namespace Gnexx.Repository.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    R_body = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    R_body = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UserID = table.Column<int>(type: "int", nullable: false),
                     CoachID = table.Column<int>(type: "int", nullable: false),
                     PlayerID = table.Column<int>(type: "int", nullable: false),
                     Team = table.Column<int>(type: "int", nullable: false),
-                    TeamsId = table.Column<int>(type: "int", nullable: false),
+                    TeamsId = table.Column<int>(type: "int", nullable: true),
                     CommentsID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -230,8 +254,7 @@ namespace Gnexx.Repository.Migrations
                         name: "FK_Responses_Teams_TeamsId",
                         column: x => x.TeamsId,
                         principalTable: "Teams",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Responses_User_UserID",
                         column: x => x.UserID,
@@ -280,6 +303,11 @@ namespace Gnexx.Repository.Migrations
                 name: "IX_News_UserID",
                 table: "News",
                 column: "UserID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Player_PostulationsId_post",
+                table: "Player",
+                column: "PostulationsId_post");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Player_TeamID",
@@ -340,6 +368,9 @@ namespace Gnexx.Repository.Migrations
 
             migrationBuilder.DropTable(
                 name: "Player");
+
+            migrationBuilder.DropTable(
+                name: "Posts");
 
             migrationBuilder.DropTable(
                 name: "User");
