@@ -11,6 +11,7 @@ namespace Gnexx.Services.Interfaces
     public interface IAccountService
     {
         Task<AuthenticationResponse> AuthenticateAsync(AuthenticationRequest request);
+        Task<AcceptResponse> SendTeamAccept(AcceptRequest request, string team);
         Task<string> ConfirmAccountAsync(string userId, string token);
         Task<ForgotPasswordResponse> ForgotPasswordAsync(ForgotPasswordRequest request, string origin);
         Task<List<AuthenticationResponse>> GetAllUsersAsync();

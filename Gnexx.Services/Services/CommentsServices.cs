@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace Gnexx.Services.Services
 {
-    public class CommentsServices : GenericService<CommentsViewModel, Comments>, ICommentsService
+    public class CommentsServices : GenericServices<CommentsViewModel, Comments>, ICommentsService
     {
         private readonly ICommentsRepo _newsRepository;
         private readonly IMapper _mapper;

@@ -1,0 +1,57 @@
+﻿@model Gnexx.Services.ViewModels.PlayerViewModel.PlayerViewModel
+
+<form asp-controller=Team asp-action="Player" method="post">
+    <div class="form-group">
+        <label asp-for="P_Username" class="control-label"></label>
+        <input asp-for="P_Username" class="form-control" />
+        <span asp-validation-for="P_Username" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="P_Name" class="control-label"></label>
+        <input asp-for="P_Name" class="form-control" />
+        <span asp-validation-for="P_Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="P_Lastname" class="control-label"></label>
+        <input asp-for="P_Lastname" class="form-control" />
+        <span asp-validation-for="P_Lastname" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="P_Nickname" class="control-label"></label>
+        <input asp-for="P_Nickname" class="form-control" />
+        <span asp-validation-for="P_Nickname" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="P_Datebirth" class="control-label"></label>
+        <input asp-for="P_Datebirth" type="date" class="form-control" />
+        <span asp-validation-for="P_Datebirth" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="P_Specialization" class="control-label"></label>
+        <input asp-for="P_Specialization" class="form-control" />
+        <span asp-validation-for="P_Specialization" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="P_Description" class="control-label"></label>
+        <input asp-for="P_Description" class="form-control" />
+        <span asp-validation-for="P_Description" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="P_Contact" class="control-label"></label>
+        <input asp-for="P_Contact" class="form-control" />
+        <span asp-validation-for="P_Contact" class="text-danger"></span>
+    </div>
+
+    <!-- Agrega los demás campos según tu necesidad -->
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary"> Terminar registro como jugador </button>/>
+    </div>
+</form>

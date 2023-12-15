@@ -7,6 +7,7 @@ using Gnexx.Services.ViewModels.CoachViewModel;
 using Gnexx.Services.ViewModels.CommentsViewModel;
 using Gnexx.Services.ViewModels.NewsViewModel;
 using Gnexx.Services.ViewModels.PlayerViewModel;
+using Gnexx.Services.ViewModels.PostulationViewModel;
 using Gnexx.Services.ViewModels.ResponseViewModel;
 using Gnexx.Services.ViewModels.TeamViewModel;
 using Gnexx.Services.ViewModels.UserEntitie;
@@ -53,7 +54,7 @@ namespace Gnexx.Services.Mappings
 
             #region entities
 
-            CreateMap<News, NewsViewModel>()
+            CreateMap<NewsViewModel, News>()
                 .ReverseMap();
             CreateMap<Coach, CoachViewModel>()
                 .ReverseMap();
@@ -63,9 +64,15 @@ namespace Gnexx.Services.Mappings
                 .ReverseMap();
             CreateMap<Team, TeamViewModel>()
                 .ReverseMap();
-            CreateMap<Player, PlayerViewModel>()
+            CreateMap<PlayerViewModel, Player>()
                 .ReverseMap();
             CreateMap<UsersEntitie, UserEntitieViewModel>()
+                .ReverseMap();
+            CreateMap<PostulationViewModel, Postulation>()
+                .ForMember(x => x.CoachID, opt => opt.Ignore())
+                .ForMember(x => x.playerID, opt => opt.Ignore())
+                .ForMember(x => x.Coaches, opt => opt.Ignore())
+                .ForMember(x => x.players, opt => opt.Ignore())
                 .ReverseMap();
 
             #endregion

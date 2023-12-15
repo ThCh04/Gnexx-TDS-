@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace Gnexx.Services.Services
 {
-    public class CoachService : GenericService<CoachViewModel, Coach>, ICoachService
+    public class CoachService : GenericServices<CoachViewModel, Coach>, ICoachService
     {
         private readonly ICoachRepo _coachRepo;
         private readonly IMapper _mapper;

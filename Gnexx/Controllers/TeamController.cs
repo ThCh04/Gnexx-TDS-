@@ -1,13 +1,36 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Gnexx.Services.DTOs.Account;
+using Gnexx.Services.Helpers;
+using Gnexx.Services.Interfaces.Services;
+using Gnexx.Services.ViewModels.CoachViewModel;
+using Gnexx.Services.ViewModels.PlayerViewModel;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Gnexx.Controllers
 {
     public class TeamController : Controller
     {
+        private readonly ICoachService _coachService;
+        private readonly IPlayerService _playerService;
+
+        private readonly IHttpContextAccessor _httpContextAccessor;
+
+        public TeamController(ICoachService coach, IPlayerService player, IHttpContextAccessor httpContextAccessor)
+        {
+            _coachService = coach;
+            _playerService = player;
+            _httpContextAccessor = httpContextAccessor;
+        }
         // GET: TeamController
         public ActionResult Index()
         {
+
+            string rol = "";
+            foreach (var r in _httpContextAccessor.HttpContext.Session.Get<AuthenticationResponse>("user").Roles)
+            {
+                rol = r;
+            }
+            ViewBag.Rol = rol;
             return View();
         }
 
@@ -78,6 +101,41 @@ namespace Gnexx.Controllers
             {
                 return View();
             }
+        }
+
+        public ActionResult Coach()
+        {
+            return View(new CoachViewModel());
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> CoachAsync(CoachViewModel coach)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(coach);
+            }
+
+            await _coachService.Add(coach);
+            return View("/Index");
+        }
+
+        public ActionResult Player()
+        {
+            return View(new PlayerViewModel());
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> PlayerAsync(PlayerViewModel player)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(player);
+            }
+
+            await _playerService.Add(player);
+            return View("/Index");
         }
     }
 }

@@ -26,6 +26,11 @@ namespace Gnexx.Repository
             services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddTransient<INewsRepo, NewsRepo>();
             services.AddTransient<IUserEntityrepo, UserEntityrepo>();
+            services.AddTransient<ICoachRepo, CoachRepo>();
+            services.AddTransient<IPlayerRepo, PlayerRepo>();
+            services.AddTransient<IPostRepo, PostRepo>();
+            services.AddTransient<ITeamsRepo, TeamsRepo>();
+            services.AddTransient<IResponsesRepo, ResponseRepo>();
 
             //Other repos
 

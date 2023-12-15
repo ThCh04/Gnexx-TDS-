@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace Gnexx.Services.Services
 {
-    public class NewsService : GenericService<NewsViewModel, News>, INewsService
+    public class NewsService : GenericServices<NewsViewModel, News>, INewsService
     {
         private readonly INewsRepo _newsRepository;
         private readonly IMapper _mapper;

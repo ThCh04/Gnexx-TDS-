@@ -21,6 +21,13 @@ namespace Gnexx.Services
 
             service.AddTransient<IUserService, UserService>();
             service.AddTransient<INewsService, NewsService>();
+            service.AddTransient<ICoachService, CoachService>(); 
+            service.AddTransient<IPlayerService, PlayerService>();  
+            service.AddTransient<IPostService, PostService>();
+            service.AddTransient<ICoachService, CoachService>();
+            service.AddTransient<ITeamsService, TeamsService>();
+            service.AddTransient<IResponseService, ResponseServices>();
+
 
             #endregion
         }

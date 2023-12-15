@@ -21,7 +21,11 @@ namespace Gnexx.Services.Services
             _accountServices = accountServices;
             _mapper = mapper;
         }
-
+        public async Task<AcceptResponse> SendTeamAccept(AcceptRequest request, string team)
+        {
+            await _accountServices.SendTeamAccept(request, team);
+            return await _accountServices.SendTeamAccept(request, team);
+        }
         public async Task<AuthenticationResponse> LoginAsync(LoginVM vm)
         {
             AuthenticationRequest LoginRequest = _mapper.Map<AuthenticationRequest>(vm);
