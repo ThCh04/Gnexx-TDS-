@@ -15,6 +15,7 @@ namespace Gnexx.Data.Entities
         public string Author_post { get; set; }
         public string Description_post { get; set; }
         public DateTime DateTime_post { get; set; }
+        public bool Status {  get; set; } 
         public string Cv_post { get; set; } //Campo curriculum
 
         //Propiedades
