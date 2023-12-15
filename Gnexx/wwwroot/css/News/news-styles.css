@@ -33,7 +33,15 @@ li {
 }
 
 .my-float {
-    margin-top: 22px;
+    margin-top: 2px;
+    font-size: 25px;
+   
+}
+
+.publish-back {
+    display: flex;
+    position: center;
+    color: #0E1719;
 }
 
 .navbar {
