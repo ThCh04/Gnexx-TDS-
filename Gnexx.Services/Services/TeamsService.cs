@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace Gnexx.Services.Services
 {
-    public class TeamsService : GenericService<TeamViewModel, Team>, ITeamsService
+    public class TeamsService : GenericServices<TeamViewModel, Team>, ITeamsService
     {
         private readonly ITeamsRepo _teamRepository;
         private readonly IMapper _mapper;

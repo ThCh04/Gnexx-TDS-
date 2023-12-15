@@ -1,8 +1,21 @@
 @{
     ViewData["Title"] = "Equipos";
+    @using Gnexx.Services.Enums;
 }
 
 <div class="text-center">
     <h1 class="display-4">Gnexx Teams</h1>
     <p>Lista de team request (Solicitudes de equipos) para torneos</p>
+
+    
+        @if (@ViewBag.Rol==@Roles.Player.ToString() || @ViewBag.Rol == @Roles.SuperAdmin.ToString())
+        {
+            <a asp-controller="Team" asp-action=Player>Registrar datos del jugador</a>
+        } 
+        @if (@ViewBag.Rol == @Roles.Coach.ToString() || @ViewBag.Rol == @Roles.SuperAdmin.ToString())
+        {
+            <a asp-controller="Team" asp-action=Coach>Registrar datos del coach</a>
+        }
+    
+    <a>Crear</a>
 </div>

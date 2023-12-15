@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace Gnexx.Services.Services
 {
-    public class PlayerService : GenericService<PlayerViewModel, Player>, IPlayerService
+    public class PlayerService : GenericServices<PlayerViewModel, Player>, IPlayerService
     {
         private readonly IPlayerRepo _playerRepository;
         private readonly IMapper _mapper;

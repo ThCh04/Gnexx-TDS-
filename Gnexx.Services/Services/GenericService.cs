@@ -10,14 +10,14 @@ using System.Threading.Tasks;
 namespace Gnexx.Services.Services
 {
 
-        public class GenericService<ViewModel, Model> : IGenericService<ViewModel> 
+        public class GenericServices<ViewModel, Model> : IGenericService<ViewModel> 
              where ViewModel : class
              where Model : class
         {
             private readonly IGenericRepository<Model> _repository;
             private readonly IMapper _mapper;
 
-            public GenericService(IGenericRepository<Model> repository, IMapper mapper)
+            public GenericServices(IGenericRepository<Model> repository, IMapper mapper)
             {
                 _repository = repository;
                 _mapper = mapper;

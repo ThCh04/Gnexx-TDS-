@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace Gnexx.Services.Services
 {
-    public class ResponseServices : GenericService<ResponseViewModel, Response>, IResponseService
+    public class ResponseServices : GenericServices<ResponseViewModel, Response>, IResponseService
     {
         private readonly IResponsesRepo _responseRepository;
         private readonly IMapper _mapper;

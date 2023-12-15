@@ -1,0 +1,45 @@
+﻿@model Gnexx.Services.ViewModels.CoachViewModel.CoachViewModel
+
+<form asp-controller="Team" asp-action="Coach" method="post">
+    <div class="form-group">
+        <label asp-for="C_Name" class="control-label"></label>
+        <input asp-for="C_Name" class="form-control" />
+        <span asp-validation-for="C_Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="C_Datebirth" class="control-label"></label>
+        <input asp-for="C_Datebirth" type="date" class="form-control" />
+        <span asp-validation-for="C_Datebirth" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Achievements" class="control-label"></label>
+        <input asp-for="Achievements" class="form-control" />
+        <span asp-validation-for="Achievements" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="EsportExp" class="control-label"></label>
+        <input asp-for="EsportExp" class="form-control" />
+        <span asp-validation-for="EsportExp" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="C_Specialization" class="control-label"></label>
+        <input asp-for="C_Specialization" class="form-control" />
+        <span asp-validation-for="C_Specialization" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="C_Contact" class="control-label"></label>
+        <input asp-for="C_Contact" class="form-control" />
+        <span asp-validation-for="C_Contact" class="text-danger"></span>
+    </div>
+
+    <!-- Agrega los demás campos según tu necesidad -->
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary"> Terminar registro como Coach </button>/>
+    </div>
+</form>
