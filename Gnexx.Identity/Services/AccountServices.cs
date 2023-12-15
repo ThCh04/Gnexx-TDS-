@@ -24,6 +24,25 @@ namespace Gnexx.Identity.Services
             _mail = mail;
         }
 
+
+        public async Task<AcceptResponse> SendTeamAccept(AcceptRequest request, string team)
+        {
+            AcceptResponse response = new()
+            {
+                HasError = false,
+            };
+
+
+            await _mail.SendAsync(new Gnexx.Services.DTOs.Email.EmailRequest()
+            {
+                To = request.Email,
+                Body = $"¡FELICIDADES! Usted ha sido aceptado\n{team}\n" +
+                $"¡Puede contactar a su coach y su equipo!",
+                Subject = "Resetear contraseña",
+            });
+            return response;
+        }
+
         public async Task<AuthenticationResponse> AuthenticateAsync(AuthenticationRequest request)
         {
             AuthenticationResponse response = new();
