@@ -26,6 +26,13 @@ namespace Gnexx.Repository.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            // Relación uno a muchos entre Coach y Postulation
+            modelBuilder.Entity<Coach>()
+                .HasMany(u => u.Postulations)
+                .WithOne(n => n.Coaches)
+                .HasForeignKey(n => n.CoachID)
+                .OnDelete(DeleteBehavior.NoAction);
+
             // Relación uno a uno entre User y Player
             modelBuilder.Entity<UsersEntitie>()
                 .HasOne(u => u.Players)

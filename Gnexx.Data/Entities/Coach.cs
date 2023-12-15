@@ -18,9 +18,12 @@ namespace Gnexx.Data.Entities
         public string EsportExp { get; set; }
         public string C_Specialization { get; set; }
         public string C_Contact { get; set; }
+
+        //Properties
         public int UserID { get; set; }
         public UsersEntitie Users { get; set; }
         public int TeamID { get; set; }
         public Team Teams { get; set; }
+        public List<Postulation> Postulations { get; set; }
     }
 }
