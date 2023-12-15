@@ -866,10 +866,208 @@ main[role=main] .container {
                 text-align: center;
             }
 
+    main[role=main] .container section.news-publish-form, main[role=main] .container section.user-update-form {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+        main[role=main] .container section.news-publish-form form, main[role=main] .container section.user-update-form form {
+            width: 100%;
+            display: flex;
+            max-width: 500px;
+            padding: 10px;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 30px;
+            align-self: stretch;
+        }
+
+            main[role=main] .container section.news-publish-form form .text, main[role=main] .container section.user-update-form form .text {
+                width: 100%;
+            }
+
+                main[role=main] .container section.news-publish-form form .text h3, main[role=main] .container section.user-update-form form .text h3 {
+                    color: #E8E8E8;
+                    font-family: Inter;
+                    font-size: 36px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: 44px;
+                    text-align: center;
+                }
+
+                main[role=main] .container section.news-publish-form form .text p, main[role=main] .container section.user-update-form form .text p {
+                    color: #657786;
+                    font-family: Inter;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 28px;
+                    text-align: center;
+                }
+
+            main[role=main] .container section.news-publish-form form .user-post-info, main[role=main] .container section.user-update-form form .user-post-info {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+
+                main[role=main] .container section.news-publish-form form .user-post-info .user-info, main[role=main] .container section.user-update-form form .user-post-info .user-info {
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                    main[role=main] .container section.news-publish-form form .user-post-info .user-info h5, main[role=main] .container section.user-update-form form .user-post-info .user-info h5 {
+                        color: #E7F2FF;
+                        font-family: Inter;
+                        font-size: 16px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: normal;
+                    }
+
+                    main[role=main] .container section.news-publish-form form .user-post-info .user-info select, main[role=main] .container section.user-update-form form .user-post-info .user-info select {
+                        display: none;
+                        cursor: pointer;
+                        background: #242526;
+                        border: none;
+                        border-radius: none;
+                        color: #657786;
+                        font-family: Inter;
+                        font-size: 12px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: normal;
+                    }
+
+                        main[role=main] .container section.news-publish-form form .user-post-info .user-info select option, main[role=main] .container section.user-update-form form .user-post-info .user-info select option {
+                            border-radius: none;
+                            color: rgb(219, 219, 219);
+                            padding: 17px 12px;
+                        }
+
+                main[role=main] .container section.news-publish-form form .user-post-info .user-imagen, main[role=main] .container section.user-update-form form .user-post-info .user-imagen {
+                    width: 46px;
+                    height: 46px;
+                    border-radius: 50%;
+                    background: lightgray 50%/cover no-repeat;
+                }
+
+            main[role=main] .container section.news-publish-form form .fields, main[role=main] .container section.user-update-form form .fields {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+                main[role=main] .container section.news-publish-form form .fields textarea,
+                main[role=main] .container section.news-publish-form form .fields input, main[role=main] .container section.user-update-form form .fields textarea,
+                main[role=main] .container section.user-update-form form .fields input {
+                    border: none;
+                    display: flex;
+                    height: auto;
+                    padding: 7px 10px;
+                    align-items: flex-start;
+                    gap: 10px;
+                    align-self: stretch;
+                    background-color: transparent;
+                    resize: none;
+                    color: #cbcbcb;
+                    font-family: Inter;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+                }
+
+                    main[role=main] .container section.news-publish-form form .fields textarea::-moz-placeholder, main[role=main] .container section.news-publish-form form .fields input::-moz-placeholder, main[role=main] .container section.user-update-form form .fields textarea::-moz-placeholder, main[role=main] .container section.user-update-form form .fields input::-moz-placeholder {
+                        color: #687680;
+                        font-family: Inter;
+                        font-size: 16px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: normal;
+                    }
+
+                    main[role=main] .container section.news-publish-form form .fields textarea::placeholder,
+                    main[role=main] .container section.news-publish-form form .fields input::placeholder, main[role=main] .container section.user-update-form form .fields textarea::placeholder,
+                    main[role=main] .container section.user-update-form form .fields input::placeholder {
+                        color: #687680;
+                        font-family: Inter;
+                        font-size: 16px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: normal;
+                    }
+
+                    main[role=main] .container section.news-publish-form form .fields textarea::-webkit-scrollbar,
+                    main[role=main] .container section.news-publish-form form .fields input::-webkit-scrollbar, main[role=main] .container section.user-update-form form .fields textarea::-webkit-scrollbar,
+                    main[role=main] .container section.user-update-form form .fields input::-webkit-scrollbar {
+                        width: 8px;
+                    }
+
+                    main[role=main] .container section.news-publish-form form .fields textarea::-webkit-scrollbar-thumb,
+                    main[role=main] .container section.news-publish-form form .fields input::-webkit-scrollbar-thumb, main[role=main] .container section.user-update-form form .fields textarea::-webkit-scrollbar-thumb,
+                    main[role=main] .container section.user-update-form form .fields input::-webkit-scrollbar-thumb {
+                        background-color: rgba(119, 129, 119, 0.7764705882);
+                        /* color del fondo de la barra de desplazamiento */
+                        border-radius: 6px;
+                        /* esquinas redondeadas de la barra de desplazamiento */
+                    }
+
+                    main[role=main] .container section.news-publish-form form .fields textarea::-webkit-scrollbar-corner,
+                    main[role=main] .container section.news-publish-form form .fields input::-webkit-scrollbar-corner, main[role=main] .container section.user-update-form form .fields textarea::-webkit-scrollbar-corner,
+                    main[role=main] .container section.user-update-form form .fields input::-webkit-scrollbar-corner {
+                        background-color: #ffffff;
+                    }
+
+                main[role=main] .container section.news-publish-form form .fields input, main[role=main] .container section.user-update-form form .fields input {
+                    display: flex;
+                    height: 48px;
+                    padding: 0px 10px;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: flex-start;
+                    gap: 10px;
+                    align-self: stretch;
+                    background-color: transparent;
+                    border-radius: 6px;
+                    border: 1px solid #333;
+                    box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.1);
+                }
+
+            main[role=main] .container section.news-publish-form form .publish-btn, main[role=main] .container section.user-update-form form .publish-btn {
+                display: flex;
+                padding: 11px 42px;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                align-self: stretch;
+                border-radius: 8px;
+                border: none;
+                background: linear-gradient(0deg, #0866FF 0%, #0866FF 100%), linear-gradient(180deg, #71031D 0%, #880A0A 100%);
+                color: #FFF;
+                font-family: Inter;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+                cursor: pointer;
+            }
+
+                main[role=main] .container section.news-publish-form form .publish-btn:hover, main[role=main] .container section.user-update-form form .publish-btn:hover {
+                    background: linear-gradient(0deg, #2b7cff 0%, #4d91ff 100%), linear-gradient(180deg, #71031D 0%, #880A0A 100%);
+                }
+
     main[role=main] .container .section.publications {
         width: 100%;
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 25px;
+        flex: 1 0 0;
     }
 
         main[role=main] .container .section.publications .news-publication {
