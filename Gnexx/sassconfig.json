@@ -14,5 +14,17 @@
   {
     "outputFile": "wwwroot/css/Team/team-styles.css",
     "inputFile": "wwwroot/css/Team/team-styles.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/Community/community-styles.css",
+    "inputFile": "wwwroot/css/Community/community-styles.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/Community/community-styles.css",
+    "inputFile": "wwwroot/css/Community/community-styles.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/Community/community-styles.css",
+    "inputFile": "wwwroot/css/Community/community-styles.scss"
   }
 ]

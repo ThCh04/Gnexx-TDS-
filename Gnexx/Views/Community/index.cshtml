@@ -2,9 +2,107 @@
     ViewData["Title"] = "Comunidad de gamers";
 }
 
-<a class="button mb-2" asp-area="" asp-controller="Community" asp-action="Create">Publicar en comunidad</a>
+<aside>
 
-<div class="text-center">
-    <h1 class="display-4">Gnexx Community</h1>
-    <p>Aqui van publicaciones de usuarios gamers</p>
+</aside>
+
+<div class="container">
+    <div class="section section-news-header">
+        <div class="section-title">
+            <h4>Noticias Recientes</h4>
+        </div>
+        <div class="news">
+            <div class="news-header-principal">
+                <img src="https://gamek.mediacdn.vn/133514250583805952/2022/5/30/-1653920377576532019352.jpg" alt="#">
+                <div class="news-description">
+                    <h2 class="post-title">Why choose a theme that looks good with WooCommerce</h2>
+                    <p class="post-description">The key to surviving this new industrial revolution is leading it. That requires two key elements of</p>
+                    <p class="date-publish">September 9, 2013</p>
+                </div>
+            </div>
+            <ul class="news-header-others">
+                <li class="news-header-card">
+                    <img src="https://a.espncdn.com/photo/2017/0504/r206710_2_1600x800cc.jpg" alt="#">
+                    <div class="news-description">
+                        <h5 class="post-title">How a visual artist redefines success in graphic design</h5>
+                        <p class="post-description">The key to surviving this new industrial revolution is leading it. That requires two key elements of</p>
+                        <p class="date-publish">March 23, 2013</p>
+                    </div>
+                </li>
+                <li class="news-header-card">
+                    <img src="https://a.espncdn.com/photo/2017/0504/r206710_2_1600x800cc.jpg" alt="#">
+                    <div class="news-description">
+                        <h5 class="post-title">How to choose the right colors when creating a website?</h5>
+                        <p class="post-description">The key to surviving this new industrial revolution is leading it. That requires two key elements of</p>
+                        <p class="date-publish">Febrary 8, 2015</p>
+                    </div>
+                </li>
+                <li class="news-header-card">
+                    <img src="https://a.espncdn.com/photo/2017/0504/r206710_2_1600x800cc.jpg" alt="#">
+                    <div class="news-description">
+                        <h5 class="post-title">Start a blog to reach your creative peak</h5>
+                        <p class="post-description">The key to surviving this new industrial revolution is leading it. That requires two key elements of</p>
+                        <p class="date-publish">March 23, 2013</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="section tournaments">
+        <div class="title-container">
+            <div class="section-title">
+                <h4>Torneos</h4>
+            </div>
+            <div class="swipe-controller">
+                <button class="button-left">
+                    <box-icon name='chevron-left' color='#ffffff'></box-icon>
+                </button>
+                <button class="button-right">
+                    <box-icon name='chevron-right' color='#ffffff'></box-icon>
+                </button>
+            </div>
+        </div>
+        <div class="tournaments-container">
+            <ul class="cards">
+                <li class="card">
+                    <img src="https://a.espncdn.com/photo/2017/0504/r206710_2_1600x800cc.jpg" alt="#">
+                    <div class="card-title">
+                        <p>2023 Battle Royale Championship - Fornite</p>
+                    </div>
+                    <div class="card-transmition-description">
+                        <p>Proximamente</p>
+                    </div>
+                </li>
+                <li class="card">
+                    <img src="https://gamek.mediacdn.vn/133514250583805952/2022/5/30/-1653920377576532019352.jpg" alt="#">
+                    <div class="card-title">
+                        <p>World Championship - League of Legends 2021nite</p>
+                    </div>
+                    <div class="card-transmition-description">
+                        <box-icon name='twitch' type='logo' color='#ffffff'></box-icon>
+                        <p>Transmitiendose ahora en twitch</p>
+                    </div>
+                </li>
+                <li class="card">
+                    <img src="https://gamek.mediacdn.vn/133514250583805952/2022/5/30/-1653920377576532019352.jpg" alt="#">
+                    <div class="card-title">
+                        <p>World Championship - League of Legends 2021nite</p>
+                    </div>
+                    <div class="card-transmition-description">
+                        <box-icon name='twitch' type='logo' color='#ffffff'></box-icon>
+                        <p>Transmitiendose ahora en twitch</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="ad" id="ad-news1">
+        <button class="ad-close-button" onclick="toggleDropdownOptions('ad-news1')">
+            <box-icon name='x' color='#ffffff'></box-icon>
+        </button>
+        <img src="https://storage.googleapis.com/portalgaming-wp-media-hn/2020/08/5_slider-2-web-1110X460-OK-1024x424.png" alt="Sponsor Ad">
+    </div>
+    <div class="banner">
+        <img src="https://s3-alpha-sig.figma.com/img/de64/2f35/d6765cb6e8540682d0471452043e0f24?Expires=1703462400&Signature=XtQOLARunmgFpJTa9CxDMdkBRfq8gRhZ3skOYeGm9dhTX2HuWR~VLI3QFeCfMcOYbG0L3EPoogENeSlOezYcQDG16FZolBF~x5Jzm2Zr4oJ3ypvUszrwBek-ziwki2mC1LHJAuXzu6Po1JwmGlaxK9BqEQEUQSC9XG7ieNRp-jratckxyTm7FQxOtoSOcepKr62Sgk6nDscSR-4tkM~RutJmp8KQGYhwsyJZq2BxWKrc-PgPsb-bgA2fIw1vzL33Znp3unTYmIuvRmEiOPdQ-6hrXgsM4pzhVkgmW-uF3aH9fleQOLcoZhRynwSbNAgy941f2U~233MkCg49WTXCPw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4" alt="#">
+    </div>
 </div>
