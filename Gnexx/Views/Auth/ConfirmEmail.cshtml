@@ -1,9 +1,119 @@
-﻿@model string
+﻿@model Gnexx.Services.ViewModels.PlayerViewModel.PlayerViewModel
+
 @{
     ViewData["Title"] = "Confirm";
 }
 
-<div  role="alert">
-    <h2>@Model - <a class="btn btn-primary" asp-controller="Auth" asp-action="Index"> Sign in</a></h2>
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
+<div class="container">
+    <section class="team-request-formulary">
+        <form asp-controller="" asp-action="" method="post">
+            <div class="text">
+                <h3>Para terminar</h3>
+                <p>Para completar el proceso de registro como un ViewBag.utype debes llenar los campos siguientes.</p>
+            </div>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <input asp-for="P_Username" class="form-control" />
+            <input asp-for="P_Name" class="form-control" />
+            <input asp-for="P_Name" class="form-control" />
+            <input asp-for="P_Lastname" class="form-control" />
+            <input asp-for="P_Nickname" class="form-control" />
+            <input type="datetime" asp-for="P_Datebirth" class="form-control" />
+            <input asp-for="P_Specialization" class="form-control" />
+            <input asp-for="P_Description" class="form-control" />
+            <input asp-for="P_Contact" class="form-control" />
+
+            @*<div class="form-group">
+                <label asp-for="P_Username" class="control-label"></label>
+                <input asp-for="P_Username" class="form-control" />
+                <span asp-validation-for="P_Username" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="P_Name" class="control-label"></label>
+                <input asp-for="P_Name" class="form-control" />
+                <span asp-validation-for="P_Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="P_Name" class="control-label"></label>
+                <input asp-for="P_Name" class="form-control" />
+                <span asp-validation-for="P_Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="P_Lastname" class="control-label"></label>
+                <input asp-for="P_Lastname" class="form-control" />
+                <span asp-validation-for="P_Lastname" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="P_Nickname" class="control-label"></label>
+                <input asp-for="P_Nickname" class="form-control" />
+                <span asp-validation-for="P_Nickname" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="P_Datebirth" class="control-label"></label>
+                <input type="datetime" asp-for="P_Datebirth" class="form-control" />
+                <span asp-validation-for="P_Datebirth" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="P_Specialization" class="control-label"></label>
+                <input asp-for="P_Specialization" class="form-control" />
+                <span asp-validation-for="P_Specialization" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="P_Description" class="control-label"></label>
+                <input asp-for="P_Description" class="form-control" />
+                <span asp-validation-for="P_Description" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="P_Contact" class="control-label"></label>
+                <input asp-for="P_Contact" class="form-control" />
+                <span asp-validation-for="P_Contact" class="text-danger"></span>
+            </div>*@
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </section>
 </div>
+
+
+<form asp-controller="TuControlador" asp-action="Agregar" method="post">
+    
+    
+    @*     <div>
+       <label asp-for="Nombre"></label>
+        <input asp-for="Nombre" />
+    </div>
+
+    <div>
+        <label asp-for="Edad"></label>
+        <input asp-for="Edad" />
+    </div>
+
+    <div>
+        <label asp-for="Posicion"></label>
+        <input asp-for="Posicion" />
+    </div>
+
+  <div>
+        <label asp-for="TipoPersona"></label>
+        <select asp-for="TipoPersona">
+            <option value="Jugador">Jugador</option>
+            <option value="Entrenador">Entrenador</option>
+        </select>
+    </div>*@
+
+
+
+    <button type="submit">Agregar</button>
+</form>
+
