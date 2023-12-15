@@ -6,26 +6,37 @@
 
 <aside>
     <div class="ad">
-        <img src="#" alt="#">
+        <img src="https://storage.googleapis.com/portalgaming-wp-media-sv/2020/08/Banner-328X400.png" alt="sponsor ad">
     </div>
 </aside>
 
-<div class="col-3 offset-9">
-    <a asp-controller="News" asp-action="Create" class="btn btn-outline-success">Nueva Noticia</a>
-</div>
 
-@if(Model.Count() == 0 || Model == null)
-{
-    <div class="container">
+<div class="container">
+    <div class="publish-form">
+        <div class="action-form">
+            <div class="user-post-info">
+                <img src="https://secure.virtualsiteinspections.com/images/default.png" alt="user-imagen">
+                <div class="user-info">
+                    <span>Isael Diroche</span>
+                    <p>IsaelDD</p>
+                </div>
+            </div>
+
+            <button class="publish-button" id="openPopup">
+                Nueva Publicación
+            </button>
+        </div>
+    </div>
+
+    @if(Model.Count() == 0 || Model == null)
+    {
         <div class="empty-section">
             <div class="empty-section-message">
                 <h3>No hay Noticias</h3>
                 <p>Por el momento no hay noticias registradas </p>
             </div>
         </div>
-    </div>
-}else{
-    <div class="container">
+    }else{
         <section class="section publications">
             @foreach (var item in Model)
             {
@@ -89,24 +100,14 @@
                 </div>
             }
         </section>
-    </div>
-}
+    }
+</div>
 
 
    
 
 <aside>
     <div class="action-card">
-        <div class="card-header">
-            <a href="#" class="edit-profile-btn">
-                <box-icon name='edit-alt' type='solid' color='#ffffff'></box-icon>
-            </a>
-            <img src="https://secure.virtualsiteinspections.com/images/default.png" alt="user profile image"
-                 class="user-profile">
-            <div class="user-info">
-                <h3>@ViewBag.name</h3>
-                <h4>@ViewBag.uname</h4>
-            </div>
-        </div>
+
     </div>
 </aside>
