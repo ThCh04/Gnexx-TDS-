@@ -89,7 +89,7 @@
                         </li>
 
                         <li class="dropdown">
-                            <button onclick="toggleElementVisibilityById('dropdown1')" class="dropdown-title">
+                            <button onclick="toggleDropdownOptions('dropdown1')" class="dropdown-title">
                                 Juegos
                                 Populares
                             </button>
@@ -106,7 +106,7 @@
                             <div class="separator"></div>
                         </li>
                         <li class="dropdown">
-                            <button onclick="toggleElementVisibilityById('dropdown2')"
+                            <button onclick="toggleDropdownOptions('dropdown2')"
                                     class="dropdown-title">
                                 Categorias
                             </button>
@@ -117,14 +117,7 @@
                             </ul>
                         </li>
                     </ul>
-                    <ul class="navbar-container">
-                        <li class="nav-link">
-                            <a asp-controller="Auth" asp-action="SignOut">
-                                <box-icon name='log-out'
-                                          color='#fff'></box-icon> Cerrar Sesión
-                            </a>
-                        </li>
-                    </ul>
+                    
                 </div>
 
                 <div class="credits">
