@@ -24,9 +24,12 @@
             <button type="submit" class="publish-btn">
                 Publicar
             </button>
+            <button type="submit" asp-controller="News" asp-action="Index" method="post" class="publish-back">
+                Cancelar
+            </button>
+            
         </form>
-        <a asp-controller="News" asp-action="Index" method="post" class="float publish-button" id="openPopup">
-                <i class="my-float">x</i>
-        </a>
+        
+        
     </section>
 </div>
