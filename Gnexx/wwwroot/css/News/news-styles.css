@@ -21,7 +21,7 @@ li {
 
 .float {
     position: fixed;
-    width: 20px;
+    width: 60px;
     height: 60px;
     bottom: 800px;
     right: 60px;
@@ -33,9 +33,12 @@ li {
 
 }
 
+
+
 .my-float {
     margin-top: 2px;
     font-size: 25px;
+    text-align: center;
    
 }
 

@@ -17,6 +17,11 @@ namespace Gnexx.Controllers
             return View();
         }
 
+        public ActionResult user_details()
+        {
+            return View();
+        }
+
         // GET: UserController/Create
         public ActionResult Create()
         {

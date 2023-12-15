@@ -2,7 +2,25 @@
     ViewData["Title"] = "Detalles de Usuario";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Gnexx User Details</h1>
-    <p>Detalles de los usuarios o amigos de la plataforma</p>
+<div class="container">
+    <section class="team-request-formulary">
+        <form asp-controller="User" asp-action="user_details" method="post">
+            <div class="text">
+                <h3>Información del usuario</h3>
+                <p>Detalles del usuario.</p>
+            </div>
+            <div class="fields">
+
+                <div>
+                    <label></label>
+
+                </div>
+            </div>
+
+            <a  asp-controller="News" asp-action="Index" class="publish-btn">
+                Volver
+            </a>
+
+        </form>
+    </section>
 </div>
