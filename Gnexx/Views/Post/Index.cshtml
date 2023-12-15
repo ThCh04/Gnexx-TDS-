@@ -1,7 +1,19 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@using Gnexx.Services.ViewModels.PostulationViewModel
+@model List<PostulationViewModel>
+
+<h2>Listado de Publicaciones</h2>
+
+@foreach (var item in Model)
+{
+    <div class="card">
+        <h3>ID: @item.Id_post</h3>
+        <p><strong>Autor:</strong> @item.Author_post</p>
+        <p><strong>Categoría:</strong> @item.Category</p>
+        <p><strong>Descripción:</strong> @item.Description_post</p>
+        <p><strong>Fecha y Hora:</strong> @item.DateTime_post</p>
+        <p><strong>Currículum:</strong> @item.Cv_post</p>
+        <p><strong>Estado:</strong> @item.Status</p>
+    </div>
 }
 
-<h1>Posts</h1>
+<a asp-controller="Post" asp-action="Create" class="btn">Añadir Publicación</a>
