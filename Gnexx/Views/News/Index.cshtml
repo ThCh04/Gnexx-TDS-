@@ -10,6 +10,10 @@
     </div>
 </aside>
 
+<div class="col-3 offset-9">
+    <a asp-controller="News" asp-action="Create" class="btn btn-outline-success">Nueva Noticia</a>
+</div>
+
 @if(Model.Count() == 0 || Model == null)
 {
     <div class="container">
@@ -109,10 +113,5 @@
                 <h4>@ViewBag.uname</h4>
             </div>
         </div>
-
-        <button class="action-card-button" id="openPopup">
-            <box-icon name='videos' type='solid' color='#ffffff'></box-icon>
-            <p>Añadir Noticia</p>
-        </button>
     </div>
 </aside>

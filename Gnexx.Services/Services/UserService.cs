@@ -69,6 +69,7 @@ namespace Gnexx.Services.Services
             usersEntitie.Name = vm.Firstname;
             usersEntitie.Lastname = vm.Lastname;
             usersEntitie.Type_user = vm.Rol;
+            usersEntitie.Country = "DR";
 
             await _userEntityrepo.CreateAsync(usersEntitie);
             RegisterRequest registerRequest = _mapper.Map<RegisterRequest>(vm);
