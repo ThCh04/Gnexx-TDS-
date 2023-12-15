@@ -41,6 +41,7 @@
                         <box-icon name='chevron-down' color='#ffffff'></box-icon>
                     </button>
                     <ul class="dropdown-menu" id="profiledropdown_id" style="display: none;">
+                        <li><a asp-controller="User" asp-action="user_details"><box-icon type='solid' name='user-circle' color="#FFF"></box-icon> Info de Perfíl</a></li>
                         <li><a asp-controller="Settings" asp-action="UserProfile"><box-icon type='solid' name='pencil' color="#FFF"></box-icon> Editar Perfíl</a></li>
                         <li><a href="#"><box-icon name='slider-alt' color="#FFF"></box-icon> Preferencias</a></li>
                         <li><a asp-controller="Auth" asp-action="SignOut"><box-icon name='log-out' color='#fff'></box-icon> Cerrar Sesión</a></li>
@@ -88,7 +89,7 @@
                         </li>
 
                         <li class="dropdown">
-                            <button onclick="toggleElementVisibilityById('dropdown1')" class="dropdown-title">
+                            <button onclick="toggleDropdownOptions('dropdown1')" class="dropdown-title">
                                 Juegos
                                 Populares
                             </button>
@@ -105,7 +106,7 @@
                             <div class="separator"></div>
                         </li>
                         <li class="dropdown">
-                            <button onclick="toggleElementVisibilityById('dropdown2')"
+                            <button onclick="toggleDropdownOptions('dropdown2')"
                                     class="dropdown-title">
                                 Categorias
                             </button>
@@ -116,14 +117,7 @@
                             </ul>
                         </li>
                     </ul>
-                    <ul class="navbar-container">
-                        <li class="nav-link">
-                            <a asp-controller="Auth" asp-action="SignOut">
-                                <box-icon name='log-out'
-                                          color='#fff'></box-icon> Cerrar Sesión
-                            </a>
-                        </li>
-                    </ul>
+                    
                 </div>
 
                 <div class="credits">
