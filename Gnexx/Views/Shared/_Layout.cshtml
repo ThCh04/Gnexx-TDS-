@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Gnexx</title>
 
-    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/News/news-styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/Team/team-styles.css" asp-append-version="true" />
 
     <link rel="stylesheet" href="~/Gnexx.styles.css" asp-append-version="true" />
 
@@ -28,7 +28,24 @@
             </a>
             <div class="configuration-options">
                 <a href="#" class="option"><box-icon name='bell' type='solid' color="#FFF"></box-icon></a>
-                <a href="#" class="option"><box-icon type='solid' name='cog' color="#FFF"></box-icon></a>
+                <div class="menu-cont">
+                    <button onclick="toggleDropdownOptions('profiledropdown_id')" class="user-auth-button">
+                        <div class="user-post-info">
+                            <img src="https://secure.virtualsiteinspections.com/images/default.png" alt="user profile"
+                                 class="picture">
+                            <div class="user-info">
+                                <h4>@ViewBag.name</h4>
+                                <span>@ViewBag.uname</span>
+                            </div>
+                        </div>
+                        <box-icon name='chevron-down' color='#ffffff'></box-icon>
+                    </button>
+                    <ul class="dropdown-menu" id="profiledropdown_id" style="display: none;">
+                        <li><a asp-controller="Settings" asp-action="UserProfile"><box-icon type='solid' name='pencil' color="#FFF"></box-icon> Editar Perfíl</a></li>
+                        <li><a href="#"><box-icon name='slider-alt' color="#FFF"></box-icon> Preferencias</a></li>
+                        <li><a asp-controller="Auth" asp-action="SignOut"><box-icon name='log-out' color='#fff'></box-icon> Cerrar Sesión</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
 

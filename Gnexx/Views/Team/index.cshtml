@@ -3,19 +3,154 @@
     @using Gnexx.Services.Enums;
 }
 
-<div class="text-center">
-    <h1 class="display-4">Gnexx Teams</h1>
-    <p>Lista de team request (Solicitudes de equipos) para torneos</p>
+<aside>
+    <div class="ad">
+        <img src="https://storage.googleapis.com/portalgaming-wp-media-sv/2020/08/Banner-328X400.png" alt="sponsor ad">
+    </div>
+</aside>
 
-    
-        @if (@ViewBag.Rol==@Roles.Player.ToString() || @ViewBag.Rol == @Roles.SuperAdmin.ToString())
+<div class="container">
+    <div class="text-center">
+        <h1 class="display-4">Gnexx Teams</h1>
+        <p>Lista de team request (Solicitudes de equipos) para torneos</p>
+
+
+        @if (@ViewBag.Rol == @Roles.Player.ToString() || @ViewBag.Rol == @Roles.SuperAdmin.ToString())
         {
             <a asp-controller="Team" asp-action=Player>Registrar datos del jugador</a>
-        } 
+        }
         @if (@ViewBag.Rol == @Roles.Coach.ToString() || @ViewBag.Rol == @Roles.SuperAdmin.ToString())
         {
             <a asp-controller="Team" asp-action=Coach>Registrar datos del coach</a>
         }
-    
-    <a>Crear</a>
+
+        <a>Crear</a>
+    </div>
+
+    <div class="publish-form" style="display: none;">
+        <div class="action-form">
+            <div class="user-post-info">
+                <img src="https://secure.virtualsiteinspections.com/images/default.png" alt="user-imagen">
+                <div class="user-info">
+                    <span>Isael Diroche</span>
+                    <p>IsaelDD</p>
+                </div>
+            </div>
+
+            <a class="publish-button" asp-controller="Team" asp-action="Create">
+                Nuevo Equipo
+            </a>
+        </div>
+    </div>
+
+    <section class="team-request">
+        <div class="card">
+            <div class="card-in">
+                <img src="#" alt="#" class="image">
+                <div class="request-details">
+                    <div class="heading">
+                        <h3>Team Name</h3>
+                        <h4>por Couch Name</h4>
+                    </div>
+                    <div class="categories">
+                        <span class="badge">
+                            badge1
+                        </span>
+                        <span class="badge">
+                            badge2
+                        </span>
+                    </div>
+                    <p class="description">
+                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+                        dolore eu fugiat nulla pariatu
+                    </p>
+                    <a href="#" class="more-details-btn">
+                        Postularse
+                        <box-icon name='chevron-right' color='#ffffff'></box-icon>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-in">
+                <img src="#" alt="#" class="image">
+                <div class="request-details">
+                    <div class="heading">
+                        <h3>Team Name</h3>
+                        <h4>por Couch Name</h4>
+                    </div>
+                    <div class="categories">
+                        <span class="badge">
+                            badge1
+                        </span>
+                        <span class="badge">
+                            badge2
+                        </span>
+                    </div>
+                    <p class="description">
+                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+                        dolore eu fugiat nulla pariatu
+                    </p>
+                    <a href="#" class="more-details-btn">
+                        Postularse
+                        <box-icon name='chevron-right' color='#ffffff'></box-icon>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-in">
+                <img src="#" alt="#" class="image">
+                <div class="request-details">
+                    <div class="heading">
+                        <h3>Team Name</h3>
+                        <h4>por Couch Name</h4>
+                    </div>
+                    <div class="categories">
+                        <span class="badge">
+                            badge1
+                        </span>
+                        <span class="badge">
+                            badge2
+                        </span>
+                    </div>
+                    <p class="description">
+                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+                        dolore eu fugiat nulla pariatu
+                    </p>
+                    <a href="#" class="more-details-btn">
+                        Postularse
+                        <box-icon name='chevron-right' color='#ffffff'></box-icon>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-in">
+                <img src="#" alt="#" class="image">
+                <div class="request-details">
+                    <div class="heading">
+                        <h3>Team Name</h3>
+                        <h4>por Couch Name</h4>
+                    </div>
+                    <div class="categories">
+                        <span class="badge">
+                            badge1
+                        </span>
+                        <span class="badge">
+                            badge2
+                        </span>
+                    </div>
+                    <p class="description">
+                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+                        dolore eu fugiat nulla pariatu
+                    </p>
+                    <a href="#" class="more-details-btn">
+                        Postularse
+                        <box-icon name='chevron-right' color='#ffffff'></box-icon>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>

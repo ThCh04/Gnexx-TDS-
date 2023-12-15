@@ -1,0 +1,30 @@
+@{
+    ViewData["Title"] = "Configuración | Perfíl de Usuario";
+}
+
+<div class="container">
+    <section class="user-configuration-form">
+        <form action="" method="post">
+            <div class="text">
+                <h3>Configuración de perfíl</h3>
+                <p>Cambie los datos y guarde para configurar su perfíl.</p>
+            </div>
+            <div class="fields">
+                <input type="text" name="Username" id="username" placeholder="Username">
+                <input type="text" name="first_name" id="first_name" placeholder="Nombre(s)">
+                <input type="text" name="last_name" id="last_name" placeholder="Apellido(s)">
+                <textarea name="user_bio" id="user_bio" cols="30" rows="10" placeholder="Biografia"></textarea>
+                <input type="text" name="user_image" id="user_image" placeholder="Url de imagen">
+            </div>
+
+            <div class="action-buttons">
+                <button type="submit" class="publish-btn">
+                    Actualizar
+                </button>
+                <a asp-controller="News" asp-action="Index" class="cancel-btn">
+                    Cancelar
+                </a>
+            </div>
+        </form>
+    </section>
+</div>

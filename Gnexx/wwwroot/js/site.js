@@ -54,16 +54,16 @@ function closePopup() {
     document.getElementById('popup').style.display = 'none';
 }
 
-function togglePostOptions() {
-    var postOptions = document.getElementById('post_options');
-    if (postOptions.style.display === 'block') {
-        postOptions.style.display = 'none';
+function toggleDropdownOptions(id) {
+    var DropdownElementId = document.getElementById(id);
+    if (DropdownElementId.style.display === 'block') {
+        // Si está abierto, ciérralo
+        DropdownElementId.style.display = 'none';
     } else {
-        postOptions.style.display = 'block';
+        // Si está cerrado, ábrelo
+        DropdownElementId.style.display = 'block';
     }
 }
-
-
 
 // Agregar un listener al botón para abrir la ventana emergente
 openPopupButton.addEventListener('click', openPopup);

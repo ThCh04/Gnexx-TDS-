@@ -12,13 +12,13 @@
 
 <form asp-controller="News" asp-action="Index" method="post">
 <div class="container">
-    <div class="publish-form">
+    <div class="publish-form" style="display: none;">
         <div class="action-form">
             <div class="user-post-info">
                 <img src="https://secure.virtualsiteinspections.com/images/default.png" alt="user-imagen">
                 <div class="user-info">
-                    <span>Isael Diroche</span>
-                    <p>IsaelDD</p>
+                    <span>@ViewBag.name</span>
+                    <p>@ViewBag.uname</p>
                 </div>
             </div>
 
@@ -109,6 +109,6 @@
 
 <aside>
     <div class="action-card">
-
+        
     </div>
 </aside>

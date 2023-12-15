@@ -49,7 +49,7 @@ namespace Gnexx.Controllers
         // GET: TeamController/Create
         public ActionResult Create()
         {
-            return View();
+            return View("Request/Create");
         }
 
         // POST: TeamController/Create
