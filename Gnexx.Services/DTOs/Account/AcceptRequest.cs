@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Gnexx.Services.DTOs.Account
 {
-    internal class AcceptRequest
+    public class AcceptRequest
     {
+        public string Email { get; set; }
     }
 }
