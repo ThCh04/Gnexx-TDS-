@@ -24,5 +24,23 @@ namespace Gnexx.Services.Services
             _http = http;
             userView = _http.HttpContext.Session.Get<AuthenticationResponse>("user");
         }
+
+        public async Task SeedAsync()
+        {
+            Team defaultTeam = new();
+            defaultTeam.Description = "Lorem epsilum";
+            defaultTeam.TeamName = "Juana";
+            defaultTeam.CoachID = null;
+            defaultTeam.PlayerID = null;
+            defaultTeam.UserId = null;
+            defaultTeam.Create_date = DateTime.Now;
+
+            var seed = await _teamRepository.GetById(1);
+            if (seed == null)
+            {
+                await _teamRepository.CreateAsync(defaultTeam);
+            }
+
+        }
     }
 }

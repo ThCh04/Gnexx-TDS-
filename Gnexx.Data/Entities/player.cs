@@ -7,7 +7,7 @@ namespace Gnexx.Models.Entities
     public class Player
     {
         [Key]
-        public int id { get; set; }
+        public int Id { get; set; }
 
         [Required]
         public string P_Username { get; set; }
@@ -33,11 +33,11 @@ namespace Gnexx.Models.Entities
         [Required]
         public string P_Contact { get; set; }
 
-        public int TeamID { get; set; }
-        public Team Teams { get; set; }
+        public int? TeamID { get; set; }
+        public Team? Teams { get; set; }
         public int UserID { get; set; }
         public UsersEntitie Users { get; set; }
-        public int postID { get; set; }
+        public int? postID { get; set; }
         public Postulation Postulations { get; set; }
     }
 }

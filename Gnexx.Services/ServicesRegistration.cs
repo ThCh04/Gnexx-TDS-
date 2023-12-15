@@ -19,7 +19,8 @@ namespace Gnexx.Services
 
             #region Services
 
-            service.AddTransient<IUserService, UserService>();
+            service.AddTransient<IUserIdentityService, UserService>();
+            service.AddTransient<IUserEntityService, UserEntityService>();
             service.AddTransient<INewsService, NewsService>();
             service.AddTransient<ICoachService, CoachService>(); 
             service.AddTransient<IPlayerService, PlayerService>();  

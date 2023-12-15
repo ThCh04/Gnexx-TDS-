@@ -21,8 +21,8 @@ namespace Gnexx.Data.Entities
         public bool Status { get; set; }
 
         //Propiedades
-        public int playerID {  get; set; }
-        public Player players { get; set; }
+        public int? playerID {  get; set; }
+        public Player? players { get; set; }
 
         public int CoachID { get; set; }
         public Coach Coaches { get; set; }

@@ -4,5 +4,6 @@ namespace Gnexx.Services.Interfaces.Services
 {
     public interface ITeamsService : IGenericService<TeamViewModel>
     {
+        Task SeedAsync();
     }
 }

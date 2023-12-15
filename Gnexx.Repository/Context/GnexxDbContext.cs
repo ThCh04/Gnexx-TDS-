@@ -47,12 +47,17 @@ namespace Gnexx.Repository.Context
                 .HasForeignKey<Postulation>(p => p.playerID)
                 .OnDelete(DeleteBehavior.NoAction);
 
+            modelBuilder.Entity<Player>()
+                .HasOne(u => u.Teams)
+                .WithMany(p => p.Players)
+                .OnDelete(DeleteBehavior.NoAction);
+
             // Relación uno a uno entre User y Coach
             modelBuilder.Entity<UsersEntitie>()
                 .HasOne(u => u.Coaches)
                 .WithOne(c => c.Users)
                 .HasForeignKey<Coach>(c => c.UserID)
-                .OnDelete(DeleteBehavior.NoAction);
+                .OnDelete(DeleteBehavior.Cascade);
 
 
             // Relación uno a muchos entre Team y Player

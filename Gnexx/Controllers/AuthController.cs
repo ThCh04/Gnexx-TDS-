@@ -13,10 +13,10 @@ namespace Gnexx.Controllers
 {
     public class AuthController : Controller
     {
-        private readonly IUserService _userService;
+        private readonly IUserIdentityService _userService;
         private readonly ValidateUserSession _validateUserSession;
 
-        public AuthController(IUserService userService, ValidateUserSession validateUserSession)
+        public AuthController(IUserIdentityService userService, ValidateUserSession validateUserSession)
         {
             _userService = userService;
             _validateUserSession = validateUserSession;

@@ -4,7 +4,7 @@ using RealEstateApp.Core.Aplication.DTOs.Account;
 
 namespace Gnexx.Services.Services.Interfaces
 {
-    public interface IUserService
+    public interface IUserIdentityService
     {
         Task<string> ConfirmEmailAsync(string userId, string token);
         Task<ForgotPasswordResponse> ForgotPasswordAsync(ForgotPasswordVM vm, string origin);
