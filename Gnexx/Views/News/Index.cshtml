@@ -10,7 +10,7 @@
     </div>
 </aside>
 
-
+<form asp-controller="News" asp-action="Index" method="post">
 <div class="container">
     <div class="publish-form">
         <div class="action-form">
@@ -23,10 +23,11 @@
             </div>
 
             <button class="publish-button" id="openPopup">
-                Nueva Publicación
+                <a asp-controller="News" asp-action="Create" method="post">Nueva publicación</a>
             </button>
         </div>
     </div>
+</form>
 
     @if(Model.Count() == 0 || Model == null)
     {
