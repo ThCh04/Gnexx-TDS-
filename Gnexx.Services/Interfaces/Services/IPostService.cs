@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Gnexx.Data.Entities;
+using Gnexx.Services.Interfaces.Repository;
+using Gnexx.Services.ViewModels.PostulationViewModel;
 
 namespace Gnexx.Services.Interfaces.Services
 {
-    internal interface IPostService
+    public interface IPostService : IGenericService<PostulationViewModel>
     {
     }
 }
