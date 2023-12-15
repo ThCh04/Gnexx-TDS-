@@ -9,7 +9,7 @@ using RealEstateApp.Core.Aplication.DTOs.Account;
 
 namespace Gnexx.Services.Services
 {
-    public class UserService : IUserService
+    public class UserService : IUserIdentityService
     {
         private readonly IAccountService _accountServices;
         private readonly IMapper _mapper;

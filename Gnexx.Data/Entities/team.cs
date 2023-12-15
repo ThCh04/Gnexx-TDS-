@@ -12,18 +12,19 @@ namespace Gnexx.Models.Entities
         public int Id { get; set; }
         [Required]
         public string TeamName { get; set; }
-        [Required]
-        public string UserName { get; set; }
+        
         [Required]
         public DateTime Create_date { get; set; }
         [Required]
         public string? Description { get; set; }
-        
-        public int CoachID { get; set; }
+
+        public int? UserId { get; set; }
+        public int? PlayerID { get; set; }
+        public int? CoachID { get; set; }
 
         //navigation property
 
-        public List<Player> Players { get; set; }
+        public List<Player>? Players { get; set; }
         public Coach Coach { get; set; }        
         public List<News> News { get; set; }
         public List<Comments> Comments { get; set; }

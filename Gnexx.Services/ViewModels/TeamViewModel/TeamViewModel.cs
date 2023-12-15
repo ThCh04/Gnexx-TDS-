@@ -17,8 +17,6 @@ namespace Gnexx.Services.ViewModels.TeamViewModel
         [Required]
         public string TeamName { get; set; }
 
-        [Required]
-        public string UserName { get; set; }
 
         [Required]
         public DateTime Create_date { get; set; }
@@ -26,6 +24,8 @@ namespace Gnexx.Services.ViewModels.TeamViewModel
         [Required]
         public string? Description { get; set; }
         public List<Player> Players { get; set; }
-        public int CoachID { get; set; }
+        public int? CoachID { get; set; }
+        public int? UserId { get; set; }
+        public int? PlayerID { get; set; }
     }
 }

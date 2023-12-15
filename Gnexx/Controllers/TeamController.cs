@@ -1,8 +1,11 @@
 ﻿using Gnexx.Services.DTOs.Account;
 using Gnexx.Services.Helpers;
 using Gnexx.Services.Interfaces.Services;
+using Gnexx.Services.Services.Interfaces;
+using Gnexx.Services.UserIdentity;
 using Gnexx.Services.ViewModels.CoachViewModel;
 using Gnexx.Services.ViewModels.PlayerViewModel;
+using Gnexx.Services.ViewModels.UserEntitie;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,19 +15,22 @@ namespace Gnexx.Controllers
     {
         private readonly ICoachService _coachService;
         private readonly IPlayerService _playerService;
-
+        private readonly ITeamsService _teamsService;
+        private readonly IUserEntityService _userService;
         private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public TeamController(ICoachService coach, IPlayerService player, IHttpContextAccessor httpContextAccessor)
+        public TeamController(ITeamsService teamsService, ICoachService coach, IPlayerService player, IUserEntityService userService, IHttpContextAccessor httpContextAccessor)
         {
+            _userService = userService;
+            _teamsService = teamsService;
             _coachService = coach;
             _playerService = player;
             _httpContextAccessor = httpContextAccessor;
         }
         // GET: TeamController
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
-
+            await _teamsService.SeedAsync();
             string rol = "";
             foreach (var r in _httpContextAccessor.HttpContext.Session.Get<AuthenticationResponse>("user").Roles)
             {
@@ -111,13 +117,14 @@ namespace Gnexx.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> CoachAsync(CoachViewModel coach)
         {
+            coach.TeamID = 1;
             if (!ModelState.IsValid)
             {
                 return View(coach);
             }
 
             await _coachService.Add(coach);
-            return View("/Index");
+            return View("/Teams");
         }
 
         public ActionResult Player()
@@ -129,13 +136,28 @@ namespace Gnexx.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> PlayerAsync(PlayerViewModel player)
         {
+            player.TeamID = 1;
+
+            string email = _httpContextAccessor.HttpContext.Session.Get<AuthenticationResponse>("user").Email;
+
+            List<UserEntitieViewModel> users = await _userService.GetAllViewModel();
+
+            int idUser = 0;
+            foreach(var user in users)
+            {
+                if(user.Email == email)
+                {
+                    idUser = user.Id;
+                }
+            }
+            player.UserID = idUser;
             if (!ModelState.IsValid)
             {
                 return View(player);
             }
 
             await _playerService.Add(player);
-            return View("/Index");
+            return View("/Teams");
         }
     }
 }
