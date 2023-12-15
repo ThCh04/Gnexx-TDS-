@@ -5,7 +5,7 @@
 }
 
 
-<form action="" method="post">
+<form asp-controller="Auth" asp-action="register" method="post">
     <div class="heading">
         <h2>Regístrate</h2>
         <p>Llena todos los campos para registrarte, o ¿Tienes una cuenta? <a asp-controller="Auth" asp-action="Index">¡Inicia sesión!</a></p>
@@ -82,7 +82,7 @@
         
     </div>
 
-    <button type="submit" asp-controller="Auth" asp-action="register">Registrarme</button>
+    <button type="submit">Registrarme</button>
 </form>
 
 @*<div class="auth-main">
