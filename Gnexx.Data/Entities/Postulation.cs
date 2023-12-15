@@ -18,6 +18,7 @@ namespace Gnexx.Data.Entities
         public string Cv_post { get; set; } //Campo curriculum
 
         //Propiedades
-        //public Player players { get; set; }
+        public int playerID {  get; set; }
+        public Player players { get; set; }
     }
 }
