@@ -22,8 +22,8 @@ namespace Gnexx.Data.Entities
         //Properties
         public int UserID { get; set; }
         public UsersEntitie Users { get; set; }
-        public int TeamID { get; set; }
-        public Team Teams { get; set; }
+        public int? TeamID { get; set; }
+        public Team? Teams { get; set; }
         public List<Postulation> Postulations { get; set; }
     }
 }

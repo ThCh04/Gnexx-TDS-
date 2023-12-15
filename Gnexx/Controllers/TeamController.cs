@@ -118,13 +118,26 @@ namespace Gnexx.Controllers
         public async Task<ActionResult> CoachAsync(CoachViewModel coach)
         {
             coach.TeamID = 1;
+            string email = _httpContextAccessor.HttpContext.Session.Get<AuthenticationResponse>("user").Email;
+
+            List<UserEntitieViewModel> users = await _userService.GetAllViewModel();
+
+            int idUser = 0;
+            foreach (var user in users)
+            {
+                if (user.Email == email)
+                {
+                    idUser = user.Id;
+                }
+            }
+            coach.UserID = idUser;
             if (!ModelState.IsValid)
             {
                 return View(coach);
             }
 
             await _coachService.Add(coach);
-            return View("/Teams");
+            return View("/index");
         }
 
         public ActionResult Player()
@@ -157,7 +170,7 @@ namespace Gnexx.Controllers
             }
 
             await _playerService.Add(player);
-            return View("/Teams");
+            return View("/index");
         }
     }
 }
