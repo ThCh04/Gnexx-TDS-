@@ -103,3 +103,43 @@
     textarea:valid ~ .underline::before {
         transform: scaleX(1);
     }
+
+.action-buttons {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+}
+
+.action-buttons .cancel-btn {
+    background: linear-gradient(93deg, #FB2A2A 17.45%, #FA3737 76.41%);
+}
+
+    .action-buttons .cancel-btn:hover {
+        background: linear-gradient(93deg, #EC2929 17.45%, #EF3535 76.41%);
+    }
+
+.action-buttons .cancel-btn {
+    background: linear-gradient(0deg, #0866FF 0%, #0866FF 100%), linear-gradient(180deg, #71031D 0%, #880A0A 100%);
+}
+
+    .action-buttons .cancel-btn:hover {
+        background: linear-gradient(0deg, #2b7cff 0%, #4d91ff 100%), linear-gradient(180deg, #71031D 0%, #880A0A 100%);
+    }
+
+.action-buttons .publish-btn, .action-buttons cancel-btn {
+    display: flex;
+    padding: 11px 42px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+    border-radius: 8px;
+    border: none;
+    color: #FFF;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    cursor: pointer;
+}

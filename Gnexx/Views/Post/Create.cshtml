@@ -1,34 +1,28 @@
 ﻿@using Gnexx.Services.ViewModels.PostulationViewModel
-
 @model PostulationViewModel
 
 
-<form asp-controller="Post" asp-action="Create" method="post">
-   
-    <div>
-        <label asp-for="Author_post"></label>
-        <input asp-for="Author_post" />
-    </div>
+<div class="container">
+    <section class="team-request-formulary">
+        <form asp-controller="Post" asp-action="Create" method="post">
+            <div class="text">
+                <h3>Creación de Postulación</h3>
+                <p>Cree un un perfíl de para poder postularte.</p>
+            </div>
+            <div class="fields">
+                <input asp-for="Author_post" placeholder="Autor" />
+                <input asp-for="Category" placeholder="Categoria" />
+                <textarea asp-for="Description_post" cols="30" rows="10" placeholder="Descripción"></textarea>
+                <input asp-for="Cv_post" placeholder="Cv Post" />
+                <div>
+                    <label asp-for="Status"></label>
+                    <input asp-for="Status" />
+                </div>
+            </div>
 
-    <div>
-        <label asp-for="Category"></label>
-        <input asp-for="Category" />
-    </div>
-
-    <div>
-        <label asp-for="Description_post"></label>
-        <textarea asp-for="Description_post"></textarea>
-    </div>
-
-    <div>
-        <label asp-for="Cv_post"></label>
-        <input asp-for="Cv_post" />
-    </div>
-
-    <div>
-        <label asp-for="Status"></label>
-        <input asp-for="Status" />
-    </div>
-
-    <button type="submit">Publicar</button>
-</form>
+            <button type="submit" class="publish-btn">
+                Publicar
+            </button>
+        </form>
+    </section>
+</div>

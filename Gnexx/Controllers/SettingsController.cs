@@ -8,5 +8,10 @@ namespace Gnexx.Controllers
         {
             return View();
         }
+
+        public IActionResult UserProfile()
+        {
+            return View("User/Profile");
+        }
     }
 }

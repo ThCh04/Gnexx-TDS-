@@ -4,6 +4,14 @@
     "inputFile": "wwwroot/css/Team/team-styles.scss"
   },
   {
+    "outputFile": "wwwroot/css/layout-styles.css",
+    "inputFile": "wwwroot/css/layout-styles.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/Team/team-styles.css",
+    "inputFile": "wwwroot/css/Team/team-styles.scss"
+  },
+  {
     "outputFile": "wwwroot/css/Team/team-styles.css",
     "inputFile": "wwwroot/css/Team/team-styles.scss"
   }
